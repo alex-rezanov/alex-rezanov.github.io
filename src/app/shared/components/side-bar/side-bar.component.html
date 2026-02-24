@@ -1,0 +1,10 @@
+@for (link of navigationItems; track $index) {
+  <span
+    type="button"
+    class="navigation-item"
+    [class.active]="activeLink() === link.link"
+    (click)="scrollTo(link.link)"
+  >
+    {{ link.label }}
+  </span>
+}

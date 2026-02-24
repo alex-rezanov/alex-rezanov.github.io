@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'colors';
+@use 'override';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background-color: var(--alex-main-bg);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content-container {
+  height: calc(100svh - 120px);
+  overflow: visible;
+  margin-inline: auto;
+  margin: 80px 0 40px 40px;
+
+  @include bigger-than(MD) {
+    width: 80%;
+  }
+}

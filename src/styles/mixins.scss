@@ -1,0 +1,61 @@
+@use 'variables' as *;
+
+@mixin bigger-than($media) {
+  @if $media == XS {
+    @media only screen and (min-width: $break-xs) {
+      @content;
+    }
+  } @else if $media == SM {
+    @media only screen and (min-width: $break-sm) {
+      @content;
+    }
+  } @else if $media == MD {
+    @media only screen and (min-width: $break-md) {
+      @content;
+    }
+  } @else if $media == LG {
+    @media only screen and (min-width: $break-lg) {
+      @content;
+    }
+  } @else if $media == XL {
+    @media only screen and (min-width: $break-xl) {
+      @content;
+    }
+  } @else if $media == XXL {
+    @media only screen and (min-width: $break-xxl) {
+      @content;
+    }
+  }
+}
+
+@mixin smaller-than($media) {
+  @if $media == XS {
+    @media only screen and (max-width: $break-xs) {
+      @content;
+    }
+  } @else if $media == XS_PLUS {
+    @media only screen and (max-width: $break-xs-plus) {
+      @content;
+    }
+  } @else if $media == SM {
+    @media only screen and (max-width: $break-sm) {
+      @content;
+    }
+  } @else if $media == MD {
+    @media only screen and (max-width: $break-md) {
+      @content;
+    }
+  } @else if $media == LG {
+    @media only screen and (max-width: $break-lg) {
+      @content;
+    }
+  } @else if $media == XL {
+    @media only screen and (max-width: $break-xl) {
+      @content;
+    }
+  } @else if $media == XXL {
+    @media only screen and (max-width: $break-xxl) {
+      @content;
+    }
+  }
+}
