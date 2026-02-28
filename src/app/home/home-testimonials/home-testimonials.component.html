@@ -1,14 +1,14 @@
 <h1 class="section-title">Testimonials</h1>
-<div>
+<div class="testimonials-container">
   @for (item of testimonialItems; track $index) {
-    <div>
-      <span></span>
-    </div>
-    <div>
-      <img />
-      <div>
-        <span></span>
-        <span></span>
+    <div class="testimonial">
+      <span class="quote">{{ item.quote }}</span>
+      <div class="description">
+        <img class="description-img" [src]="item.pictureUrl" />
+        <div class="author-container">
+          <span class="author">{{ item.author }}</span>
+          <span class="position">{{ item.position }}</span>
+        </div>
       </div>
     </div>
   }

@@ -1,5 +1,52 @@
 :host {
   display: flex;
   flex-direction: column;
-  margin-bottom: 100px;
+  gap: var(--alex-size-40);
+  margin-bottom: var(--alex-size-100);
+}
+
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--alex-size-40);
+
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 50px;
+    font-size: 18px;
+
+    .quote {
+      text-wrap: pretty;
+    }
+
+    .description {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 18px;
+
+      .description-img {
+        inline-size: var(--alex-size-40);
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .author-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--alex-size-10);
+
+        .author {
+          font-weight: 700;
+        }
+
+        .position {
+          color: var(--alex-color-disabled);
+        }
+      }
+    }
+  }
 }
