@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-home-welcome',
-  imports: [],
+  imports: [NgOptimizedImage, MatButton],
   templateUrl: './home-welcome.component.html',
-  styleUrl: './home-welcome.component.scss',
+  styleUrls: ['./home-welcome.component.scss'],
 })
 export class HomeWelcomeComponent {}

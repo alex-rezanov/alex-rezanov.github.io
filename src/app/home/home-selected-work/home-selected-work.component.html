@@ -1,1 +1,6 @@
-<p>home-selected-work works!</p>
+<div>
+  <h1>Selected works</h1>
+</div>
+@for (item of workItems; track $index) {
+  <app-work-card [workItem]="item" />
+}

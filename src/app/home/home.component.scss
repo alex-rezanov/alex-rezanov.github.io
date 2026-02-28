@@ -1,17 +1,24 @@
 :host {
   display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
 .main-container {
-  width: 80%;
-}
+  display: grid;
+  grid-template-columns: 1fr 20%;
+  grid-template-areas: 'content sidebar';
+  align-items: start;
 
-.home-side-bar {
-  width: 20%;
-}
+  .section-container {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
 
-section,
-#footer {
-  height: 800px;
+  .home-side-bar {
+    grid-area: sidebar;
+    width: auto;
+  }
 }

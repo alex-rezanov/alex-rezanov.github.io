@@ -1,0 +1,17 @@
+@if (workItem(); as item) {
+  <div>
+    <div>
+      <img [src]="item.imageUrl" />
+    </div>
+    <div>
+      <h2>{{ item.title }}</h2>
+      <span>{{ item.description }}</span>
+    </div>
+    <div>
+      <button>{{ item.chipTitle }}</button>
+      @if (item.chipTitleSecond) {
+        <button>{{ item.chipTitleSecond }}</button>
+      }
+    </div>
+  </div>
+}

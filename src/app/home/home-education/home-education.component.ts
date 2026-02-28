@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './home-education.component.html',
   styleUrl: './home-education.component.scss',
 })
-export class HomeEducationComponent {}
+export class HomeEducationComponent {
+  protected educationItems = [];
+}

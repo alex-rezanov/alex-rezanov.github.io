@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './home-experience.component.html',
   styleUrl: './home-experience.component.scss',
 })
-export class HomeExperienceComponent {}
+export class HomeExperienceComponent {
+  protected experienceItems = [];
+}

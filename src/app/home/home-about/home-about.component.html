@@ -1,1 +1,80 @@
-<p>home-about works!</p>
+<div>
+  <h1>About me</h1>
+</div>
+<div>
+  <span
+    >“When you arise in the morning, think of what a privilege it is to be alive, to think, to
+    enjoy, to love...”</span
+  >
+  <span>-Marcus Aurelius</span>
+</div>
+<div>
+  <span>My principles</span>
+  <div>
+    @for (item of principlesItems; track $index) {
+      <div>
+        <span></span>
+        <span></span>
+      </div>
+    }
+  </div>
+</div>
+<div>
+  <span>Few interesting things about myself</span>
+  <div>
+    <img />
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div>
+    <img />
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div>
+    <img />
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<div>
+  <span>I speak these languages</span>
+  <div>
+    @for (item of languagesItems; track $index) {
+      <div>
+        <span></span>
+        <span></span>
+      </div>
+    }
+  </div>
+</div>
+<div>
+  <img />
+  <div>
+    <div>
+      <span></span>
+      <span></span>
+    </div>
+    <span></span>
+    <span></span>
+    <span></span>
+    <button></button>
+  </div>
+</div>
+<div>
+  <span>My top reads (at least small part)</span>
+  <div>
+    @for (item of booksItems; track $index) {
+      <div>
+        <img />
+        <div>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    }
+  </div>
+</div>

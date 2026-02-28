@@ -1,35 +1,39 @@
 <div class="main-container">
-  <section [id]="homeSection.WELCOME">
-    <app-home-welcome />
-  </section>
+  <div class="section-container">
+    <section [id]="homeSection.WELCOME">
+      <app-home-welcome />
+    </section>
 
-  <section [id]="homeSection.SELECTED_WORK">
-    <app-home-selected-work />
-  </section>
+    <section [id]="homeSection.SELECTED_WORK">
+      <app-home-selected-work />
+    </section>
 
-  <section [id]="homeSection.PLAYGROUND">
-    <app-home-playground />
-  </section>
+    <section [id]="homeSection.PLAYGROUND">
+      <app-home-playground />
+    </section>
 
-  <section [id]="homeSection.EXPERIENCE">
-    <app-home-experience />
-  </section>
+    <section [id]="homeSection.EXPERIENCE">
+      <app-home-experience />
+    </section>
 
-  <section [id]="homeSection.TESTIMONIALS">
-    <app-home-testimonials />
-  </section>
+    <section [id]="homeSection.TESTIMONIALS">
+      <app-home-testimonials />
+    </section>
 
-  <section [id]="homeSection.EDUCATION">
-    <app-home-education />
-  </section>
+    <section [id]="homeSection.EDUCATION">
+      <app-home-education />
+    </section>
 
-  <section [id]="homeSection.ABOUT">
-    <app-home-about />
-  </section>
+    <section [id]="homeSection.ABOUT">
+      <app-home-about />
+    </section>
 
-  <section [id]="homeSection.CONTACT">
-    <app-home-contact />
-  </section>
-  <app-footer [id]="homeSection.FOOTER" />
+    <section [id]="homeSection.CONTACT">
+      <app-home-contact />
+    </section>
+  </div>
+  <app-side-bar class="home-side-bar" />
 </div>
-<app-side-bar class="home-side-bar" />
+<footer [id]="homeSection.FOOTER">
+  <app-footer />
+</footer>
