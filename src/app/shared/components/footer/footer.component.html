@@ -1,27 +1,34 @@
-<div>
-  <span>Thanks for visiting!</span>
+<div class="footer-message-container">
+  <span class="footer-message">Thanks for visiting!</span>
 </div>
-<hr />
-<div>
-  <div>
-    <div>
-      <span>Alex</span>
-      <span>Rezanov</span>
-      <span>UX / Product designer</span>
+<div class="footer-info-container">
+  <div class="info">
+    <div class="name-details">
+      <span class="name">{{ alexDetails.name }}</span>
+      <span class="surname">{{ alexDetails.surname }}</span>
+      <span class="position">{{ alexDetails.position }}</span>
     </div>
-    <div>
-      <span>2026, Germany</span>
-      <span>Designed and created by me with Figma, love and unexpected amount of coffee</span>
+    <div class="location-details">
+      <span class="location">{{ alexDetails.location }}</span>
+      <span class="occupation">{{ alexDetails.footerQuote }}</span>
     </div>
   </div>
-  <div>
-    <span>oleksandr.rznv@gmail.com</span>
-    <span>LinkedIn</span>
-    <span>My CV</span>
+  <div class="links-container">
+    <div class="email" (click)="onEmailClick()">
+      <mat-icon class="link-icon">arrow_outward</mat-icon>
+      <span>{{ links.email }}</span>
+    </div>
+    <div class="linked-in" (click)="onLinkedInClick()">
+      <mat-icon class="link-icon">arrow_outward</mat-icon>
+      <span>LinkedIn</span>
+    </div>
+    <div class="cv" (click)="onCvClick()">
+      <mat-icon class="link-icon">arrow_outward</mat-icon>
+      <span>My CV</span>
+    </div>
   </div>
-  <div>
-    <button>
-      <span>Back to top</span>
-    </button>
-  </div>
+  <button mat-flat-button class="ax-button" color="secondary">
+    <mat-icon>arrow_upward</mat-icon>
+    Back to top
+  </button>
 </div>

@@ -1,24 +1,18 @@
+@use 'mixins' as *;
+
 :host {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.main-container {
-  display: grid;
-  grid-template-columns: 1fr 20%;
-  grid-template-areas: 'content sidebar';
-  align-items: start;
+.section-container {
+  width: calc(80svw - var(--alex-size-80));
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 
-  .section-container {
-    grid-area: content;
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-  }
-
-  .home-side-bar {
-    grid-area: sidebar;
-    width: calc(20% - var(--alex-size-40));
+  @include smaller-than(SM) {
+    width: calc(100svw - var(--alex-size-80));
   }
 }

@@ -1,7 +1,19 @@
+@use 'mixins' as *;
+
 :host {
   position: fixed;
   top: var(--alex-size-80);
-  right: var(--alex-size-40);
+  left: calc(80svw + var(--alex-size-40));
+
+  @include smaller-than(MD) {
+    left: calc(80svw);
+  }
+
+  @include smaller-than(SM) {
+    .side-bar-container {
+      display: none;
+    }
+  }
 }
 
 .side-bar-container {

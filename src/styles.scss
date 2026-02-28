@@ -35,11 +35,8 @@ body {
 
 .content-container {
   height: calc(100svh - 120px);
+  width: calc(100svw - var(--alex-size-80));
   overflow: visible;
   margin-inline: auto;
   margin: var(--alex-size-80) var(--alex-size-0) var(--alex-size-40) var(--alex-size-40);
-
-  @include bigger-than(MD) {
-    width: 80%;
-  }
 }
