@@ -8,7 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { SIDE_BAR_ITEMS } from '../../constants';
+import { ALEX_DETAILS, SIDE_BAR_ITEMS } from '../../constants';
 import { HomeSection } from '../../enums';
 
 @Component({
@@ -18,6 +18,8 @@ import { HomeSection } from '../../enums';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SideBarComponent {
+  protected readonly alexDetails = ALEX_DETAILS;
+
   private readonly document = inject(DOCUMENT);
   private readonly destroyRef = inject(DestroyRef);
   private observer: IntersectionObserver | null = null;

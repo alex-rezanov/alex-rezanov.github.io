@@ -1,4 +1,4 @@
-import { WorkItem } from '../models';
+import { WorkItem } from '../../models';
 
 export const PLAYGROUND_ITEMS: WorkItem[] = [
   {

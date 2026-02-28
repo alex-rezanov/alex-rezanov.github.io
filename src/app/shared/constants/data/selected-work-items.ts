@@ -1,4 +1,4 @@
-import { WorkItem } from '../models';
+import { WorkItem } from '../../models';
 
 export const SELECTED_WORK_ITEMS: WorkItem[] = [
   {

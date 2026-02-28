@@ -1,4 +1,4 @@
-<h1 class="section-title">Hi, I'm Alex</h1>
+<h1 class="section-title">Hi, I'm {{ alexDetails.name }}</h1>
 <img
   class="welcome-img"
   ngSrc="assets/images/welcome.jpg"
@@ -7,9 +7,9 @@
   width="960"
 />
 <div class="welcome-message-container">
-  <span class="message-underlined">UX / Product Designer </span>
-  <span class="message-highlight"
-    >with 2.5+ years of experience turning good ideas into great products.
+  <span class="message-underlined">{{ alexDetails.position }}</span>
+  <span class="message-highlight">
+    with 2.5+ years of experience turning good ideas into great products.
   </span>
   <span class="message">
     I specialise in translating business objectives into conscious, user-centred designs with an
@@ -22,15 +22,15 @@
   <span class="description">Previously - UX Designer at PlentyONE</span>
 </div>
 <div class="action-buttons-container">
-  <button mat-flat-button class="ax-button" color="primary">
+  <button mat-flat-button class="ax-button" color="primary" (click)="onEmailClick()">
     <mat-icon>mail</mat-icon>
     Say hi
   </button>
-  <button mat-flat-button class="ax-button" color="secondary">
+  <button mat-flat-button class="ax-button" color="secondary" (click)="onLinkedInClick()">
     <mat-icon>arrow_outward</mat-icon>
     LinkedIn
   </button>
-  <button mat-flat-button class="ax-button" color="secondary">
+  <button mat-flat-button class="ax-button" color="secondary" (click)="onCvClick()">
     <mat-icon>arrow_outward</mat-icon>
     My CV
   </button>

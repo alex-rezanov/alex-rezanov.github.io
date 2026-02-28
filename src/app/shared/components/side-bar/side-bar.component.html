@@ -1,7 +1,7 @@
 <div class="side-bar-container" [class.hidden]="isFooterActive()">
   <div class="side-bar-title-container">
-    <span class="side-bar-title">Alex</span>
-    <span class="side-bar-title">Rezanov</span>
+    <span class="side-bar-title">{{ alexDetails.name }}</span>
+    <span class="side-bar-title">{{ alexDetails.surname }}</span>
   </div>
   <div class="navigation-container">
     @for (item of sideBarItems; track $index) {

@@ -1,4 +1,4 @@
-import { SuperUser } from '../models';
+import { SuperUser } from '../../models';
 
 export const ALEX_DETAILS: SuperUser = {
   name: 'Alex',
