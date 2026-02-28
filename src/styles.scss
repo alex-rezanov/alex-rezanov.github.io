@@ -2,6 +2,22 @@
 @use 'override';
 @use 'variables';
 @use 'mixins' as *;
+@use '@angular/material' as mat;
+@use 'theme-colors' as theme;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        primary: theme.$primary-palette,
+        tertiary: theme.$tertiary-palette,
+        theme-type: dark,
+      ),
+      typography: var(--alex-font-sans),
+      density: 0,
+    )
+  );
+}
 
 html,
 body {
