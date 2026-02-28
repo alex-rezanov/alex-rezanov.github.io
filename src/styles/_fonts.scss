@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Fixel';
+  src: url('../assets/fonts/fixel/FixelVariable.ttf') format('truetype');
+  /* Variable font supporting a continuous weight range */
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --alex-font-sans: 'Fixel';
+}

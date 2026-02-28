@@ -1,10 +1,17 @@
-@for (link of navigationItems; track $index) {
-  <span
-    type="button"
-    class="navigation-item"
-    [class.active]="activeLink() === link.link"
-    (click)="scrollTo(link.link)"
-  >
-    {{ link.label }}
-  </span>
-}
+<div class="side-bar-container" [class.hidden]="isFooterActive()">
+  <div class="side-bar-title-container">
+    <span class="side-bar-title">Alex</span>
+    <span class="side-bar-title">Rezanov</span>
+  </div>
+  <div class="navigation-container">
+    @for (item of sideBarItems; track $index) {
+      <div
+        class="navigation-item"
+        [class.active]="activeLink() === item.link"
+        (click)="onNavClick($event, item.link)"
+      >
+        {{ item.label }}
+      </div>
+    }
+  </div>
+</div>

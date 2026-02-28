@@ -1,28 +1,15 @@
 import {
+  afterNextRender,
   ChangeDetectionStrategy,
   Component,
+  computed,
+  DestroyRef,
   inject,
-  OnDestroy,
-  OnInit,
   signal,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-
-interface NavigationItem {
-  label: string;
-  link: string; // will be the id of the target section
-}
-
-const NAVIGATION_ITEMS: NavigationItem[] = [
-  { label: 'Home', link: 'welcome' },
-  { label: 'Selected Work', link: 'selected-work' },
-  { label: 'Playground', link: 'playground' },
-  { label: 'Experience', link: 'experience' },
-  { label: 'Testimonials', link: 'testimonials' },
-  { label: 'Education', link: 'education' },
-  { label: 'About', link: 'about' },
-  { label: 'Contact', link: 'contact' },
-];
+import { SIDE_BAR_ITEMS } from '../../constants';
+import { HomeSection } from '../../enums';
 
 @Component({
   selector: 'app-side-bar',
@@ -30,81 +17,93 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
   styleUrls: ['./side-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SideBarComponent implements OnInit, OnDestroy {
-  protected readonly navigationItems: NavigationItem[] = NAVIGATION_ITEMS;
-
-  // currently active section id
-  protected readonly activeLink = signal<string | null>(NAVIGATION_ITEMS[0].link);
-
-  // flag to indicate we initiated a programmatic smooth scroll, used to suppress observer updates
-  private readonly isAutoScrolling = signal(false);
-
+export class SideBarComponent {
   private readonly document = inject(DOCUMENT);
+  private readonly destroyRef = inject(DestroyRef);
   private observer: IntersectionObserver | null = null;
 
-  ngOnInit(): void {
-    // Observe sections and update activeLink when they enter the viewport
-    const sections = NAVIGATION_ITEMS.map((i) => this.document.getElementById(i.link)).filter(
-      Boolean,
-    ) as HTMLElement[];
+  protected readonly sideBarItems = SIDE_BAR_ITEMS;
+  protected readonly activeLink = signal<string | null>(SIDE_BAR_ITEMS[0].link);
+  private readonly activeSection = signal<string | null>(SIDE_BAR_ITEMS[0].link);
+  protected readonly isFooterActive = computed(() => this.activeSection() === HomeSection.FOOTER);
+  // Tracks which link we are programmatically scrolling to; null means free scrolling
+  private readonly scrollingToLink = signal<string | null>(null);
 
-    if (!sections.length) return;
-
-    const options: IntersectionObserverInit = {
-      root: null,
-      rootMargin: '0px 0px -40% 0px',
-      threshold: [0.25, 0.5, 0.75],
-    };
-
-    this.observer = new IntersectionObserver((entries) => {
-      // while we're auto-scrolling, ignore observer updates to avoid flicker
-      if (this.isAutoScrolling()) return;
-
-      // pick the entry with the largest intersectionRatio that's intersecting
-      const visible = entries.filter((e) => e.isIntersecting);
-      if (visible.length === 0) return;
-      visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      const top = visible[0];
-      this.activeLink.set((top.target as HTMLElement).id);
-    }, options);
-
-    sections.forEach((s) => this.observer?.observe(s));
+  constructor() {
+    afterNextRender(() => this.initializeObserver());
   }
 
-  ngOnDestroy(): void {
-    this.observer?.disconnect();
-    this.observer = null;
+  private initializeObserver(): void {
+    const sections = this.sideBarItems
+      .map((sideBarItem) => this.document.getElementById(sideBarItem.link))
+      .filter(Boolean) as HTMLElement[];
+
+    const footerSection = this.document.getElementById(HomeSection.FOOTER);
+    if (footerSection) {
+      sections.push(footerSection);
+    }
+
+    if (!sections.length) {
+      return;
+    }
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries.find((entry) => entry.isIntersecting);
+        if (!visibleEntry) {
+          return;
+        }
+
+        const target = visibleEntry.target.id;
+        this.activeSection.set(target);
+
+        if (target === HomeSection.FOOTER) {
+          return;
+        }
+
+        const scrollingTo = this.scrollingToLink();
+
+        if (scrollingTo === null) {
+          // Free scrolling — always update
+          this.activeLink.set(target);
+        } else if (target === scrollingTo) {
+          // Reached the programmatic scroll target — update and unlock
+          this.activeLink.set(target);
+          this.scrollingToLink.set(null);
+        }
+        // Otherwise we are mid-scroll past an intermediate section — ignore
+      },
+      { threshold: 0.6 },
+    );
+
+    sections.forEach((section) => this.observer?.observe(section));
+
+    this.destroyRef.onDestroy(() => {
+      this.observer?.disconnect();
+      this.observer = null;
+    });
   }
 
   protected scrollTo(link: string): void {
-    const el = this.document.getElementById(link);
-    if (!el) return;
+    const targetElement = this.document.getElementById(link);
+    if (!targetElement) {
+      return;
+    }
 
-    // Immediately set active so UI reflects the user's intent and prevent observer overwriting
     this.activeLink.set(link);
-    this.isAutoScrolling.set(true);
+    const rect = targetElement.getBoundingClientRect();
+    const alreadyInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
 
-    const win = this.document.defaultView ?? (window as unknown as Window);
-    const currentY = win.scrollY || this.document.documentElement.scrollTop || 0;
-    const targetY = el.getBoundingClientRect().top + currentY;
-    const distance = Math.abs(targetY - currentY);
-    // heuristic duration: 0.5ms per px clamped between 300ms and 1000ms
-    const duration = Math.max(300, Math.min(1000, Math.round(distance * 0.5)));
+    if (alreadyInView) {
+      return;
+    }
 
-    // Perform smooth scroll and set focus for accessibility after the scroll finishes
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    this.scrollingToLink.set(link);
+    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
-    // fallback: clear auto-scrolling after estimated duration + small buffer
-    setTimeout(() => {
-      try {
-        el.setAttribute('tabindex', '-1');
-        el.focus({ preventScroll: true });
-      } catch {
-        // ignore focus errors in older browsers
-      }
-      this.isAutoScrolling.set(false);
-      // ensure active is set at the end as well
-      this.activeLink.set(link);
-    }, duration + 50);
+  protected onNavClick(event: Event, link: string): void {
+    event.preventDefault();
+    this.scrollTo(link);
   }
 }

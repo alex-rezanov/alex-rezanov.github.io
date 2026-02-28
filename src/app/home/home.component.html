@@ -1,35 +1,35 @@
 <div class="main-container">
-  <section id="welcome">
+  <section [id]="homeSection.WELCOME">
     <app-home-welcome />
   </section>
 
-  <section id="selected-work">
+  <section [id]="homeSection.SELECTED_WORK">
     <app-home-selected-work />
   </section>
 
-  <section id="playground">
+  <section [id]="homeSection.PLAYGROUND">
     <app-home-playground />
   </section>
 
-  <section id="experience">
+  <section [id]="homeSection.EXPERIENCE">
     <app-home-experience />
   </section>
 
-  <section id="testimonials">
+  <section [id]="homeSection.TESTIMONIALS">
     <app-home-testimonials />
   </section>
 
-  <section id="education">
+  <section [id]="homeSection.EDUCATION">
     <app-home-education />
   </section>
 
-  <section id="about">
+  <section [id]="homeSection.ABOUT">
     <app-home-about />
   </section>
 
-  <section id="contact">
+  <section [id]="homeSection.CONTACT">
     <app-home-contact />
   </section>
+  <app-footer [id]="homeSection.FOOTER" />
 </div>
 <app-side-bar class="home-side-bar" />
-<!--<app-footer />-->

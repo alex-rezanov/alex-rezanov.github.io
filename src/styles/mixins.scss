@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use 'breakpoints' as *;
 
 @mixin bigger-than($media) {
   @if $media == XS {

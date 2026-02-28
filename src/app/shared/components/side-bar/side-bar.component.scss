@@ -1,40 +1,65 @@
 :host {
   position: fixed;
-  top: 80px;
-  right: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 28px;
+  top: var(--alex-size-80);
+  right: var(--alex-size-40);
 }
 
-.navigation-item {
-  cursor: pointer;
-  user-select: none;
-  background: transparent;
-  border: none;
-  padding: 0.25rem 0.5rem;
-  color: #111;
-  transition:
-    color 180ms ease,
-    transform 120ms ease;
+.side-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  opacity: 1;
+  visibility: visible;
+  //transition:
+  //        opacity 180ms ease,
+  //        visibility 180ms ease;
 
-  /* Remove native active state flash on click */
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-
-  &:active {
-    transform: translateY(0); /* prevent nudge on mobile */
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
-  &:focus-visible {
-    /* keep visible focus for accessibility but subtle */
-    box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.18);
-    border-radius: 4px;
+  .side-bar-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--alex-size-40);
+
+    .side-bar-title {
+      font-weight: 700;
+      font-size: var(--alex-size-16);
+      color: var(--alex-standard-text);
+    }
   }
 
-  &.active {
-    color: green;
+  .navigation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--alex-size-28);
+
+    .navigation-item {
+      cursor: pointer;
+      user-select: none;
+      background: transparent;
+      border: none;
+      color: var(--alex-color-disabled);
+      font-weight: 700;
+      font-size: var(--alex-size-16);
+      transition:
+        color 180ms ease,
+        transform 120ms ease;
+
+      /* Remove native active state flash on click */
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+
+      &.active {
+        color: var(--alex-standard-text);
+      }
+    }
   }
 }
