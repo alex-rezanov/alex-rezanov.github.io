@@ -1,16 +1,18 @@
 <h1 class="section-title">Experience</h1>
 <div>
   @for (item of experienceItems; track $index) {
-    <div>
-      <span></span>
-      <span></span>
-    </div>
-    <div>
-      <span></span>
-      <span></span>
-    </div>
-    <div>
-      <span></span>
+    <div class="experience-item-container">
+      <div class="company-position">
+        <span class="company">{{ item.company }}</span>
+        <span class="position">{{ item.position }}</span>
+      </div>
+      <div class="time-line">
+        <span class="duration">{{ item.duration }}</span>
+        @if (item.workLoad; as workLoad) {
+          <span class="work-load">{{ workLoad }}</span>
+        }
+      </div>
+      <span class="description">{{ item.description }}</span>
     </div>
   }
 </div>

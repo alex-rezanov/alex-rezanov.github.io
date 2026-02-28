@@ -2,4 +2,46 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 100px;
+  gap: var(--alex-size-40);
+}
+
+.experience-item-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--alex-size-12);
+  padding: var(--alex-size-40) 0;
+  border-top: 1px solid var(--alex-stroke-color);
+  font-size: 18px;
+
+  &:last-child {
+    border-bottom: 1px solid var(--alex-stroke-color);
+  }
+
+  .company-position {
+    display: flex;
+    flex-direction: column;
+    gap: var(--alex-size-10);
+
+    .company {
+      font-weight: 700;
+    }
+
+    .position {
+      color: var(--alex-color-disabled);
+    }
+  }
+
+  .time-line {
+    display: flex;
+    flex-direction: column;
+    gap: var(--alex-size-10);
+
+    .duration {
+      font-weight: 700;
+    }
+
+    .work-load {
+      color: var(--alex-color-disabled);
+    }
+  }
 }
