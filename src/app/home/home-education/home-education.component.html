@@ -1,19 +1,12 @@
 <h1 class="section-title">Education</h1>
-<div>
+<div class="education-container">
   @for (item of educationItems; track $index) {
-    <div>
-      <span></span>
-      <span></span>
-    </div>
-    <div>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div>
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="education-item">
+      <span class="position">{{ item.position }}</span>
+      <span class="duration">{{ item.duration }}</span>
+      @if (item.grade; as grade) {
+        <span class="grade">{{ grade }}</span>
+      }
     </div>
   }
 </div>

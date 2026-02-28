@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--alex-size-40);
+  margin-bottom: var(--alex-size-100);
+}
+
+.education-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--alex-size-10);
+  padding: var(--alex-size-40) 0;
+  border-top: 1px solid var(--alex-stroke-color);
+  border-bottom: 1px solid var(--alex-stroke-color);
+
+  .education-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--alex-size-10);
+    font-size: 18px;
+
+    .position {
+      font-weight: 700;
+      font-size: var(--alex-size-18);
+    }
+
+    .duration,
+    .grade {
+      color: var(--alex-color-disabled);
+    }
+  }
+}
