@@ -4,7 +4,7 @@ export const SELECTED_WORK_ITEMS: WorkItem[] = [
   {
     title: 'Project 1',
     description: 'Description for Project 1',
-    imageUrl: 'assets/images/project1.jpg',
+    imageUrl: 'assets/images/welcome.jpg',
     chipLink: 'https://example.com/project1',
     chipTitle: 'View Project 1',
     chipLinkSecond: 'https://example.com/project1-details',
@@ -13,7 +13,7 @@ export const SELECTED_WORK_ITEMS: WorkItem[] = [
   {
     title: 'Project 2',
     description: 'Description for Project 2',
-    imageUrl: 'assets/images/project2.jpg',
+    imageUrl: 'assets/images/welcome.jpg',
     chipLink: 'https://example.com/project2',
     chipTitle: 'View Project 2',
     chipLinkSecond: 'https://example.com/project2',
@@ -22,7 +22,7 @@ export const SELECTED_WORK_ITEMS: WorkItem[] = [
   {
     title: 'Project 3',
     description: 'Description for Project 3',
-    imageUrl: 'assets/images/project3.jpg',
+    imageUrl: 'assets/images/welcome.jpg',
     chipLink: 'https://example.com/project3',
     chipTitle: 'View Project 3',
     chipLinkSecond: 'https://example.com/project3-details',
@@ -31,7 +31,7 @@ export const SELECTED_WORK_ITEMS: WorkItem[] = [
   {
     title: 'Project 4',
     description: 'Description for Project 4',
-    imageUrl: 'assets/images/project4.jpg',
+    imageUrl: 'assets/images/welcome.jpg',
     chipLink: 'https://example.com/project4',
     chipTitle: 'View Project 4',
     chipLinkSecond: 'https://example.com/project4-details',

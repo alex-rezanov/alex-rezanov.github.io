@@ -2,5 +2,44 @@
   display: flex;
   flex-direction: column;
   gap: var(--alex-size-40);
-  margin-bottom: 100px;
+  margin-bottom: var(--alex-size-100);
+}
+
+.welcome-img {
+  width: 100px;
+  height: 133px;
+  object-fit: cover;
+  border-radius: var(--alex-size-10);
+}
+
+.welcome-message-container {
+  text-wrap: pretty;
+  color: var(--alex-standard-text);
+  font-size: var(--alex-size-32);
+  font-weight: 600;
+
+  .message-underlined {
+    text-decoration: var(--alex-primary-color) wavy underline;
+  }
+
+  .message {
+    color: var(--alex-color-disabled);
+  }
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--alex-size-10);
+  font-size: 18px;
+  font-weight: 500;
+
+  .description {
+    color: var(--alex-color-disabled);
+  }
+}
+
+.action-buttons-container {
+  display: flex;
+  gap: var(--alex-size-10);
 }

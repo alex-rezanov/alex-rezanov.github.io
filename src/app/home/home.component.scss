@@ -19,6 +19,6 @@
 
   .home-side-bar {
     grid-area: sidebar;
-    width: auto;
+    width: calc(20% - var(--alex-size-40));
   }
 }

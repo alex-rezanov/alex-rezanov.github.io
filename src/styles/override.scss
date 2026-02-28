@@ -1,7 +1,7 @@
 p,
 span {
   margin: 0;
-  color: #ffffff;
+  color: var(--alex-standard-text);
 }
 
 h1,
@@ -11,7 +11,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  color: #ffffff;
+  color: var(--alex-standard-text);
 }
 
 :root {
@@ -19,13 +19,13 @@ h6 {
 }
 
 .ax-button {
-  --mat-button-filled-container-shape: 10px;
+  --mat-button-filled-container-shape: var(--alex-size-10);
   --mat-button-filled-label-text-size: 18px;
   --mat-button-filled-label-text-weight: 700;
   --mat-button-filled-container-color: var(--alex-primary-background);
-  --mat-button-filled-icon-spacing: 10px;
-  --mat-button-filled-container-height: 56px;
-  --mat-button-filled-touch-target-size: 56px;
+  --mat-button-filled-icon-spacing: var(--alex-size-10);
+  --mat-button-filled-container-height: var(--alex-size-56);
+  --mat-button-filled-touch-target-size: var(--alex-size-56);
   --mat-button-filled-icon-offset: 0;
   box-shadow: inset 0 0 0 1px var(--alex-standard-text);
 
@@ -34,13 +34,13 @@ h6 {
   }
 
   &.mat-mdc-unelevated-button {
-    padding: 17.5px 24px;
+    padding: 17.5px var(--alex-size-24);
 
     &[color='primary'] {
       mat-icon {
-        font-size: 24px;
-        height: 24px;
-        width: 24px;
+        font-size: var(--alex-size-24);
+        height: var(--alex-size-24);
+        width: var(--alex-size-24);
       }
     }
   }
