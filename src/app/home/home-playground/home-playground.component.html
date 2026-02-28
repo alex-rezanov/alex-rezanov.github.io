@@ -1,8 +1,6 @@
-<div>
-  <h1>Playground</h1>
-</div>
-<div>
+<h1 class="section-title">Playground</h1>
+<div class="playground-container">
   @for (item of playgroundItems; track $index) {
-    <app-work-card [workItem]="item" />
+    <app-work-card class="playground-item" [workItem]="item" />
   }
 </div>

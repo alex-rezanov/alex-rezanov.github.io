@@ -1,17 +1,13 @@
 @if (workItem(); as item) {
-  <div>
-    <div>
-      <img [src]="item.imageUrl" />
-    </div>
-    <div>
-      <h2>{{ item.title }}</h2>
-      <span>{{ item.description }}</span>
-    </div>
-    <div>
-      <button>{{ item.chipTitle }}</button>
-      @if (item.chipTitleSecond) {
-        <button>{{ item.chipTitleSecond }}</button>
-      }
-    </div>
+  <img class="work-card-img" [src]="item.imageUrl" />
+  <div class="work-card-title-container">
+    <h2 class="title">{{ item.title }}</h2>
+    <span class="description">{{ item.description }}</span>
+  </div>
+  <div class="work-card-actions">
+    <button mat-flat-button class="ax-button">{{ item.chipTitle }}</button>
+    @if (item.chipTitleSecond) {
+      <button mat-flat-button class="ax-button">{{ item.chipTitleSecond }}</button>
+    }
   </div>
 }

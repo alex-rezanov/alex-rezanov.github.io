@@ -18,6 +18,12 @@ h6 {
   --mat-sidenav-content-background-color: var(--alex-primary-background);
 }
 
+.section-title {
+  font-weight: 700;
+  font-size: var(--alex-size-32);
+  color: var(--alex-standard-text);
+}
+
 .ax-button {
   --mat-button-filled-container-shape: var(--alex-size-10);
   --mat-button-filled-label-text-size: 18px;
@@ -34,7 +40,12 @@ h6 {
   }
 
   &.mat-mdc-unelevated-button {
-    padding: 17.5px var(--alex-size-24);
+    padding: 9.5px 18px;
+
+    &[color='secondary'],
+    &[color='primary'] {
+      padding: 17.5px var(--alex-size-24);
+    }
 
     &[color='primary'] {
       mat-icon {
