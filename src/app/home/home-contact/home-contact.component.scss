@@ -1,5 +1,69 @@
+@use 'mixins' as *;
+
 :host {
   display: flex;
   flex-direction: column;
-  margin-bottom: 100px;
+  gap: var(--alex-size-40);
+  margin-bottom: 200px;
+  width: 50%;
+
+  @include smaller-than(LG) {
+    width: 100%;
+  }
+}
+
+.contact-description {
+  font-size: 18px;
+  color: var(--alex-color-disabled);
+}
+
+.contact-email-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--alex-size-40);
+  padding: var(--alex-size-40) 0;
+  border-bottom: 1px solid var(--alex-stroke-color);
+  border-top: 1px solid var(--alex-stroke-color);
+
+  .email-description {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 36px;
+
+    .email {
+      user-select: all;
+    }
+  }
+
+  .ax-button {
+    width: 100%;
+  }
+}
+
+.contact-linkedin-container {
+  display: flex;
+  align-items: center;
+  padding-bottom: var(--alex-size-40);
+  border-bottom: 1px solid var(--alex-stroke-color);
+
+  .linkedin-link {
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    .linkedin {
+      font-weight: 700;
+      font-size: 36px;
+    }
+
+    .icon {
+      font-size: var(--alex-size-40);
+      height: var(--alex-size-40);
+      width: var(--alex-size-40);
+    }
+  }
 }

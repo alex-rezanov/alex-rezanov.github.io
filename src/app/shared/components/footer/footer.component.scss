@@ -76,6 +76,10 @@
     flex-direction: column;
     gap: var(--alex-size-40);
 
+    .email-link {
+      user-select: all;
+    }
+
     .email,
     .linked-in,
     .cv {
