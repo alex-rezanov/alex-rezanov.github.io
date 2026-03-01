@@ -31,6 +31,10 @@ export class SideBarComponent {
   // Tracks which link we are programmatically scrolling to; null means free scrolling
   private readonly scrollingToLink = signal<string | null>(null);
 
+  private footerObserver: IntersectionObserver | null = null;
+  // Tracks which nav sections are currently intersecting the middle band of the viewport
+  private readonly visibleSections = new Set<string>();
+
   constructor() {
     afterNextRender(() => this.initializeObserver());
   }
@@ -40,49 +44,72 @@ export class SideBarComponent {
       .map((sideBarItem) => this.document.getElementById(sideBarItem.link))
       .filter(Boolean) as HTMLElement[];
 
-    const footerSection = this.document.getElementById(HomeSection.FOOTER);
-    if (footerSection) {
-      sections.push(footerSection);
-    }
-
     if (!sections.length) {
       return;
     }
 
+    // Use a rootMargin that creates a narrow horizontal band in the centre of the
+    // viewport (-40% top & bottom). This means even very tall sections will fire
+    // as soon as they occupy that central strip, fixing the "Selected Work never
+    // activates" problem.
     this.observer = new IntersectionObserver(
       (entries) => {
-        const visibleEntry = entries.find((entry) => entry.isIntersecting);
-        if (!visibleEntry) {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            this.visibleSections.add(entry.target.id);
+          } else {
+            this.visibleSections.delete(entry.target.id);
+          }
+        }
+
+        if (!this.visibleSections.size) {
           return;
         }
 
-        const target = visibleEntry.target.id;
-        this.activeSection.set(target);
+        // Pick the topmost visible section (closest to top of document)
+        const topmost = sections
+          .filter((s) => this.visibleSections.has(s.id))
+          .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
 
-        if (target === HomeSection.FOOTER) {
+        if (!topmost) {
           return;
         }
 
         const scrollingTo = this.scrollingToLink();
 
         if (scrollingTo === null) {
-          // Free scrolling — always update
-          this.activeLink.set(target);
-        } else if (target === scrollingTo) {
+          // Free scrolling — always update to topmost visible section
+          this.activeLink.set(topmost.id);
+        } else if (this.visibleSections.has(scrollingTo)) {
           // Reached the programmatic scroll target — update and unlock
-          this.activeLink.set(target);
+          this.activeLink.set(scrollingTo);
           this.scrollingToLink.set(null);
         }
-        // Otherwise we are mid-scroll past an intermediate section — ignore
       },
-      { threshold: 0.6 },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 },
     );
 
     sections.forEach((section) => this.observer?.observe(section));
 
+    // Separate observer for the footer with threshold:0 so we react the instant
+    // the footer enters OR leaves the viewport — fixing the scroll-up delay.
+    const footerSection = this.document.getElementById(HomeSection.FOOTER);
+    if (footerSection) {
+      this.footerObserver = new IntersectionObserver(
+        (entries) => {
+          const isFooterVisible = entries.some((e) => e.intersectionRatio >= 0.5);
+          this.activeSection.set(isFooterVisible ? HomeSection.FOOTER : null);
+        },
+        { threshold: 0.5 },
+      );
+      this.footerObserver.observe(footerSection);
+    }
+
     this.destroyRef.onDestroy(() => {
       this.observer?.disconnect();
       this.observer = null;
+      this.footerObserver?.disconnect();
+      this.footerObserver = null;
     });
   }
 
