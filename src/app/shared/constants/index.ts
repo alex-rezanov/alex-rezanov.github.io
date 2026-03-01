@@ -9,3 +9,4 @@ export * from './data/playground-items';
 export * from './data/education-items';
 export * from './data/profile-details';
 export * from './data/email-defaults';
+export * from './data/about-items';

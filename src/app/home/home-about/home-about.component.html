@@ -1,76 +1,90 @@
 <h1 class="section-title">About me</h1>
-<div>
-  <span
-    >“When you arise in the morning, think of what a privilege it is to be alive, to think, to
-    enjoy, to love...”</span
-  >
-  <span>-Marcus Aurelius</span>
+<div class="about-quote">
+  <span class="quote">
+    “When you arise in the morning, think of what a privilege it is to be alive, to think, to enjoy,
+    to love...”
+  </span>
+  <span class="author">-Marcus Aurelius</span>
 </div>
-<div>
-  <span>My principles</span>
-  <div>
-    @for (item of principlesItems; track $index) {
-      <div>
-        <span></span>
-        <span></span>
+<div class="principles-container">
+  <span class="principles-title">My principles</span>
+  <div class="principles-items">
+    @for (item of principleItems; track $index) {
+      <div class="principles-item">
+        <span class="principles-item-title">{{ item.title }}</span>
+        <span class="principles-item-description">{{ item.description }}</span>
       </div>
     }
   </div>
 </div>
-<div>
-  <span>Few interesting things about myself</span>
-  <div>
-    <img />
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div>
-    <img />
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div>
-    <img />
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<div>
-  <span>I speak these languages</span>
-  <div>
-    @for (item of languagesItems; track $index) {
-      <div>
-        <span></span>
-        <span></span>
+<div class="interesting-things-container">
+  <span class="interesting-title">Few interesting things about myself</span>
+  <div class="interesting-items-container">
+    @for (item of interestingItems; track $index) {
+      <div class="interesting-item">
+        <div class="interesting-image-container">
+          @for (url of item.images; track $index) {
+            <img [src]="url" class="interesting-image" />
+          }
+        </div>
+        <span class="interesting-item-title">{{ item.title }}</span>
+        <div class="interesting-item-description">
+          <span>{{ item.highlighted }}</span>
+          <span class="interesting-description-disabled">{{ item.description }}</span>
+        </div>
       </div>
     }
   </div>
 </div>
-<div>
-  <img />
-  <div>
-    <div>
-      <span></span>
-      <span></span>
+<div class="languages-container">
+  <span class="languages-title">I speak these languages</span>
+  <div class="languages-items-container">
+    @for (item of languageItems; track $index) {
+      <div class="language-item">
+        <span class="language">{{ item.language }}</span>
+        <span class="level">{{ item.level }}</span>
+      </div>
+    }
+  </div>
+</div>
+<div class="path-container">
+  <div class="path-image-container">
+    <img class="path-image" src="assets/images/welcome.jpg" alt="Alex's path to design" />
+  </div>
+  <div class="path-description">
+    <div class="path-title-container">
+      <span class="path-title"> My path to design wasn't linear. </span>
+      <span class="path-description"> And that’s even better. </span>
     </div>
-    <span></span>
-    <span></span>
-    <span></span>
-    <button></button>
+    <span class="path-message">
+      I’m naturally interested about the mechanics of how things work, curious human being. Lots of
+      things that I’ve tried in my life are now shaping me as a professional. And I gladly use all
+      of those experiences to produce thoughtful design work.
+    </span>
+    <span class="path-message">
+      My multidirectional background gave me a deep empathy for people and a creative way of
+      thinking. It taught me to stay calm under pressure, cherish self-discipline, accept
+      challenges, look several moves ahead and never settle.
+    </span>
+    <span class="path-message">
+      Design is where all these worlds meet, perfect space where I apply these traits to solve
+      real-world problems.
+    </span>
+    <button mat-flat-button class="ax-button" color="secondary" (click)="onCvClick()">
+      <mat-icon>arrow_outward</mat-icon>
+      Download CV
+    </button>
   </div>
 </div>
-<div>
-  <span>My top reads (at least small part)</span>
-  <div>
-    @for (item of booksItems; track $index) {
-      <div>
-        <img />
-        <div>
-          <span></span>
-          <span></span>
+<div class="books-container">
+  <span class="book-title">My top reads (at least small part)</span>
+  <div class="book-items-container">
+    @for (item of bookItems; track $index) {
+      <div class="book-item">
+        <img class="book-image" [src]="item.image" />
+        <div class="book-description">
+          <span class="title">{{ item.title }}</span>
+          <span class="author">{{ item.author }}</span>
         </div>
       </div>
     }
