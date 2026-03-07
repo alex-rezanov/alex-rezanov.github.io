@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { DesignData } from '../../shared/models';
 
 @Component({
   selector: 'app-work-design',
@@ -7,5 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './work-design.component.scss',
 })
 export class WorkDesignComponent {
-  designData = input.required();
+  designData = input.required<DesignData>();
 }

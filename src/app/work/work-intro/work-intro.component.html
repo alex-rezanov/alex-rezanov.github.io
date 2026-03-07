@@ -1,1 +1,22 @@
-<p>work-intro works!</p>
+@if (imageSection(); as imageSectionData) {
+  <div class="image-section-container" [style.background-color]="imageSectionData.backGroundColor">
+    @for (image of imageSectionData.imageUrls; track $index) {
+      <img [src]="image" alt="Image" class="image-section-image" />
+    }
+  </div>
+}
+@if (title(); as title) {
+  <h1 class="work-title">{{ title }}</h1>
+}
+@if (description(); as description) {
+  <div class="description-container">
+    <div class="chips">
+      @for (chip of description.chips; track chip) {
+        <button mat-flat-button class="ax-button">{{ chip }}</button>
+      }
+    </div>
+    <span class="description">
+      {{ description.text }}
+    </span>
+  </div>
+}

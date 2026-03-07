@@ -24,7 +24,25 @@ export interface SectionItemBase<T extends WorkSectionType> {
   sideBarData: SideBarItem<T>;
 }
 
-export interface IntroData extends SectionItemBase<WorkSectionType.INTRO> {}
+export interface IntroData extends SectionItemBase<WorkSectionType.INTRO> {
+  title: string;
+  description: {
+    text: string;
+    chips: string[];
+  };
+  introTableData: introTableItem[];
+  imageSection?: ImageSectionData;
+}
+
+export interface ImageSectionData {
+  imageUrls: string[];
+  backGroundColor: string;
+}
+
+export interface introTableItem {
+  label: string;
+  value: string;
+}
 
 export interface ProblemData extends SectionItemBase<WorkSectionType.PROBLEM> {}
 

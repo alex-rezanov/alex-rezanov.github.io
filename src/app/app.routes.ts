@@ -9,7 +9,6 @@ export const routes: Routes = [
   },
   {
     path: '',
-    loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent),
     children: [
       {
         path: PortfolioRoutes.HOME,

@@ -1,7 +1,6 @@
 @use 'fonts';
 @use 'override';
 @use 'variables';
-@use 'mixins' as *;
 @use '@angular/material' as mat;
 @use 'theme-colors' as theme;
 
@@ -31,12 +30,4 @@ body {
 
 .spacer {
   flex: 1 1 auto;
-}
-
-.content-container {
-  height: calc(100svh - 120px);
-  width: calc(100svw - var(--alex-size-80));
-  overflow: visible;
-  margin-inline: auto;
-  margin: var(--alex-size-80) var(--alex-size-0) var(--alex-size-40) var(--alex-size-40);
 }

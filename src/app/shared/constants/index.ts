@@ -1,4 +1,5 @@
 export * from './default-material-options';
+export * from './mobile-width-threshold';
 export * from './side-bar-items';
 
 // User data

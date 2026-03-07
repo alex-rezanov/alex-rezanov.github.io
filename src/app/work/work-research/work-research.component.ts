@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { ResearchData } from '../../shared/models';
 
 @Component({
   selector: 'app-work-research',
@@ -7,5 +8,5 @@ import { Component, input } from '@angular/core';
   styleUrl: './work-research.component.scss',
 })
 export class WorkResearchComponent {
-  researchData = input.required();
+  researchData = input.required<ResearchData>();
 }

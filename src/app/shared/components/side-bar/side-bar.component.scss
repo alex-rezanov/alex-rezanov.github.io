@@ -1,18 +1,18 @@
 @use 'mixins' as *;
 
 :host {
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: var(--alex-size-80);
-  left: calc(80svw + var(--alex-size-40));
+  right: var(--alex-size-40);
 
   @include smaller-than(MD) {
-    left: calc(80svw);
+    right: var(--alex-size-20);
   }
 
   @include smaller-than(SM) {
-    .side-bar-container {
-      display: none;
-    }
+    display: none;
   }
 }
 
@@ -58,7 +58,7 @@
       user-select: none;
       background: transparent;
       border: none;
-      color: var(--alex-color-disabled);
+      color: var(--alex-gray-text);
       font-weight: 700;
       font-size: var(--alex-size-16);
       transition:

@@ -1,7 +1,12 @@
 <mat-sidenav-container>
   <mat-sidenav-content>
-    <section class="content-container">
+    @let isMobileUa = isMobile();
+    <div class="section-container" [class.mobile]="isMobileUa">
+      <app-side-bar class="side-bar" [class.mobile]="isMobileUa" />
       <router-outlet />
-    </section>
+    </div>
+    <footer [id]="homeSection.FOOTER">
+      <app-footer />
+    </footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

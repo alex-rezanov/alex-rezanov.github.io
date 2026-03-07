@@ -9,10 +9,20 @@ import { WorkResearchComponent } from './work-research/work-research.component';
 import { WorkDesignComponent } from './work-design/work-design.component';
 import { WorkConclusionComponent } from './work-conclusion/work-conclusion.component';
 import { WORK_ITEMS_MAP } from '../shared/constants';
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-work',
-  imports: [WorkIntroComponent, WorkProblemComponent, WorkResearchComponent, WorkDesignComponent, WorkConclusionComponent],
+  imports: [
+    WorkIntroComponent,
+    WorkProblemComponent,
+    WorkResearchComponent,
+    WorkDesignComponent,
+    WorkConclusionComponent,
+    MatButton,
+    MatIcon,
+  ],
   templateUrl: './work.component.html',
   styleUrl: './work.component.scss',
 })
@@ -44,14 +54,18 @@ export class WorkComponent implements OnInit, OnDestroy {
     this.sections.set(sections);
   }
 
-  sideBarEffect(): void {
-    effect(() => {
-      const sideBarItems = this.sections().map(section => section.sideBarData);
-      this.activeSessionStore.setSideBarItems(sideBarItems);
-    });
+  protected onBackClick(): void {
+    this.router.navigate(['/', PortfolioRoutes.HOME]);
   }
 
   ngOnDestroy(): void {
     this.activeSessionStore.resetSideBarItems();
+  }
+
+  private sideBarEffect(): void {
+    effect(() => {
+      const sideBarItems = this.sections().map(section => section.sideBarData);
+      this.activeSessionStore.setSideBarItems(sideBarItems);
+    });
   }
 }
