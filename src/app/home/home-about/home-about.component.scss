@@ -148,6 +148,10 @@
     border-top: 1px solid var(--alex-stroke-color);
     border-bottom: 1px solid var(--alex-stroke-color);
 
+    @include smaller-than(MD) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     .language-item {
       display: flex;
       flex-direction: column;

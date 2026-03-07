@@ -27,6 +27,7 @@
   border-top: 1px solid var(--alex-stroke-color);
 
   .email-description {
+    width: 100%;
     display: flex;
     flex-direction: column;
     font-weight: 700;
@@ -34,6 +35,7 @@
 
     .email {
       user-select: all;
+      word-wrap: break-word;
     }
   }
 
