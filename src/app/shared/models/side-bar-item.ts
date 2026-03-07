@@ -1,6 +1,4 @@
-import { HomeSection } from '../enums';
-
-export interface SideBarItem {
+export interface SideBarItem<T> {
   label: string;
-  link: HomeSection;
+  link: T;
 }

@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { WorkItem } from '../../models';
+import { PlaygroundItem } from '../../models';
 import { MatButton } from '@angular/material/button';
 
 @Component({
@@ -9,5 +9,5 @@ import { MatButton } from '@angular/material/button';
   imports: [MatButton],
 })
 export class WorkCardComponent {
-  workItem = input<WorkItem>();
+  workItem = input<PlaygroundItem>();
 }

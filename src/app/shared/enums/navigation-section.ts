@@ -1,4 +1,4 @@
-export enum HomeSection {
+export enum NavigationSection {
   WELCOME = 'welcome',
   SELECTED_WORK = 'selected-work',
   PLAYGROUND = 'playground',

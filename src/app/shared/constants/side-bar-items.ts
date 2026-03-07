@@ -1,13 +1,13 @@
 import { SideBarItem } from '../models';
-import { HomeSection } from '../enums';
+import { NavigationSection } from '../enums';
 
-export const SIDE_BAR_ITEMS: SideBarItem[] = [
-  { label: 'Home', link: HomeSection.WELCOME },
-  { label: 'Selected Work', link: HomeSection.SELECTED_WORK },
-  { label: 'Playground', link: HomeSection.PLAYGROUND },
-  { label: 'Experience', link: HomeSection.EXPERIENCE },
-  { label: 'Testimonials', link: HomeSection.TESTIMONIALS },
-  { label: 'Education', link: HomeSection.EDUCATION },
-  { label: 'About', link: HomeSection.ABOUT },
-  { label: 'Contact', link: HomeSection.CONTACT },
+export const HOME_SIDE_BAR_ITEMS: SideBarItem<NavigationSection>[] = [
+  { label: 'Home', link: NavigationSection.WELCOME },
+  { label: 'Selected Work', link: NavigationSection.SELECTED_WORK },
+  { label: 'Playground', link: NavigationSection.PLAYGROUND },
+  { label: 'Experience', link: NavigationSection.EXPERIENCE },
+  { label: 'Testimonials', link: NavigationSection.TESTIMONIALS },
+  { label: 'Education', link: NavigationSection.EDUCATION },
+  { label: 'About', link: NavigationSection.ABOUT },
+  { label: 'Contact', link: NavigationSection.CONTACT },
 ];

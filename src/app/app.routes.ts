@@ -9,10 +9,16 @@ export const routes: Routes = [
   },
   {
     path: '',
+    loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent),
     children: [
       {
         path: PortfolioRoutes.HOME,
-        loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent),
+        data: { isNameVisible: true },
+        loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
+      },
+      {
+        path: ':selectedWork',
+        loadComponent: () => import('./work/work.component').then(m => m.WorkComponent),
       },
     ],
   },

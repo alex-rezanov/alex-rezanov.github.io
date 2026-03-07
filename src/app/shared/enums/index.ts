@@ -1,2 +1,3 @@
 export * from './portfolio-routes';
-export * from './home-section';
+export * from './work-section-type';
+export * from './navigation-section';

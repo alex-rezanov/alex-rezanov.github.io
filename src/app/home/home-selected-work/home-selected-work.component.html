@@ -1,4 +1,7 @@
 <h1 class="section-title">Selected works</h1>
 @for (item of workItems; track $index) {
-  <app-work-card [workItem]="item" />
+  <app-work-card
+    class="work-item"
+    [workItem]="item"
+    [routerLink]="['/', item.previewData.navigationLink]" />
 }

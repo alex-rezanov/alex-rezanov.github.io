@@ -23,7 +23,8 @@
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "web-haptics": "^0.0.6"
   },
   "devDependencies": {
     "@angular/build": "^21.1.3",
@@ -33,11 +34,11 @@
     "angular-eslint": "21.2.0",
     "eslint": "^9.39.3",
     "husky": "^9.1.7",
+    "jsdom": "^27.1.0",
     "prettier": "^3.6.2",
     "pretty-quick": "4.2.2",
-    "jsdom": "^27.1.0",
-    "typescript-eslint": "8.56.1",
     "typescript": "~5.9.2",
+    "typescript-eslint": "8.56.1",
     "vitest": "^4.0.8"
   }
 }

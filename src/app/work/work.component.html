@@ -1,0 +1,19 @@
+@for (section of sections(); track section.type) {
+  @switch (section.type) {
+    @case (workSectionType.INTRO) {
+      <app-work-intro [id]="section.type" [introData]="section" />
+    }
+    @case (workSectionType.PROBLEM) {
+      <app-work-problem [id]="section.type" [problemData]="section" />
+    }
+    @case (workSectionType.RESEARCH) {
+      <app-work-research [id]="section.type" [researchData]="section" />
+    }
+    @case (workSectionType.DESIGN) {
+      <app-work-design [id]="section.type" [designData]="section" />
+    }
+    @case (workSectionType.CONCLUSION) {
+      <app-work-conclusion [id]="section.type" [conclusionData]="section" />
+    }
+  }
+}

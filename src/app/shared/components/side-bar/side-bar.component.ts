@@ -1,15 +1,11 @@
-import {
-  afterNextRender,
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  DestroyRef,
-  inject,
-  signal,
-} from '@angular/core';
+import { afterNextRender, ChangeDetectionStrategy, Component, computed, DestroyRef, effect, inject, Injector, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ALEX_DETAILS, SIDE_BAR_ITEMS } from '../../constants';
-import { HomeSection } from '../../enums';
+import { ALEX_DETAILS } from '../../constants';
+import { NavigationSection } from '../../enums';
+import { ActiveSessionStore } from '../../../core/services';
+import { filter, map, Observable } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -20,14 +16,20 @@ import { HomeSection } from '../../enums';
 export class SideBarComponent {
   protected readonly alexDetails = ALEX_DETAILS;
 
+  private readonly router = inject(Router);
+  private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly activeSessionStore = inject(ActiveSessionStore);
   private readonly document = inject(DOCUMENT);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly injector = inject(Injector);
   private observer: IntersectionObserver | null = null;
 
-  protected readonly sideBarItems = SIDE_BAR_ITEMS;
-  protected readonly activeLink = signal<string | null>(SIDE_BAR_ITEMS[0].link);
-  private readonly activeSection = signal<string | null>(SIDE_BAR_ITEMS[0].link);
-  protected readonly isFooterActive = computed(() => this.activeSection() === HomeSection.FOOTER);
+  protected readonly sideBarItems = this.activeSessionStore.sideBarItems;
+  protected readonly isSidebarEmpty = this.activeSessionStore.isSidebarEmpty;
+  protected readonly isNameVisible = toSignal(this.getIsNameVisible());
+  protected readonly activeLink = signal<string | null>(this.sideBarItems()[0]?.link);
+  private readonly activeSection = signal<string | null>(this.sideBarItems()[0]?.link);
+  protected readonly isFooterActive = computed(() => this.activeSection() === NavigationSection.FOOTER);
   // Tracks which link we are programmatically scrolling to; null means free scrolling
   private readonly scrollingToLink = signal<string | null>(null);
 
@@ -36,81 +38,8 @@ export class SideBarComponent {
   private readonly visibleSections = new Set<string>();
 
   constructor() {
-    afterNextRender(() => this.initializeObserver());
-  }
-
-  private initializeObserver(): void {
-    const sections = this.sideBarItems
-      .map((sideBarItem) => this.document.getElementById(sideBarItem.link))
-      .filter(Boolean) as HTMLElement[];
-
-    if (!sections.length) {
-      return;
-    }
-
-    // Use a rootMargin that creates a narrow horizontal band in the centre of the
-    // viewport (-40% top & bottom). This means even very tall sections will fire
-    // as soon as they occupy that central strip, fixing the "Selected Work never
-    // activates" problem.
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            this.visibleSections.add(entry.target.id);
-          } else {
-            this.visibleSections.delete(entry.target.id);
-          }
-        }
-
-        if (!this.visibleSections.size) {
-          return;
-        }
-
-        // Pick the topmost visible section (closest to top of document)
-        const topmost = sections
-          .filter((s) => this.visibleSections.has(s.id))
-          .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
-
-        if (!topmost) {
-          return;
-        }
-
-        const scrollingTo = this.scrollingToLink();
-
-        if (scrollingTo === null) {
-          // Free scrolling — always update to topmost visible section
-          this.activeLink.set(topmost.id);
-        } else if (this.visibleSections.has(scrollingTo)) {
-          // Reached the programmatic scroll target — update and unlock
-          this.activeLink.set(scrollingTo);
-          this.scrollingToLink.set(null);
-        }
-      },
-      { rootMargin: '-40% 0px -40% 0px', threshold: 0 },
-    );
-
-    sections.forEach((section) => this.observer?.observe(section));
-
-    // Separate observer for the footer with threshold:0 so we react the instant
-    // the footer enters OR leaves the viewport — fixing the scroll-up delay.
-    const footerSection = this.document.getElementById(HomeSection.FOOTER);
-    if (footerSection) {
-      this.footerObserver = new IntersectionObserver(
-        (entries) => {
-          const isFooterVisible = entries.some((e) => e.intersectionRatio >= 0.5);
-          this.activeSection.set(isFooterVisible ? HomeSection.FOOTER : null);
-        },
-        { threshold: 0.5 },
-      );
-      this.footerObserver.observe(footerSection);
-    }
-
-    this.destroyRef.onDestroy(() => {
-      this.observer?.disconnect();
-      this.observer = null;
-      this.footerObserver?.disconnect();
-      this.footerObserver = null;
-    });
+    this.linkEffect();
+    this.destroyRef.onDestroy(() => this.teardownObservers());
   }
 
   protected scrollTo(link: string): void {
@@ -134,5 +63,107 @@ export class SideBarComponent {
   protected onNavClick(event: Event, link: string): void {
     event.preventDefault();
     this.scrollTo(link);
+  }
+
+  private getIsNameVisible(): Observable<boolean> {
+    return this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map(() => {
+        let route = this.activatedRoute;
+        while (route.firstChild) {
+          route = route.firstChild;
+          if (route.snapshot.data?.['isNameVisible']) {
+            return true;
+          }
+        }
+        return !!this.activatedRoute.snapshot.data?.['isNameVisible'];
+      })
+    );
+  }
+
+  private linkEffect(): void {
+    effect(() => {
+      const items = this.sideBarItems();
+      this.teardownObservers();
+      this.activeLink.set(items[0]?.link ?? null);
+      this.activeSection.set(items[0]?.link ?? null);
+      this.scrollingToLink.set(null);
+      this.visibleSections.clear();
+      afterNextRender(() => this.initializeObserver(), { injector: this.injector });
+    });
+  }
+
+  private initializeObserver(): void {
+    const sections = this.sideBarItems()
+      .map(sideBarItem => this.document.getElementById(sideBarItem.link))
+      .filter(Boolean) as HTMLElement[];
+
+    if (!sections.length) {
+      return;
+    }
+
+    // Use a rootMargin that creates a narrow horizontal band in the centre of the
+    // viewport (-40% top & bottom). This means even very tall sections will fire
+    // as soon as they occupy that central strip, fixing the "Selected Work never
+    // activates" problem.
+    this.observer = new IntersectionObserver(
+      entries => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            this.visibleSections.add(entry.target.id);
+          } else {
+            this.visibleSections.delete(entry.target.id);
+          }
+        }
+
+        if (!this.visibleSections.size) {
+          return;
+        }
+
+        // Pick the topmost visible section (closest to top of document)
+        const topmost = sections
+          .filter(s => this.visibleSections.has(s.id))
+          .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
+
+        if (!topmost) {
+          return;
+        }
+
+        const scrollingTo = this.scrollingToLink();
+
+        if (scrollingTo === null) {
+          // Free scrolling — always update to topmost visible section
+          this.activeLink.set(topmost.id);
+        } else if (this.visibleSections.has(scrollingTo)) {
+          // Reached the programmatic scroll target — update and unlock
+          this.activeLink.set(scrollingTo);
+          this.scrollingToLink.set(null);
+        }
+      },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+    );
+
+    sections.forEach(section => this.observer?.observe(section));
+
+    // Separate observer for the footer with threshold:0 so we react the instant
+    // the footer enters OR leaves the viewport — fixing the scroll-up delay.
+    const footerSection = this.document.getElementById(NavigationSection.FOOTER);
+    if (footerSection) {
+      this.footerObserver = new IntersectionObserver(
+        entries => {
+          const isFooterVisible = entries.some(e => e.intersectionRatio >= 0.5);
+          this.activeSection.set(isFooterVisible ? NavigationSection.FOOTER : null);
+        },
+        { threshold: 0.5 }
+      );
+      this.footerObserver.observe(footerSection);
+    }
+  }
+
+  private teardownObservers(): void {
+    this.observer?.disconnect();
+    this.observer = null;
+    this.footerObserver?.disconnect();
+    this.footerObserver = null;
   }
 }

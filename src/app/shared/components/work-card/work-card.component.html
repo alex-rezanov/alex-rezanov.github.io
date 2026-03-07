@@ -5,9 +5,8 @@
     <span class="description">{{ item.description }}</span>
   </div>
   <div class="work-card-actions">
-    <button mat-flat-button class="ax-button">{{ item.chipTitle }}</button>
-    @if (item.chipTitleSecond) {
-      <button mat-flat-button class="ax-button">{{ item.chipTitleSecond }}</button>
+    @for (chip of item.chips; track $index) {
+      <button mat-flat-button class="ax-button">{{ chip }}</button>
     }
   </div>
 }

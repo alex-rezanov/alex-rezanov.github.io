@@ -1,40 +1,70 @@
-import { WorkItem } from '../../models';
+import { WorkPreviewItem } from '../../models';
+import { WorkSectionType } from '../../enums';
 
-export const SELECTED_WORK_ITEMS: WorkItem[] = [
+export const WORK_ITEMS: WorkPreviewItem[] = [
   {
     title: 'Project 1',
     description: 'Description for Project 1',
     imageUrl: 'assets/images/welcome.jpg',
-    chipLink: 'https://example.com/project1',
-    chipTitle: 'Chip',
-    chipLinkSecond: 'https://example.com/project1-details',
-    chipTitleSecond: 'Chip',
+    chips: ['chip', 'chip'],
+    previewData: {
+      navigationLink: 'project_1',
+      sectionData: {},
+    },
   },
   {
     title: 'Project 2',
     description: 'Description for Project 2',
     imageUrl: 'assets/images/welcome.jpg',
-    chipLink: 'https://example.com/project2',
-    chipTitle: 'Chip',
-    chipLinkSecond: 'https://example.com/project2',
-    chipTitleSecond: 'Chip',
+    chips: ['chip', 'chip'],
+    previewData: {
+      navigationLink: 'project_2',
+      sectionData: {
+        intro: {
+          type: WorkSectionType.INTRO,
+          sideBarData: { label: 'INTRO', link: WorkSectionType.INTRO },
+        },
+        problem: {
+          type: WorkSectionType.PROBLEM,
+          sideBarData: { label: 'PROBLEM', link: WorkSectionType.PROBLEM },
+        },
+        conclusion: {
+          type: WorkSectionType.CONCLUSION,
+          sideBarData: { label: 'CONCLUSION', link: WorkSectionType.CONCLUSION },
+        },
+      },
+    },
   },
   {
     title: 'Project 3',
     description: 'Description for Project 3',
     imageUrl: 'assets/images/welcome.jpg',
-    chipLink: 'https://example.com/project3',
-    chipTitle: 'Chip',
-    chipLinkSecond: 'https://example.com/project3-details',
-    chipTitleSecond: 'Chip',
+    chips: ['chip', 'chip'],
+    previewData: {
+      navigationLink: 'project_3',
+      sectionData: {
+        intro: {
+          type: WorkSectionType.INTRO,
+          sideBarData: { label: 'INTRO 3', link: WorkSectionType.INTRO },
+        },
+      },
+    },
   },
   {
     title: 'Project 4',
     description: 'Description for Project 4',
     imageUrl: 'assets/images/welcome.jpg',
-    chipLink: 'https://example.com/project4',
-    chipTitle: 'Chip',
-    chipLinkSecond: 'https://example.com/project4-details',
-    chipTitleSecond: 'Chip',
+    chips: ['chip', 'chip'],
+    previewData: {
+      navigationLink: 'project_4',
+      sectionData: {
+        problem: {
+          type: WorkSectionType.PROBLEM,
+          sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
+        },
+      },
+    },
   },
 ];
+
+export const WORK_ITEMS_MAP = new Map<string, WorkPreviewItem>(WORK_ITEMS.map(item => [item.previewData.navigationLink, item]));
