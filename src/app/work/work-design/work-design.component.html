@@ -1,1 +1,42 @@
-<p>work-design works!</p>
+@if (titleImageUrl(); as titleImageUrl) {
+  <img [src]="titleImageUrl" alt="Title Image" class="title-image" />
+}
+
+@if (title(); as titleItem) {
+  <app-card-title [cardTitleData]="titleItem" [isTitleBold]="true" />
+}
+
+@if (designDecisions(); as decisions) {
+  @for (decision of decisions; track $index) {
+    <div class="decision-container">
+      <img [src]="decision.decisionImageUrl" alt="Design Decision Image" class="decision-image" />
+      <app-card-title
+        [cardTitleData]="decision.title"
+        [isTitleBold]="true"
+        [cardIndex]="$index + 1" />
+    </div>
+  }
+}
+
+@if (designFlowItems(); as flowItems) {
+  <div>
+    @for (flowItem of flowItems; track $index) {
+      <div [style.background-color]="flowItem.imageBackgroundColor">
+        @for (imageUrl of flowItem.imageUrls; track $index) {
+          <img [src]="imageUrl" alt="Design Flow Image" class="flow-image" />
+        }
+      </div>
+      <p>{{ flowItem.imageDescription }}</p>
+      <div>
+        @for (description of flowItem.descriptions; track $index) {
+          <span>{{ description }}</span>
+        }
+      </div>
+    }
+  </div>
+}
+
+@if (footerImage(); as footerImageItem) {
+  <img [src]="footerImageItem.imageUrl" alt="Footer Image" class="footer-image" />
+  <p>{{ footerImageItem.description }}</p>
+}

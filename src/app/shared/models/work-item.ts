@@ -30,7 +30,7 @@ export interface IntroData extends SectionItemBase<WorkSectionType.INTRO> {
     text: string;
     chips: string[];
   };
-  introTableData: introTableItem[];
+  introTableData: workTableItem[];
   imageSection?: ImageSectionData;
 }
 
@@ -39,17 +39,81 @@ export interface ImageSectionData {
   backGroundColor: string;
 }
 
-export interface introTableItem {
+export interface workTableItem {
   label: string;
   value: string;
 }
 
-export interface ProblemData extends SectionItemBase<WorkSectionType.PROBLEM> {}
+export interface CardTitleData {
+  text: string;
+  descriptions: TitleDescriptionItem[];
+}
 
-export interface ResearchData extends SectionItemBase<WorkSectionType.RESEARCH> {}
+export interface ProblemData extends SectionItemBase<WorkSectionType.PROBLEM> {
+  title: CardTitleData;
+  problemTableData: workTableItem[];
+  tableDescription?: string;
+  footerImageUrl?: string;
+}
 
-export interface DesignData extends SectionItemBase<WorkSectionType.DESIGN> {}
+export interface TitleDescriptionItem {
+  text: string;
+  isList?: boolean;
+}
 
-export interface ConclusionData extends SectionItemBase<WorkSectionType.CONCLUSION> {}
+export interface ResearchData extends SectionItemBase<WorkSectionType.RESEARCH> {
+  title: CardTitleData;
+  researchImageWithDescription: ImageWithDescriptionItem;
+  qualitativeInsights: QualitativeInsightItem[];
+  conclusion: string;
+  conclusionImageWithDescription: ImageWithDescriptionItem;
+}
+
+export interface QualitativeInsightItem {
+  headerChipTitle: string;
+  headerTitle: string;
+  descriptions: string[];
+  takeaways: TakeawayItem[];
+}
+
+export interface TakeawayItem {
+  keyTakeawayTitle: string;
+  keyTakeaway: string[];
+}
+
+export interface ImageWithDescriptionItem {
+  imageUrl: string;
+  description: string;
+}
+
+export interface DesignData extends SectionItemBase<WorkSectionType.DESIGN> {
+  title: CardTitleData;
+  titleImageUrl?: string;
+  designDecisions: DesignDecision[];
+  designFlowItems: DesignFlowItem[];
+  footerImage: ImageWithDescriptionItem;
+}
+
+export interface DesignFlowItem {
+  imageUrls: string[];
+  imageBackgroundColor: string;
+  imageDescription: string;
+  descriptions: string[];
+}
+
+export interface DesignDecision {
+  decisionImageUrl: string;
+  title: CardTitleData;
+}
+
+export interface ConclusionData extends SectionItemBase<WorkSectionType.CONCLUSION> {
+  title: string;
+  conclusionTableData: ConclusionTableItem[];
+}
+
+export interface ConclusionTableItem {
+  title: string;
+  descriptions: string[];
+}
 
 export type SectionItem = IntroData | ProblemData | ResearchData | DesignData | ConclusionData;

@@ -1,1 +1,16 @@
-<p>work-conclusion works!</p>
+@if (title(); as titleItem) {
+  <h1>{{ titleItem }}</h1>
+}
+
+@if (conclusionTableData(); as tableData) {
+  <div>
+    @for (conclusionItem of tableData; track $index) {
+      <div>
+        <span>{{ conclusionItem.title }}</span>
+        @for (description of conclusionItem.descriptions; track $index) {
+          <span>{{ description }}</span>
+        }
+      </div>
+    }
+  </div>
+}

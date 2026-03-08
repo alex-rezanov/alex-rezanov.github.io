@@ -1,0 +1,15 @@
+@if (cardTitleData(); as titleData) {
+  <h1 [class.bold]="isTitleBold()">
+    @if (cardIndex(); as index) {
+      <span class="index">{{ index }}</span>
+    }
+    {{ titleData.text }}
+  </h1>
+  @for (description of titleData.descriptions; track $index) {
+    @if (description?.isList) {
+      <li>{{ description.text }}</li>
+    } @else {
+      <span>{{ description.text }}</span>
+    }
+  }
+}

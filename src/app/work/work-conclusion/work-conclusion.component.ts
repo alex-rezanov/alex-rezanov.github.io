@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { ConclusionData } from '../../shared/models';
 
 @Component({
@@ -9,4 +9,7 @@ import { ConclusionData } from '../../shared/models';
 })
 export class WorkConclusionComponent {
   conclusionData = input.required<ConclusionData>();
+
+  title = computed(() => this.conclusionData().title);
+  conclusionTableData = computed(() => this.conclusionData().conclusionTableData);
 }

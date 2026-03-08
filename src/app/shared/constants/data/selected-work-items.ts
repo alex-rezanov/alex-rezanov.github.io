@@ -1,49 +1,370 @@
-import { WorkPreviewData, WorkPreviewItem } from '../../models';
+import {
+  ConclusionData,
+  DesignData,
+  IntroData,
+  ProblemData,
+  ResearchData,
+  TitleDescriptionItem,
+  WorkPreviewData,
+  WorkPreviewItem,
+} from '../../models';
 import { WorkSectionType } from '../../enums';
+
+const LAPUNZEL_INTRO_DATA: IntroData = {
+  type: WorkSectionType.INTRO,
+  sideBarData: { label: 'Intro', link: WorkSectionType.INTRO },
+  title: 'Lapunzel - Ukrainian pet cosmetics shop',
+  description: {
+    text: 'Redesign of the e-commerce experience for a Ukrainian vegan pet cosmetics brand, so that pet owners can effortlessly discover, trust, and buy products that their animals actually deserve.',
+    chips: ['Website', 'E-commerce', 'Mobile-first'],
+  },
+  imageSection: {
+    imageUrls: ['assets/images/welcome.jpg', 'assets/images/welcome.jpg', 'assets/images/welcome.jpg', 'assets/images/welcome.jpg'],
+    backGroundColor: '#FCE64D',
+  },
+  introTableData: [
+    { label: 'Product', value: 'Lapunzel, Ukrainian vegan pet cosmetics brand' },
+    { label: 'Role', value: 'UX Designer (end-to-end)' },
+    { label: 'Team', value: 'Design team, stakeholders (brand founder)' },
+    { label: 'Target audience', value: 'Ukrainian pet owners, 25–40, mobile shoppers' },
+    { label: 'Platform', value: 'Mobile-first, desktop' },
+  ],
+};
+
+const LAPUNZEL_PROBLEM_DATA: ProblemData = {
+  type: WorkSectionType.PROBLEM,
+  sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
+  title: {
+    text: 'Problem',
+    descriptions: [
+      {
+        text: "Despite a high traffic on the Lapunzel website, conversions remain low. Users actively visit pages but don't complete purchases. Some of the potential reasons are following:",
+      },
+      {
+        isList: true,
+        text: 'The interface felt cluttered and hard to navigate.',
+      },
+      {
+        isList: true,
+        text: "Product categories were unclear, users couldn't quickly find what they were looking for.",
+      },
+      {
+        isList: true,
+        text: "The visual design wasn't building confidence in the brand.",
+      },
+      {
+        isList: true,
+        text: "Product pages didn't give users enough information to make a purchase decision.",
+      },
+      {
+        text: "The main challenge here wasn't awareness, but trust and usability.",
+      },
+    ],
+  },
+  problemTableData: [
+    {
+      label: 'Brand mission',
+      value:
+        '“Our mission is to create maximally natural, vegan, and hypoallergenic care for pets. The founders want pet owners to genuinely enjoy time spent with their animals.”',
+    },
+    {
+      label: 'Current problem',
+      value: '“Despite strong traffic, conversions remain low. The factors pushing users away needed to be identified and removed.”',
+    },
+    {
+      label: 'Founder would like to',
+      value:
+        "“Optimise the site's UX, make categories more intuitive with fewer choices, deliver a design that builds trust and drives action.”",
+    },
+  ],
+  tableDescription: 'Key insights from Kick-off meeting with founder',
+  footerImageUrl: 'assets/images/welcome.jpg',
+};
+
+const LAPUNZEL_RESEARCH_DATA: ResearchData = {
+  type: WorkSectionType.RESEARCH,
+  sideBarData: { label: 'Research', link: WorkSectionType.RESEARCH },
+  title: {
+    text: 'Research and discovery',
+    descriptions: [
+      {
+        text: 'To approach this project systematically, we used the Double Diamond framework to explore the problem space, then converging on focused solutions. The process unfolded across four stages over 3 weeks.',
+      },
+      {
+        text: 'To understand the root causes behind low conversions, we combined three research methods: in-depth interviews, usability testing of the existing site, and a quantitative survey to validate findings at scale.',
+      },
+    ],
+  },
+  researchImageWithDescription: {
+    imageUrl: 'assets/images/welcome.jpg',
+    description:
+      'Interview responses were documented and synthesized using affinity mapping, revealing four key theme clusters: product selection criteria, discovery behavior, purchase barriers, and post-purchase expectations.',
+  },
+  qualitativeInsights: [
+    {
+      headerChipTitle: 'Qualitative insights',
+      headerTitle: 'In-depth Interviews & Usability Testing',
+      descriptions: ['6 respondents & 5 for testing', '20+ questions', '40 min average'],
+      takeaways: [
+        {
+          keyTakeawayTitle: 'Key insights:',
+          keyTakeaway: [
+            'Users prefer natural, vegan products — they see it as a safety signal',
+            'Reviews and community content heavily influence purchase decisions',
+            'Brand values and social activity matter when choosing where to buy',
+            'Users want to know exactly which pet and breed a product is suitable for',
+            'Clear product categorisation is essential for efficient browsing',
+          ],
+        },
+        {
+          keyTakeawayTitle: 'Key pain points identified:',
+          keyTakeaway: [
+            'Unclear categorization made product discovery difficult',
+            'Absence of reviews and ratings reduced purchase confidence',
+            "No unified catalog page — users couldn't browse all products at once",
+            'Product descriptions were unstructured and contained unfamiliar terminology',
+            'The blog lacked topic categories, making content hard to navigate',
+            'Ambiguous UI elements in the header created unnecessary confusion',
+          ],
+        },
+      ],
+    },
+    {
+      headerChipTitle: 'Qualitative insights',
+      headerTitle: 'User survey',
+      descriptions: ['20+ respondents', '10 questions'],
+      takeaways: [
+        {
+          keyTakeawayTitle: 'Main insights:',
+          keyTakeaway: [
+            '96% of users said categorization directly impacts how quickly they find products',
+            '55% reported difficulties navigating the existing category structure',
+            '55% consider reviews important when making a purchase decision',
+            '94% want to see product availability status clearly displayed',
+            '77% prioritize natural ingredients when choosing pet care products',
+            "51% factor in a brand's social responsibility when purchasing",
+            '66.7% discover pet product information through social media',
+          ],
+        },
+      ],
+    },
+  ],
+  conclusion:
+    'As a result, we mapped the full experience for our persona Viktoria, a 27-year-old graphic designer from Kyiv with two dogs, who priorities natural and quality products. The map covers 9 stages from need discovery to post-purchase review, analysing her actions, touch points, barriers, goals, and design opportunities at each step.',
+  conclusionImageWithDescription: {
+    imageUrl: 'assets/images/welcome.jpg',
+    description: 'Persona and CJM. It’s conducted in Ukrainian, since the project is done for local market.',
+  },
+};
+
+const LAPUNZEL_DESIGN_DATA: DesignData = {
+  type: WorkSectionType.DESIGN,
+  sideBarData: { label: 'Design', link: WorkSectionType.DESIGN },
+  title: {
+    text: 'Design decisions',
+    descriptions: [
+      {
+        text: 'The research revealed a clear picture and every design decision we made was a direct response to a validated user problem.',
+      },
+      {
+        text: 'The visual direction was equally intentional and they had a clear gap between branding and website. Lapunzel is a bold, modern brand with a strong identity, expressive typography, playful attitude and layouts. We designed to match that energy. When the interface feels as strong as the product, users believe in the brand and it converts.',
+      },
+    ],
+  },
+  titleImageUrl: 'assets/images/welcome.jpg',
+  designDecisions: [
+    {
+      decisionImageUrl: 'assets/images/welcome.jpg',
+      title: {
+        text: 'Reviews and social proof',
+        descriptions: [
+          {
+            text: "The existing product pages had no reviews or ratings. Users were expected to trust a brand they'd just discovered with nothing to back it up.",
+          },
+          {
+            text: "55% of users said reviews matter when making a purchase decision. For a category where people are putting something on their pet's skin, trust isn't optional.",
+          },
+          {
+            text: 'We added star ratings and user reviews to every product page. A full reviews panel opens without leaving the page, and users can leave their own feedback directly.',
+          },
+        ],
+      },
+    },
+    {
+      decisionImageUrl: 'assets/images/welcome.jpg',
+      title: {
+        text: 'Categorisation and navigation',
+        descriptions: [
+          {
+            text: 'The old navigation organised products by animal first, forcing users to dig through two identical subcategory trees. There was no search, no way to browse everything at once.',
+          },
+          {
+            text: '96% of users said categorisation directly impacts how quickly they find products. 55% had difficulties with the existing structure.',
+          },
+          {
+            text: 'We reorganised navigation by product type. A unified "All products" page, horizontal filter chips on the catalog and a search bar gave users multiple fast paths to what they need.',
+          },
+        ],
+      },
+    },
+    {
+      decisionImageUrl: 'assets/images/welcome.jpg',
+      title: {
+        text: 'Blog and conversion',
+        descriptions: [
+          {
+            text: 'The existing blog was a flat list of articles with no categories, navigation and structure. Users who came looking for pet care advice left without finding what they needed. Besides, good blog is a strong SEO and conversion tool.',
+          },
+          {
+            text: '66.7% of users find pet product information through social media. 33.3% use topic blogs, so well-structured blog was a real opportunity to capture users.',
+          },
+          {
+            text: 'We reorganised the blog with clear topic categories and added summary with product integrations.',
+          },
+        ],
+      },
+    },
+    {
+      decisionImageUrl: 'assets/images/welcome.jpg',
+      title: {
+        text: 'Brand trust',
+        descriptions: [
+          {
+            text: "Users didn't just want good products, they wanted to know who was behind them. Without a dedicated brand page, there was nowhere to find that information.",
+          },
+          {
+            text: "77% of users said natural ingredients are important to them. 51% consider a brand's social responsibility when purchasing. 31% said volunteer activity influences their decision to buy.",
+          },
+          {
+            text: 'Key trust signals are presented as dedicated sections on about us and home page, keeping the design clean and vibrant.',
+          },
+        ],
+      },
+    },
+  ],
+  designFlowItems: [
+    {
+      imageUrls: ['assets/images/welcome.jpg', 'assets/images/welcome.jpg', 'assets/images/welcome.jpg'],
+      imageBackgroundColor: '#FCE64D',
+      imageDescription: 'Checkout flow: Cart → Checkout → Success screen.',
+      descriptions: [
+        'Checkout flow was designed to be as frictionless as possible. The cart gives a clear order summary with promo code input and a single prominent CTA. ',
+        'The checkout is structured in 3 logical steps with progress clearly indicated so users always know where they are.',
+        'Quick purchase option reduce steps for returning users. The confirmation screen closes the loop with a warm moment so that user understand the system status.',
+      ],
+    },
+  ],
+  footerImage: {
+    imageUrl: 'assets/images/welcome.jpg',
+    description: 'Contact, Wishlist, FAQ, Footer.',
+  },
+};
+
+const LAPUNZEL_CONCLUSION_DATA: ConclusionData = {
+  type: WorkSectionType.CONCLUSION,
+  sideBarData: { label: 'Conclusion', link: WorkSectionType.CONCLUSION },
+  title: 'Conclusions',
+  conclusionTableData: [
+    {
+      title: 'Outcomes',
+      descriptions: [
+        'Redesign was presented as a documented, interactive prototype, covering the complete end-to-end shopping experience across mobile and desktop. Every screen from homepage to post-purchase confirmation was designed and handed off.',
+        "Project addressed all validated problem areas. Visual style was built to match brand's bold identity to create a consistent, recognisable experience across all touch points. Founder received a design that finally matched the quality and personality of the products themselves.",
+      ],
+    },
+    {
+      title: 'Reflections',
+      descriptions: [
+        "Few things I'd do differently:",
+        'More time on information architecture before jumping into UI. We moved fast, and some structural decisions required rework after usability testing.',
+        'Client involvement in design reviews during the process could have shaped decisions earlier.',
+        "I'd also run a second round of usability testing on the final prototype with more participants. Three was enough to catch critical issues, but more sessions would have given us more confidence before handoff. Time restrictions played a role here.",
+      ],
+    },
+  ],
+};
 
 const LAPUNZEL_PREVIEW_DATA: WorkPreviewData = {
   navigationLink: 'lapunzel',
   sectionData: {
-    intro: {
-      type: WorkSectionType.INTRO,
-      sideBarData: { label: 'Intro', link: WorkSectionType.INTRO },
-      title: 'Lapunzel - Ukrainian pet cosmetics shop',
-      description: {
-        text: 'Redesign of the e-commerce experience for a Ukrainian vegan pet cosmetics brand, so that pet owners can effortlessly discover, trust, and buy products that their animals actually deserve.',
-        chips: ['Website', 'E-commerce', 'Mobile-first'],
-      },
-      imageSection: {
-        imageUrls: ['assets/images/welcome.jpg', 'assets/images/welcome.jpg', 'assets/images/welcome.jpg', 'assets/images/welcome.jpg'],
-        backGroundColor: '#FCE64D',
-      },
-      introTableData: [
-        { label: 'Product', value: 'Lapunzel, Ukrainian vegan pet cosmetics brand' },
-        { label: 'Role', value: 'UX Designer (end-to-end)' },
-        { label: 'Team', value: 'Design team, stakeholders (brand founder)' },
-        { label: 'Target audience', value: 'Ukrainian pet owners, 25–40, mobile shoppers' },
-        { label: 'Platform', value: 'Mobile-first, desktop' },
-      ],
-    },
+    intro: LAPUNZEL_INTRO_DATA,
+    problem: LAPUNZEL_PROBLEM_DATA,
+    research: LAPUNZEL_RESEARCH_DATA,
+    design: LAPUNZEL_DESIGN_DATA,
+    conclusion: LAPUNZEL_CONCLUSION_DATA,
   },
 };
+
+// const GEOSTRATEGISTS_INTRO_DATA: IntroData = {
+//   type: WorkSectionType.INTRO,
+//   sideBarData: { label: 'Intro', link: WorkSectionType.INTRO },
+// }
+//
+// const GEOSTRATEGISTS_PROBLEM_DATA: ProblemData = {
+//   type: WorkSectionType.PROBLEM,
+//   sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
+// }
+//
+// const GEOSTRATEGISTS_RESEARCH_DATA: ResearchData = {
+//   type: WorkSectionType.RESEARCH,
+//   sideBarData: { label: 'Research', link: WorkSectionType.RESEARCH },
+// }
+//
+// const GEOSTRATEGISTS_DESIGN_DATA: DesignData = {
+//  type: WorkSectionType.DESIGN,
+//  sideBarData: { label: 'Design', link: WorkSectionType.DESIGN },
+// }
+//
+// const GEOSTRATEGISTS_CONCLUSION_DATA: ConclusionData = {
+//   type: WorkSectionType.CONCLUSION,
+//   sideBarData: { label: 'Conclusion', link: WorkSectionType.CONCLUSION },
+// }
 
 const GEOSTRATEGISTS_PREVIEW_DATA: WorkPreviewData = {
   navigationLink: 'geostrategists',
   sectionData: {
-    problem: {
-      type: WorkSectionType.PROBLEM,
-      sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
-    },
-    conclusion: {
-      type: WorkSectionType.CONCLUSION,
-      sideBarData: { label: 'Conclusion', link: WorkSectionType.CONCLUSION },
-    },
+    // intro: GEOSTRATEGISTS_INTRO_DATA,
+    // problem: GEOSTRATEGISTS_PROBLEM_DATA,
+    // research: GEOSTRATEGISTS_RESEARCH_DATA,
+    // design: GEOSTRATEGISTS_DESIGN_DATA,
+    // conclusion: GEOSTRATEGISTS_CONCLUSION_DATA,
   },
 };
 
+// const PLENTY_ONE_INTRO_DATA: IntroData = {
+//   type: WorkSectionType.INTRO,
+//   sideBarData: { label: 'Intro', link: WorkSectionType.INTRO },
+// }
+//
+// const PLENTY_ONE_PROBLEM_DATA: ProblemData = {
+//   type: WorkSectionType.PROBLEM,
+//   sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
+// }
+//
+// const PLENTY_ONE_RESEARCH_DATA: ResearchData = {
+//   type: WorkSectionType.RESEARCH,
+//   sideBarData: { label: 'Research', link: WorkSectionType.RESEARCH },
+// }
+//
+// const PLENTY_ONE_DESIGN_DATA: DesignData = {
+//  type: WorkSectionType.DESIGN,
+//  sideBarData: { label: 'Design', link: WorkSectionType.DESIGN },
+// }
+//
+// const PLENTY_ONE_CONCLUSION_DATA: ConclusionData = {
+//   type: WorkSectionType.CONCLUSION,
+//   sideBarData: { label: 'Conclusion', link: WorkSectionType.CONCLUSION },
+// }
+
 const PLENTY_ONE_PREVIEW_DATA: WorkPreviewData = {
   navigationLink: 'plenty_one',
-  sectionData: {},
+  sectionData: {
+    // intro: PLENTY_ONE_INTRO_DATA,
+    // problem: PLENTY_ONE_PROBLEM_DATA,
+    // research: PLENTY_ONE_RESEARCH_DATA,
+    // design: PLENTY_ONE_DESIGN_DATA,
+    // conclusion: PLENTY_ONE_CONCLUSION_DATA,
+  },
 };
 
 export const WORK_ITEMS: WorkPreviewItem[] = [

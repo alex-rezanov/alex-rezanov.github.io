@@ -1,1 +1,19 @@
-<p>work-problem works!</p>
+@if (title(); as titleItem) {
+  <app-card-title [cardTitleData]="titleItem" [isTitleBold]="true" />
+}
+@if (problemTableData(); as tableItems) {
+  <div>
+    @for (problemItem of tableItems; track $index) {
+      <div>
+        <span>{{ problemItem.label }}</span>
+        <span>{{ problemItem.value }}</span>
+      </div>
+    }
+  </div>
+}
+@if (tableDescription(); as description) {
+  <p>{{ description }}</p>
+}
+@if (footerImageUrl(); as imageUrl) {
+  <img [src]="imageUrl" alt="Problem Image" />
+}
