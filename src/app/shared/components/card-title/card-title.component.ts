@@ -8,7 +8,7 @@ import { CardTitleData } from '../../models';
   styleUrl: './card-title.component.scss',
 })
 export class CardTitleComponent {
-  isTitleBold = input(false);
+  isBigTitle = input(false);
   cardIndex = input(0);
   cardTitleData = input.required<CardTitleData>();
 }

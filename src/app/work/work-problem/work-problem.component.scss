@@ -1,5 +1,54 @@
+@use 'mixins' as *;
+
 :host {
   display: flex;
   flex-direction: column;
   gap: var(--alex-size-40);
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--alex-size-10);
+
+  .problem-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--alex-size-24);
+    padding: var(--alex-size-40) 0;
+    border-top: 1px solid var(--alex-stroke-color);
+    border-bottom: 1px solid var(--alex-stroke-color);
+
+    @include smaller-than(MD) {
+      grid-template-columns: 1fr;
+    }
+
+    .table-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--alex-size-10);
+      font-size: 18px;
+
+      .title {
+        font-weight: 700;
+      }
+
+      .description {
+        color: var(--alex-gray-text);
+        font-weight: 500;
+      }
+    }
+  }
+
+  .table-description {
+    color: var(--alex-gray-text);
+    text-align: center;
+    font-weight: 500;
+    font-style: italic;
+  }
+}
+
+.problem-image {
+  margin-top: 160px;
+  @include wideImage;
 }

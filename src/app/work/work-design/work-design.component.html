@@ -3,7 +3,7 @@
 }
 
 @if (title(); as titleItem) {
-  <app-card-title [cardTitleData]="titleItem" [isTitleBold]="true" />
+  <app-card-title [cardTitleData]="titleItem" [isBigTitle]="true" />
 }
 
 @if (designDecisions(); as decisions) {
@@ -12,7 +12,7 @@
       <img [src]="decision.decisionImageUrl" alt="Design Decision Image" class="decision-image" />
       <app-card-title
         [cardTitleData]="decision.title"
-        [isTitleBold]="true"
+        [isBigTitle]="true"
         [cardIndex]="$index + 1" />
     </div>
   }

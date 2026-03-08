@@ -1,19 +1,22 @@
 @if (title(); as titleItem) {
-  <app-card-title [cardTitleData]="titleItem" [isTitleBold]="true" />
+  <app-card-title [cardTitleData]="titleItem" [isBigTitle]="true" />
 }
-@if (problemTableData(); as tableItems) {
-  <div>
-    @for (problemItem of tableItems; track $index) {
-      <div>
-        <span>{{ problemItem.label }}</span>
-        <span>{{ problemItem.value }}</span>
-      </div>
-    }
-  </div>
-}
-@if (tableDescription(); as description) {
-  <p>{{ description }}</p>
-}
+<div class="table-container">
+  @if (problemTableData(); as tableItems) {
+    <div class="problem-table">
+      @for (problemItem of tableItems; track $index) {
+        <div class="table-item">
+          <span class="title">{{ problemItem.label }}</span>
+          <span class="description">{{ problemItem.value }}</span>
+        </div>
+      }
+    </div>
+  }
+  @if (tableDescription(); as description) {
+    <p class="table-description">{{ description }}</p>
+  }
+</div>
+
 @if (footerImageUrl(); as imageUrl) {
-  <img [src]="imageUrl" alt="Problem Image" />
+  <img [src]="imageUrl" class="problem-image" alt="Problem Image" />
 }

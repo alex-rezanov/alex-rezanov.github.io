@@ -1,0 +1,31 @@
+@use 'mixins';
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--alex-size-12);
+
+  @include mixins.smaller-than(MD) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 18px;
+
+  &.big {
+    font-size: var(--alex-size-32);
+  }
+}
+
+.card-description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--alex-size-16);
+
+  .description-list {
+    margin-left: var(--alex-size-20);
+    padding-inline-start: var(--alex-size-10);
+  }
+}

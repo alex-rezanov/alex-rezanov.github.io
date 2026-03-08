@@ -1,15 +1,17 @@
 @if (cardTitleData(); as titleData) {
-  <h1 [class.bold]="isTitleBold()">
+  <span class="card-title" [class.big]="isBigTitle()">
     @if (cardIndex(); as index) {
       <span class="index">{{ index }}</span>
     }
     {{ titleData.text }}
-  </h1>
-  @for (description of titleData.descriptions; track $index) {
-    @if (description?.isList) {
-      <li>{{ description.text }}</li>
-    } @else {
-      <span>{{ description.text }}</span>
+  </span>
+  <div class="card-description">
+    @for (description of titleData.descriptions; track $index) {
+      @if (description?.isList) {
+        <li class="description-list">{{ description.text }}</li>
+      } @else {
+        <span class="description">{{ description.text }}</span>
+      }
     }
-  }
+  </div>
 }
