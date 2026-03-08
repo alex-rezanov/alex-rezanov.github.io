@@ -3,45 +3,47 @@
 }
 
 @if (researchImageWithDescription(); as imageWithDescription) {
-  <div>
-    <img [src]="imageWithDescription.imageUrl" alt="Research Image" />
-    <p>{{ imageWithDescription.description }}</p>
+  <div class="image-with-description">
+    <img class="image" [src]="imageWithDescription.imageUrl" alt="Research Image" />
+    <p class="description">{{ imageWithDescription.description }}</p>
   </div>
 }
 
 @if (qualitativeInsights(); as qualitativeInsightsItem) {
-  <div>
+  <div class="qualitative-insights">
     @for (insightItem of qualitativeInsightsItem; track $index) {
-      <button>{{ insightItem.headerChipTitle }}</button>
-      <p>{{ insightItem.headerTitle }}</p>
-      <div>
-        @for (description of insightItem.descriptions; track $index) {
-          <span>{{ description }}</span>
-        }
-      </div>
-      <div>
-        @for (takeawayItem of insightItem.takeaways; track $index) {
-          <p>{{ takeawayItem.keyTakeawayTitle }}</p>
-          <div>
-            @for (description of takeawayItem.keyTakeaway; track $index) {
-              <li>{{ description }}</li>
-            }
-          </div>
-        }
+      <div class="insight-container">
+        <button mat-flat-button class="ax-button">{{ insightItem.headerChipTitle }}</button>
+        <p class="insight-title">{{ insightItem.headerTitle }}</p>
+        <div class="insight-description">
+          @for (description of insightItem.descriptions; track $index) {
+            <span class="description">{{ description }}</span>
+          }
+        </div>
+        <div class="takeaway-container">
+          @for (takeawayItem of insightItem.takeaways; track $index) {
+            <p class="takeaway-title">{{ takeawayItem.keyTakeawayTitle }}</p>
+            <div class="description-list">
+              @for (description of takeawayItem.keyTakeaway; track $index) {
+                <li class="description-list-item">{{ description }}</li>
+              }
+            </div>
+          }
+        </div>
       </div>
     }
   </div>
 }
 
 @if (conclusion(); as conclusionItem) {
-  <div>
-    <span>{{ conclusionItem }}</span>
+  <div class="conclusion-container">
+    <span class="conclusion">{{ conclusionItem }}</span>
   </div>
 }
 
 @if (conclusionImageWithDescription(); as imageWithDescription) {
-  <div>
-    <img [src]="imageWithDescription.imageUrl" alt="Conclusion Image" />
-    <p>{{ imageWithDescription.description }}</p>
+  <div class="image-with-description">
+    <img class="image" [src]="imageWithDescription.imageUrl" alt="Conclusion Image" />
+    <p class="description">{{ imageWithDescription.description }}</p>
   </div>
 }

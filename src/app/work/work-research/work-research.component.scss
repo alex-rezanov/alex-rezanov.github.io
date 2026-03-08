@@ -1,5 +1,94 @@
+@use 'mixins' as *;
+
 :host {
   display: flex;
   flex-direction: column;
-  gap: var(--alex-size-40);
+  gap: var(--alex-size-100);
+}
+
+.image-with-description {
+  @include imageWithDescription;
+}
+
+.qualitative-insights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--alex-size-10);
+  padding: var(--alex-size-40);
+  border-radius: var(--alex-size-10);
+  background-color: #191919;
+  border: 1px solid #252525;
+
+  @include smaller-than(MD) {
+    padding: var(--alex-size-10);
+  }
+
+  .insight-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--alex-size-24);
+    padding: var(--alex-size-24);
+    border-radius: var(--alex-size-10);
+    background-color: var(--alex-secondary-background);
+
+    @include smaller-than(MD) {
+      padding: var(--alex-size-10);
+    }
+
+    .ax-button {
+      width: fit-content;
+    }
+
+    .insight-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .insight-description {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: var(--alex-size-24);
+      border-bottom: 1px solid var(--alex-stroke-color);
+
+      .description {
+        color: var(--alex-gray-text);
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+
+    .takeaway-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--alex-size-24);
+
+      .takeaway-title {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .description-list {
+        display: flex;
+        flex-direction: column;
+
+        .description-list-item {
+          margin-left: var(--alex-size-20);
+          padding-inline-start: var(--alex-size-10);
+        }
+      }
+    }
+  }
+}
+
+.conclusion-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include smaller-than(MD) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image-with-description {
+  @include imageWithDescription;
 }

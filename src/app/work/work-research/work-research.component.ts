@@ -1,10 +1,11 @@
 import { Component, computed, input } from '@angular/core';
 import { ResearchData } from '../../shared/models';
 import { CardTitleComponent } from '../../shared/components';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-work-research',
-  imports: [CardTitleComponent],
+  imports: [CardTitleComponent, MatButton],
   templateUrl: './work-research.component.html',
   styleUrl: './work-research.component.scss',
 })
