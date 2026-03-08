@@ -1,6 +1,7 @@
 export * from './testimonial-item';
 export * from './playground-item';
 export * from './experience-item';
+export * from './emoji-particle';
 export * from './education-item';
 export * from './side-bar-item';
 export * from './about-items';

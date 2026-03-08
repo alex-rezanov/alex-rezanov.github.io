@@ -1,6 +1,7 @@
 export * from './default-material-options';
 export * from './mobile-width-threshold';
 export * from './side-bar-items';
+export * from './emojs';
 
 // User data
 export * from './data/selected-work-items';

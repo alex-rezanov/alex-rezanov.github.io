@@ -1,11 +1,32 @@
 <h1 class="section-title">Hi, I'm {{ alexDetails.name }}</h1>
-<img
-  class="welcome-img"
-  ngSrc="assets/images/welcome.jpg"
-  alt="Alex portrait"
-  height="1280"
-  width="960"
-/>
+<div class="welcome-img-wrapper">
+  <img
+    class="welcome-img"
+    ngSrc="assets/images/welcome.jpg"
+    alt="Alex portrait"
+    height="1280"
+    width="960"
+    [class.welcome-img--punch]="imgPunching()"
+    (click)="onImgClick($event)"
+    (animationend)="onImgAnimationEnd()" />
+</div>
+@for (particle of particles(); track particle.id) {
+  <span
+    aria-hidden="true"
+    class="emoji-particle"
+    [style.--ox.px]="particle.ox"
+    [style.--oy.px]="particle.oy"
+    [style.--tx.px]="particle.tx"
+    [style.--ty.px]="particle.ty"
+    [style.--end-y.px]="particle.endY"
+    [style.--spin.deg]="particle.spin"
+    [style.--dur.ms]="particle.duration"
+    [style.--delay.ms]="particle.delay"
+    [style.font-size.rem]="particle.size"
+    (animationend)="removeParticle(particle.id)">
+    {{ particle.emoji }}
+  </span>
+}
 <div class="welcome-message-container">
   <span class="message-underlined">{{ alexDetails.position }}</span>
   <span class="message-highlight">

@@ -6,8 +6,7 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
     position: 'UX Designer',
     duration: 'August 2024 - March 2026',
     workLoad: 'Full-time',
-    description:
-      'One of the biggest all-in-one e-commerce ERP and multichannel platform for retailers and brands in Germany.',
+    description: 'One of the biggest all-in-one e-commerce ERP and multichannel platform for retailers and brands in Germany.',
   },
   {
     company: 'Geostrategists',
@@ -21,15 +20,13 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
     position: 'UI/UX Designer',
     duration: 'October 2023 - March 2024',
     workLoad: 'Full-time',
-    description:
-      'B2B startup from Amsterdam that offers on-demand TaaS to businesses looking for flexible support.',
+    description: 'B2B startup from Amsterdam that offers on-demand TaaS to businesses looking for flexible support.',
   },
   {
     company: 'Self-employed',
     position: 'Fitness/Performance Coach',
     duration: 'June 2018 - February 2022',
-    description:
-      'Established and operated an independent coaching business for high-level athletes and general fitness clients.',
+    description: 'Established and operated an independent coaching business for high-level athletes and general fitness clients.',
   },
   {
     company: 'Ukrainian Athletics Federation',
