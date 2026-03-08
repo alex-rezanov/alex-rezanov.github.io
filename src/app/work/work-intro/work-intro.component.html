@@ -20,3 +20,13 @@
     </span>
   </div>
 }
+@if (introTableData(); as tableData) {
+  <div class="table-container">
+    @for (data of tableData; track $index) {
+      <div class="table-row">
+        <span class="table-key">{{ data.label }}</span>
+        <span class="table-value">{{ data.value }}</span>
+      </div>
+    }
+  </div>
+}
