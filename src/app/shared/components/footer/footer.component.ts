@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { MatSidenavContent } from '@angular/material/sidenav';
 import { ALEX_DETAILS } from '../../constants';
 import { LinkService } from '../../../core/services';
 
@@ -15,11 +14,10 @@ export class FooterComponent {
   protected readonly alexDetails = ALEX_DETAILS;
   protected readonly links = this.alexDetails.links;
 
-  private readonly sidenavContent = inject(MatSidenavContent);
   private readonly linkService = inject(LinkService);
 
   protected onScrollToTop(): void {
-    this.sidenavContent.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   protected onEmailClick(): void {

@@ -26,26 +26,33 @@ export class HomeWelcomeComponent {
 
   protected onImgClick(event: MouseEvent): void {
     this.imgPunching.set(true);
-    const ox = event.clientX;
-    const oy = event.clientY;
+    const ox = event.clientX + window.scrollX;
+    const oy = event.clientY + window.scrollY;
 
-    const newParticles: EmojiParticle[] = Array.from({ length: 50 }, (_, i) => {
+    const newParticles: EmojiParticle[] = Array.from({ length: 23 }, (_, i) => {
       // spread evenly around 360° with jitter so no two overlap
       const angle = (i / 28) * Math.PI * 2 + random(-0.3, 0.3);
       const speed = random(200, 560);
+      const tx = Math.cos(angle) * speed;
       const ty = Math.sin(angle) * speed;
+      const endY = ty + random(260, 620);
+      const duration = random(1800, 3000);
+      const delay = random(0, 120);
+      const size = random(1.9, 3.4);
       return {
         id: this.nextId++,
         emoji: EMOJIS[Math.floor(random(0, EMOJIS.length))],
         ox,
         oy,
-        tx: Math.cos(angle) * speed,
-        ty,
-        endY: ty + random(260, 620),
-        spin: random(-600, 600),
-        duration: random(1600, 2400),
-        delay: random(0, 120),
-        size: random(1.5, 3),
+        size,
+        cssVars: [
+          `--dur:${duration}ms`,
+          `--delay:${delay}ms`,
+          `--t0:translate3d(-50%,-50%,0) scale(0)`,
+          `--t1:translate3d(-50%,-50%,0) scale(1.4)`,
+          `--t2:translate3d(calc(${tx.toFixed(2)}px - 50%),calc(${endY.toFixed(2)}px - 50%),0) scale(0.4)`,
+          `font-size:${size}rem`,
+        ].join(';'),
       };
     });
     this.particles.update(prev => [...prev, ...newParticles]);

@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: var(--alex-size-40);
   height: 100%;
-  width: calc(70svw - var(--alex-size-20));
+  width: calc(75svw - var(--alex-size-20));
   overflow: visible;
   margin-inline: auto;
   margin: var(--alex-size-80) var(--alex-size-40) var(--alex-size-40) var(--alex-size-40);
@@ -25,7 +25,7 @@
 }
 
 .side-bar {
-  width: calc(20vw - var(--alex-size-20));
+  width: calc(15vw - var(--alex-size-20));
 
   &.mobile {
     display: none;

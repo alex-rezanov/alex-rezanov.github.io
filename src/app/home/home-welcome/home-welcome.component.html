@@ -14,18 +14,12 @@
   <span
     aria-hidden="true"
     class="emoji-particle"
-    [style.--ox.px]="particle.ox"
-    [style.--oy.px]="particle.oy"
-    [style.--tx.px]="particle.tx"
-    [style.--ty.px]="particle.ty"
-    [style.--end-y.px]="particle.endY"
-    [style.--spin.deg]="particle.spin"
-    [style.--dur.ms]="particle.duration"
-    [style.--delay.ms]="particle.delay"
-    [style.font-size.rem]="particle.size"
-    (animationend)="removeParticle(particle.id)">
-    {{ particle.emoji }}
-  </span>
+    [style.left.px]="particle.ox"
+    [style.top.px]="particle.oy"
+    [style]="particle.cssVars"
+    (animationend)="removeParticle(particle.id)"
+    >{{ particle.emoji }}</span
+  >
 }
 <div class="welcome-message-container">
   <span class="message-underlined">{{ alexDetails.position }}</span>
