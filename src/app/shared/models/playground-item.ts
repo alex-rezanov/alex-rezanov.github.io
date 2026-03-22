@@ -1,5 +1,6 @@
 export interface PlaygroundItem {
   title: string;
+  link?: string;
   description: string;
   chips: string[];
   imageUrl?: string;

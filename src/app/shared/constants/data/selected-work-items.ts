@@ -1035,7 +1035,7 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
     backgroundColor: '#062633',
     imageUrl: 'assets/images/cover_1.png',
-    chips: ['App', 'Social good', 'Practice'],
+    chips: ['E-commerce', 'ERP', 'B2B'],
     previewData: PLENTY_ONE_PREVIEW_DATA,
   },
   {
@@ -1044,7 +1044,7 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
     backgroundColor: '#166054',
     imageUrl: 'assets/images/cover_2.png',
-    chips: ['App', 'Social good', 'Practice'],
+    chips: ['Platform', 'Website', 'SaaS'],
     previewData: GEOSTRATEGISTS_PREVIEW_DATA,
   },
   {

@@ -1,6 +1,6 @@
 <h1 class="section-title">Playground</h1>
 <div class="playground-container">
   @for (item of playgroundItems; track $index) {
-    <app-work-card class="playground-item" [workItem]="item" />
+    <app-work-card class="playground-item" [workItem]="item" (click)="onLinkCLick(item)" />
   }
 </div>
