@@ -1050,7 +1050,7 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
   {
     title: 'Lapunzel / Ukrainian pet cosmetics shop',
     description:
-      'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
+      'Redesign of the e-commerce experience for a Ukrainian vegan pet cosmetics brand, so that pet owners can effortlessly discover, trust, and buy products that their animals actually deserve.',
     backgroundColor: '#FCE64D',
     imageUrl: 'assets/images/cover_3.png',
     chips: ['Website', 'E-commerce', 'Mobile-first'],
