@@ -20,6 +20,12 @@
       @case (workSectionType.CONCLUSION) {
         <app-work-conclusion [id]="section.type" [conclusionData]="section" />
       }
+      @case (workSectionType.PROCESS) {
+        <app-work-process [id]="section.type" [processData]="section" />
+      }
+      @case (workSectionType.TESTIMONIALS) {
+        <app-work-testimonials [id]="section.type" [testimonialsData]="section" />
+      }
     }
   }
 </div>

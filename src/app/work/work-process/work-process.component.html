@@ -1,0 +1,23 @@
+@if (title(); as title) {
+  <h1 class="work-title">{{ title }}</h1>
+}
+@if (processTableData(); as tableData) {
+  <div class="table-container">
+    @for (data of tableData; track $index) {
+      <div class="table-row">
+        <span class="table-key">{{ data.label }}</span>
+        <span class="table-value">{{ data.value }}</span>
+      </div>
+    }
+  </div>
+}
+@if (imageSection(); as imageSectionData) {
+  <div class="image-section-container">
+    <div class="images-container">
+      @for (image of imageSectionData.images; track $index) {
+        <img [src]="image.url" alt="Image" class="image" />
+      }
+    </div>
+    <p class="description">{{ imageSectionData.description }}</p>
+  </div>
+}

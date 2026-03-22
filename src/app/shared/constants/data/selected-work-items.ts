@@ -1,5 +1,16 @@
-import { ConclusionData, DesignData, IntroData, ProblemData, ResearchData, WorkPreviewData, WorkPreviewItem } from '../../models';
+import {
+  ConclusionData,
+  DesignData,
+  IntroData,
+  ProblemData,
+  ProcessData,
+  ResearchData,
+  TestimonialsData,
+  WorkPreviewData,
+  WorkPreviewItem,
+} from '../../models';
 import { WorkSectionType } from '../../enums';
+import { PLENTY_ONE_TESTIMONIALS } from './testimonial-items';
 
 const LAPUNZEL_INTRO_DATA: IntroData = {
   type: WorkSectionType.INTRO,
@@ -363,39 +374,259 @@ const GEOSTRATEGISTS_PREVIEW_DATA: WorkPreviewData = {
   },
 };
 
-// const PLENTY_ONE_INTRO_DATA: IntroData = {
-//   type: WorkSectionType.INTRO,
-//   sideBarData: { label: 'Intro', link: WorkSectionType.INTRO },
-// }
-//
-// const PLENTY_ONE_PROBLEM_DATA: ProblemData = {
-//   type: WorkSectionType.PROBLEM,
-//   sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
-// }
-//
-// const PLENTY_ONE_RESEARCH_DATA: ResearchData = {
-//   type: WorkSectionType.RESEARCH,
-//   sideBarData: { label: 'Research', link: WorkSectionType.RESEARCH },
-// }
-//
-// const PLENTY_ONE_DESIGN_DATA: DesignData = {
-//  type: WorkSectionType.DESIGN,
-//  sideBarData: { label: 'Design', link: WorkSectionType.DESIGN },
-// }
-//
-// const PLENTY_ONE_CONCLUSION_DATA: ConclusionData = {
-//   type: WorkSectionType.CONCLUSION,
-//   sideBarData: { label: 'Conclusion', link: WorkSectionType.CONCLUSION },
-// }
+const PLENTY_ONE_INTRO_DATA: IntroData = {
+  type: WorkSectionType.INTRO,
+  sideBarData: { label: 'Intro', link: WorkSectionType.INTRO },
+  title: 'PlentyONE / E-commerce website editor for merchants',
+  description: {
+    text: 'Designing the visual shop builder for an all-in-one e-commerce ERP, so that merchants can build and manage their online store without leaving their ecosystem and without writing a single line of code.',
+    chips: ['E-commerce', 'ERP', 'B2B'],
+  },
+  imageSection: {
+    imageUrls: ['assets/images/selected_1.png'],
+    backGroundColor: '#062633',
+  },
+  introTableData: [
+    {
+      label: 'Product',
+      value:
+        "PlentyONE Shop Editor, a visual website builder built into PlentyONE, one of Germany's leading all-in-one e-commerce ERP platforms trusted by thousands of merchants and brands across Europe",
+    },
+    { label: 'Role', value: 'UX Designer (end-to-end)' },
+    { label: 'Team', value: 'UX Designer, PMs, TLM, Developers' },
+    { label: 'Target audience', value: 'E-commerce merchants building and managing their online shop' },
+    { label: 'Platform', value: 'Desktop-focused, tablets' },
+  ],
+};
+
+const PLENTY_ONE_PROBLEM_DATA: ProblemData = {
+  type: WorkSectionType.PROBLEM,
+  sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
+  title: {
+    text: 'Problem',
+    descriptions: [
+      {
+        text: "I had a pleasure working for PlentyONE, which is one of Germany's leading all-in-one e-commerce ERP platforms, helping thousands of merchants across Europe manage their products, orders, inventory and sales channels in one place.",
+      },
+      {
+        text: 'Every merchant also needs an online shop. The existing ShopBuilder (legacy tool for building an online shop) had served that role for years, but it was showing its age: a cluttered and outdated interface with settings scattered across a large, complex platform.',
+      },
+      {
+        text: 'The decision was made to replace it with a new PWA-based Shop Editor, built to deliver:',
+      },
+      {
+        isList: true,
+        text: 'Clean, intuitive, useful editing experience merchants can use independently',
+      },
+      {
+        isList: true,
+        text: 'Unified place to manage shop settings without hunting across the platform',
+      },
+      {
+        isList: true,
+        text: 'Fast and modern online shop with no-code tools for merchants and full flexibility for those who want to go further',
+      },
+    ],
+  },
+  footerImageUrl: 'assets/images/plenty_problem_1.png',
+};
+
+const PLENTY_ONE_PROCESS_DATA: ProcessData = {
+  type: WorkSectionType.PROCESS,
+  sideBarData: { label: 'Process', link: WorkSectionType.PROCESS },
+  title: 'Process',
+  processTableData: [
+    {
+      label: 'Kick-off',
+      value:
+        'Every feature started with a proper kick-off, structured discussion with the PM and key stakeholders to align on goals, define scope and identify open questions. From there I created a research plan and estimated timeline to ensure the design work aligned with the development schedule. The overall approach followed Design Thinking principles, empathising with merchants, defining problems and goals clearly, ideating solutions and validating direction before moving forward.',
+    },
+    {
+      label: 'Research',
+      value:
+        'Research to every feature project was done in close collaboration with the responsible PM and typically included various activities, such as competitor analysis, CJM, merchant feedback, analysis of the existing ShopBuilder, etc. This gave us a practical understanding under time constrains of what merchants needed without slowing down the pace of delivery.',
+    },
+    {
+      label: 'Design',
+      value:
+        'From research, we moved into ideation and design phase, iterating through concepts and presenting results in regular review meetings with the team. Ongoing UX consultancy was part of the process throughout, with weekly syncs and additional touch points when needed. I was responsible designer for this area, so my other important task was to look over the product quality.',
+    },
+    {
+      label: 'Handoff',
+      value:
+        'Handoffs to developers were presented in a detailed way with documented/annotated Figma files with thorough flow descriptions to ensure nothing was lost in translation.',
+    },
+  ],
+  imageSection: {
+    images: [
+      {
+        url: 'assets/images/plenty_process_1.png',
+      },
+      {
+        url: 'assets/images/plenty_process_2.png',
+      },
+      {
+        url: 'assets/images/plenty_process_3.png',
+      },
+    ],
+    description:
+      'Parts of competitor analysis early on in the process, to identify the best way for adding blocks, block settings and multicolumn layout.',
+  },
+};
+
+const PLENTY_ONE_DESIGN_DATA: DesignData = {
+  type: WorkSectionType.DESIGN,
+  sideBarData: { label: 'Design', link: WorkSectionType.DESIGN },
+  title: {
+    text: 'Design decisions',
+    descriptions: [
+      {
+        text: 'Shop Editor was being built from scratch, which meant every interaction pattern and panel, every flow needed to be designed and validated from the ground up with ability to scale further. Below is a selection of some selected features I worked on throughout the project. ',
+      },
+    ],
+  },
+  designDecisions: [
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: ['assets/images/plenty_decisions_1_1.png', 'assets/images/plenty_decisions_1_2.png'],
+      title: {
+        text: 'Adding blocks and multicolumn layout',
+        descriptions: [
+          {
+            text: 'For merchants building their shop, adding content to a page should feel effortless. The block system is the foundation of that experience, giving merchants access to a library of pre-designed content templates they can browse, select and place on any page without technical knowledge.',
+          },
+          {
+            text: 'Block picker was designed to make available templates immediately visible and easy to compare, with the system designed to scale as new blocks are added over time.',
+          },
+          {
+            text: 'Multicolumn support extended this further, giving merchants the ability to place blocks side by side and create richer, more flexible page layouts. Designing this without native drag and drop required a considered workaround that kept the experience intuitive despite the technical constraints.',
+          },
+        ],
+      },
+    },
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: ['assets/images/plenty_decisions_2_1.png', 'assets/images/plenty_decisions_2_2.png'],
+      title: {
+        text: 'Editing blocks and selecting images',
+        descriptions: [
+          {
+            text: 'Before, merchants who wanted to edit block content had to work directly with JSON that most merchants had no experience with and no interest in learning.',
+          },
+          {
+            text: 'The block settings panel replaced that entirely. Triggered by clicking the edit button on any block toolbar, a side panel opens with an intuitive input form tailored to the content of that specific block. ',
+          },
+          {
+            text: 'Merchants can manipulate various settings, such as edit and align text, manage images (including uploading directly from their device or selecting from media library), configure buttons and control spacing through margin/padding controls, etc.',
+          },
+          {
+            text: 'The goal was to give merchants full control over their content without exposing a single line of code.',
+          },
+        ],
+      },
+    },
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: ['assets/images/plenty_decisions_3_1.png', 'assets/images/plenty_decisions_3_2.png'],
+      title: {
+        text: 'Product category and detail pages',
+        descriptions: [
+          {
+            text: "Product category and detail pages are the most business-critical part of any online shop, they're where merchants present their products and where purchase decisions are made. Making them editable inside the Shop Editor was one of the most complex features of the project.",
+          },
+          {
+            text: "Merchants can now customise their category pages (adjusting filters, sorting options, product card presentation) and their product detail pages (configuring item cards, images and the arrangement of key product information). Elements can be rearranged, switched on or off and tailored to match the merchant's brand and priorities.",
+          },
+          {
+            text: 'Crucially, all of this stays in sync with the data merchants have already configured inside terra. No duplication or manual re-entry, the ERP and the shop editor are connected. And the design was built with future depth in mind, leaving room for even more granular customisation as the product evolves.',
+          },
+        ],
+      },
+    },
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: ['assets/images/plenty_decisions_4_1.png', 'assets/images/plenty_decisions_4_2.png'],
+      title: {
+        text: 'Pages and settings',
+        descriptions: [
+          {
+            text: 'Managing a shop means more than designing individual pages, merchants need a clear way to oversee their entire site structure and control global configurations in one place.',
+          },
+          {
+            text: 'Pages section gives merchants a dedicated space to manage all pages on their website, e.g. navigating between them, creating new ones and configuring page-specific settings including SEO directly within the editor.',
+          },
+          {
+            text: 'Settings panel presented a real information architecture challenge. With a large number of configurable options covering both visual and functional aspects of the shop, the main design work was in finding a logical structure that made everything discoverable without overwhelming the merchant.',
+          },
+        ],
+      },
+    },
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: ['assets/images/plenty_decisions_5_1.png', 'assets/images/plenty_decisions_5_2.png'],
+      title: {
+        text: 'Custom code',
+        descriptions: [
+          {
+            text: 'Not every merchant needs to write code, but some do. Custom code is the feature that bridges the gap between the no-code editor and developer flexibility.',
+          },
+          {
+            text: 'Merchants and developers can add CSS and JavaScript snippets directly within the editor, as well as manage custom meta tags and external scripts and styles. ',
+          },
+          {
+            text: 'Each snippet can be individually activated or deactivated for the shop, giving users precise control without touching the core codebase.',
+          },
+          {
+            text: 'While most of the Shop Editor is built for merchants with no technical background, custom code was designed with a more technical audience in mind, agencies and developers who need that extra layer of control without leaving the platform.',
+          },
+        ],
+      },
+    },
+  ],
+};
+
+const PLENTY_ONE_TESTIMONIALS_DATA: TestimonialsData = {
+  type: WorkSectionType.TESTIMONIALS,
+  sideBarData: { label: 'Design', link: WorkSectionType.TESTIMONIALS },
+  title: 'Testimonials',
+  testimonials: PLENTY_ONE_TESTIMONIALS,
+};
+
+const PLENTY_ONE_CONCLUSION_DATA: ConclusionData = {
+  type: WorkSectionType.CONCLUSION,
+  sideBarData: { label: 'Conclusion', link: WorkSectionType.CONCLUSION },
+  title: 'Conclusions',
+  conclusionTableData: [
+    {
+      title: 'Outcomes',
+      descriptions: [
+        'Shop Editor shipped and is now live, used by many merchants across Europe, including well-known brands that trust PlentyONE as the backbone of their e-commerce operations.',
+        'Adoption has been strong since launch, with merchants across different technical backgrounds successfully building and managing their online shops independently within the platform. And I believe that’s only beginning of a successful story.',
+        'The work covered the full editor experience from the ground up and each feature was designed to work as part of a coherent whole, giving merchants a tool that grows with their needs. ',
+        "Despite significant technical, resource and time constraints, the team managed to deliver product that merchants genuinely find useful (and that's what matters most).",
+      ],
+    },
+    {
+      title: 'Reflections',
+      descriptions: [
+        "A few things I'd do differently.",
+        "- More direct contact with merchants throughout the process would have strengthened the work. More usability testing and direct user conversations would have surfaced edge cases earlier and given us more confidence before handoff. Lack of time was the decisive factor that limited this and it's something I'd push harder to protect in future projects",
+        "- I'd also invest more time upfront in defining the exact scope for each feature. Working in a large product with many moving parts, scope had a tendency to shift, so clearer boundaries set earlier would have made both the design and development process smoother.",
+        "- I'd push for a dedicated post-project retro, structured moment for the team to reflect together on what worked, what didn't and what to carry into the next project. That kind of shared reflection tends to compound over time.",
+      ],
+    },
+  ],
+};
 
 const PLENTY_ONE_PREVIEW_DATA: WorkPreviewData = {
   navigationLink: 'plenty_one',
   sectionData: {
-    // intro: PLENTY_ONE_INTRO_DATA,
-    // problem: PLENTY_ONE_PROBLEM_DATA,
-    // research: PLENTY_ONE_RESEARCH_DATA,
-    // design: PLENTY_ONE_DESIGN_DATA,
-    // conclusion: PLENTY_ONE_CONCLUSION_DATA,
+    intro: PLENTY_ONE_INTRO_DATA,
+    problem: PLENTY_ONE_PROBLEM_DATA,
+    process: PLENTY_ONE_PROCESS_DATA,
+    design: PLENTY_ONE_DESIGN_DATA,
+    testimonial: PLENTY_ONE_TESTIMONIALS_DATA,
+    conclusion: PLENTY_ONE_CONCLUSION_DATA,
   },
 };
 

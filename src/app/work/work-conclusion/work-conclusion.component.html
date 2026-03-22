@@ -2,15 +2,17 @@
   <h1>{{ titleItem }}</h1>
 }
 
-@if (conclusionTableData(); as tableData) {
-  <div>
+<div class="conclusion-table-container">
+  @if (conclusionTableData(); as tableData) {
     @for (conclusionItem of tableData; track $index) {
-      <div>
+      <div class="table-row">
         <span>{{ conclusionItem.title }}</span>
-        @for (description of conclusionItem.descriptions; track $index) {
-          <span>{{ description }}</span>
-        }
+        <div class="table-description-container">
+          @for (description of conclusionItem.descriptions; track $index) {
+            <span class="table-value">{{ description }}</span>
+          }
+        </div>
       </div>
     }
-  </div>
-}
+  }
+</div>

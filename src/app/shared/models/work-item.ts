@@ -1,6 +1,7 @@
 import { SideBarItem } from './side-bar-item';
 import { WorkSectionType } from '../enums';
 import { PlaygroundItem } from './playground-item';
+import { TestimonialItem } from './testimonial-item';
 
 export interface WorkPreviewItem extends PlaygroundItem {
   previewData: WorkPreviewData;
@@ -17,6 +18,8 @@ export interface WorkSectionData {
   research?: ResearchData;
   design?: DesignData;
   conclusion?: ConclusionData;
+  process?: ProcessData;
+  testimonial?: TestimonialsData;
 }
 
 export interface SectionItemBase<T extends WorkSectionType> {
@@ -51,7 +54,7 @@ export interface CardTitleData {
 
 export interface ProblemData extends SectionItemBase<WorkSectionType.PROBLEM> {
   title: CardTitleData;
-  problemTableData: workTableItem[];
+  problemTableData?: workTableItem[];
   tableDescription?: string;
   footerImageUrl?: string;
 }
@@ -88,13 +91,13 @@ export interface ImageWithDescriptionItem {
 
 export interface DesignData extends SectionItemBase<WorkSectionType.DESIGN> {
   title: CardTitleData;
-  titleImage: {
+  titleImage?: {
     backGroundColor: string;
     decisionImageUrls: string[];
   };
   designDecisions: DesignDecision[];
-  designFlowItems: DesignFlowItem[];
-  footerImage: {
+  designFlowItems?: DesignFlowItem[];
+  footerImage?: {
     backGroundColor: string;
     footerImageUrls: string[];
     description: string;
@@ -124,4 +127,22 @@ export interface ConclusionTableItem {
   descriptions: string[];
 }
 
-export type SectionItem = IntroData | ProblemData | ResearchData | DesignData | ConclusionData;
+export interface ProcessImage {
+  url: string;
+}
+
+export interface ProcessData extends SectionItemBase<WorkSectionType.PROCESS> {
+  title: string;
+  processTableData: workTableItem[];
+  imageSection: {
+    images: ProcessImage[];
+    description: string;
+  };
+}
+
+export interface TestimonialsData extends SectionItemBase<WorkSectionType.TESTIMONIALS> {
+  title: string;
+  testimonials: TestimonialItem[];
+}
+
+export type SectionItem = IntroData | ProblemData | ResearchData | DesignData | ConclusionData | ProcessData | TestimonialsData;

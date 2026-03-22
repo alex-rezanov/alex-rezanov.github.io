@@ -33,24 +33,5 @@
 }
 
 .table-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-
-  .table-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--alex-size-12);
-    padding: var(--alex-size-40) 0;
-    border-top: 1px solid var(--alex-stroke-color);
-    font-size: 18px;
-
-    &:last-child {
-      border-bottom: 1px solid var(--alex-stroke-color);
-    }
-
-    .table-key {
-      font-weight: 700;
-    }
-  }
+  @include tableStandard;
 }

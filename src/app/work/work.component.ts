@@ -11,6 +11,8 @@ import { WorkConclusionComponent } from './work-conclusion/work-conclusion.compo
 import { WORK_ITEMS_MAP } from '../shared/constants';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { WorkProcessComponent } from './work-process/work-process.component';
+import { WorkTestimonialsComponent } from './work-testimonials/work-testimonials.component';
 
 @Component({
   selector: 'app-work',
@@ -22,6 +24,8 @@ import { MatIcon } from '@angular/material/icon';
     WorkConclusionComponent,
     MatButton,
     MatIcon,
+    WorkProcessComponent,
+    WorkTestimonialsComponent,
   ],
   templateUrl: './work.component.html',
   styleUrl: './work.component.scss',

@@ -1,0 +1,42 @@
+@use 'mixins' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--alex-size-40);
+}
+
+.image-section-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--alex-size-10);
+
+  .description {
+    @include imageDescriptionText;
+  }
+
+  .images-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--alex-size-10);
+
+    @include smaller-than(MD) {
+      grid-template-columns: 1fr;
+    }
+
+    .image {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: var(--alex-size-10);
+
+      &:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+}
+
+.table-container {
+  @include tableStandard;
+}

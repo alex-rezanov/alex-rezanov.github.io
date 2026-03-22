@@ -95,3 +95,5 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     pictureUrl: 'assets/images/avatar_mariana_santos.svg',
   },
 ];
+
+export const PLENTY_ONE_TESTIMONIALS: TestimonialItem[] = [TESTIMONIAL_ITEMS[3], TESTIMONIAL_ITEMS[4], TESTIMONIAL_ITEMS[5]];

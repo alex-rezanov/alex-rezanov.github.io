@@ -4,4 +4,6 @@ export enum WorkSectionType {
   RESEARCH = 'research',
   DESIGN = 'design',
   CONCLUSION = 'conclusion',
+  PROCESS = 'process',
+  TESTIMONIALS = 'testimonials',
 }

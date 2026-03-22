@@ -1,6 +1,6 @@
 <h1 class="section-title">Testimonials</h1>
 <div class="testimonials-container">
-  @for (item of testimonialItems; track $index) {
+  @for (item of testimonialItems(); track $index) {
     <div class="testimonial">
       <div class="quotes-container">
         @for (quote of item.quotes; track $index) {

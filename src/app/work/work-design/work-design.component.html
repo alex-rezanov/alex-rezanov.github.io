@@ -22,8 +22,8 @@
     </div>
   }
 }
-
-@if (designFlowItems(); as flowItems) {
+@let flowItems = designFlowItems();
+@if (flowItems?.length) {
   <div class="design-flow-container">
     @for (flowItem of flowItems; track $index) {
       <div class="design-image-with-description">

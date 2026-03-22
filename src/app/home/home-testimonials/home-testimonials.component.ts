@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { TESTIMONIAL_ITEMS } from '../../shared/constants';
 import { LinkService } from '../../core/services';
 
@@ -9,7 +9,8 @@ import { LinkService } from '../../core/services';
   styleUrl: './home-testimonials.component.scss',
 })
 export class HomeTestimonialsComponent {
-  protected testimonialItems = TESTIMONIAL_ITEMS;
+  testimonialItems = input(TESTIMONIAL_ITEMS);
+
   private readonly linkService = inject(LinkService);
 
   protected onLinkClick(link: string): void {

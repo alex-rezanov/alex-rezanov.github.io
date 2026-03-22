@@ -1,5 +1,37 @@
+@use 'mixins' as *;
+
 :host {
   display: flex;
   flex-direction: column;
   gap: var(--alex-size-40);
+}
+
+.conclusion-table-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--alex-size-100);
+  padding: var(--alex-size-40) 0;
+  border-top: 1px solid var(--alex-stroke-color);
+  border-bottom: 1px solid var(--alex-stroke-color);
+  font-size: 18px;
+
+  @include smaller-than(MD) {
+    grid-template-columns: 1fr;
+  }
+
+  .table-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--alex-size-40);
+
+    .table-description-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--alex-size-20);
+
+      .table-value {
+        color: var(--alex-gray-text);
+      }
+    }
+  }
 }
