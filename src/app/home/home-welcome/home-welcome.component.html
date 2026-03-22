@@ -1,11 +1,14 @@
-<h1 class="section-title">Hi, I'm {{ alexDetails.name }}</h1>
+<img
+  src="assets/images/welcome-title-image.svg"
+  alt="Welcome title image"
+  class="section-title-image" />
 <div class="welcome-img-wrapper">
   <img
     class="welcome-img"
-    ngSrc="assets/images/welcome.jpg"
+    ngSrc="assets/images/welcome-main-image.jpg"
     alt="Alex portrait"
-    height="1280"
-    width="960"
+    height="267"
+    width="200"
     [class.welcome-img--punch]="imgPunching()"
     (click)="onImgClick($event)"
     (animationend)="onImgAnimationEnd()" />

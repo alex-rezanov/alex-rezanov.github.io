@@ -1,5 +1,68 @@
+@use 'mixins' as *;
+
 :host {
   display: flex;
   flex-direction: column;
+  gap: var(--alex-size-100);
+}
+
+.title-image,
+.decision-image,
+.flow-image {
+  @include wideImage;
+}
+
+.decision-container {
+  display: flex;
+  flex-direction: column;
   gap: var(--alex-size-40);
+}
+
+.design-flow-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--alex-size-40);
+
+  .design-image-with-description {
+    display: flex;
+    flex-direction: column;
+    gap: var(--alex-size-10);
+
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--alex-size-10);
+      padding: var(--alex-size-20);
+      border-radius: var(--alex-size-10);
+      border: 1px solid #252525;
+
+      .flow-image {
+        max-width: 170px;
+        aspect-ratio: 8 / 16;
+      }
+    }
+
+    .description {
+      @include imageDescriptionText;
+    }
+  }
+
+  .flow-description-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include smaller-than(MD) {
+      grid-template-columns: 1fr;
+    }
+
+    .flow-description {
+      font-size: 18px;
+    }
+  }
+}
+
+.image-with-description {
+  @include imageWithDescription;
 }

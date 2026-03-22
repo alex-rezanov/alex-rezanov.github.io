@@ -12,7 +12,11 @@
           <span class="work-load">{{ workLoad }}</span>
         }
       </div>
-      <span class="description">{{ item.description }}</span>
+      <div class="description-container">
+        @for (description of item.descriptions; track $index) {
+          <span class="description">{{ description }}</span>
+        }
+      </div>
     </div>
   }
 </div>

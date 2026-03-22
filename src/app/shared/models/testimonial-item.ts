@@ -1,6 +1,8 @@
 export interface TestimonialItem {
-  quote: string;
-  author: string;
-  position: string;
-  pictureUrl: string;
+  quotes: string[];
+  link?: string;
+  position?: string;
+  author?: string;
+  pictureUrl?: string;
+  isEmptyAuthorInfo?: boolean;
 }

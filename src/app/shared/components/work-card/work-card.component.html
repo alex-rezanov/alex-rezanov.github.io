@@ -1,5 +1,13 @@
 @if (workItem(); as item) {
-  <img class="work-card-img" [src]="item.imageUrl" />
+  @if (item?.imageUrl) {
+    <img class="work-card-img" [src]="item.imageUrl" />
+  } @else {
+    <div [style.background-color]="item.backgroundColor" class="work-image-container">
+      @for (image of item.imageUrls; track $index) {
+        <img class="work-image" [style.aspect-ratio]="image?.ratio" [src]="image.url" />
+      }
+    </div>
+  }
   <div class="work-card-title-container">
     <h2 class="title">{{ item.title }}</h2>
     <span class="description">{{ item.description }}</span>

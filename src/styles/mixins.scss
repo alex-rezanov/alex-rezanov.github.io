@@ -2,27 +2,27 @@
 
 @mixin bigger-than($media) {
   @if $media == XS {
-    @media only screen and (min-width: $break-xs) {
+    @media only screen and (min-width: $break-xs + 1px) {
       @content;
     }
   } @else if $media == SM {
-    @media only screen and (min-width: $break-sm) {
+    @media only screen and (min-width: $break-sm + 1px) {
       @content;
     }
   } @else if $media == MD {
-    @media only screen and (min-width: $break-md) {
+    @media only screen and (min-width: $break-md + 1px) {
       @content;
     }
   } @else if $media == LG {
-    @media only screen and (min-width: $break-lg) {
+    @media only screen and (min-width: $break-lg + 1px) {
       @content;
     }
   } @else if $media == XL {
-    @media only screen and (min-width: $break-xl) {
+    @media only screen and (min-width: $break-xl + 1px) {
       @content;
     }
   } @else if $media == XXL {
-    @media only screen and (min-width: $break-xxl) {
+    @media only screen and (min-width: $break-xxl + 1px) {
       @content;
     }
   }
@@ -62,8 +62,8 @@
 
 @mixin wideImage {
   width: 100%;
-  aspect-ratio: 16 / 8;
   height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: var(--alex-size-10);
 
@@ -78,9 +78,13 @@
   }
 
   .description {
-    color: var(--alex-gray-text);
-    text-align: center;
-    font-weight: 500;
-    font-style: italic;
+    @include imageDescriptionText;
   }
+}
+
+@mixin imageDescriptionText {
+  color: var(--alex-gray-text);
+  text-align: center;
+  font-weight: 500;
+  font-style: italic;
 }

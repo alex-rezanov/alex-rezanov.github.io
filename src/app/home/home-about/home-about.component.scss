@@ -13,7 +13,7 @@
   margin-bottom: 60px;
 
   .quote {
-    width: 50%;
+    width: 75%;
     font-size: var(--alex-size-32);
 
     @include smaller-than(MD) {
@@ -106,6 +106,10 @@
           min-height: 0;
           object-fit: cover;
           border-radius: var(--alex-size-10);
+
+          @include bigger-than(LG) {
+            object-position: bottom;
+          }
         }
       }
 
@@ -194,10 +198,8 @@
     }
 
     .path-image {
-      height: 100%;
       width: 100%;
-      position: absolute;
-      object-fit: cover;
+      height: auto;
     }
   }
 

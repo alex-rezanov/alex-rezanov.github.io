@@ -10,26 +10,25 @@
   @for (decision of decisions; track $index) {
     <div class="decision-container">
       <img [src]="decision.decisionImageUrl" alt="Design Decision Image" class="decision-image" />
-      <app-card-title
-        [cardTitleData]="decision.title"
-        [isBigTitle]="true"
-        [cardIndex]="$index + 1" />
+      <app-card-title [cardTitleData]="decision.title" [cardIndex]="$index + 1" />
     </div>
   }
 }
 
 @if (designFlowItems(); as flowItems) {
-  <div>
+  <div class="design-flow-container">
     @for (flowItem of flowItems; track $index) {
-      <div [style.background-color]="flowItem.imageBackgroundColor">
-        @for (imageUrl of flowItem.imageUrls; track $index) {
-          <img [src]="imageUrl" alt="Design Flow Image" class="flow-image" />
-        }
+      <div class="design-image-with-description">
+        <div class="image-container" [style.background-color]="flowItem.imageBackgroundColor">
+          @for (imageUrl of flowItem.imageUrls; track $index) {
+            <img [src]="imageUrl" alt="Design Flow Image" class="flow-image" />
+          }
+        </div>
+        <p class="description">{{ flowItem.imageDescription }}</p>
       </div>
-      <p>{{ flowItem.imageDescription }}</p>
-      <div>
+      <div class="flow-description-container">
         @for (description of flowItem.descriptions; track $index) {
-          <span>{{ description }}</span>
+          <span class="flow-description">{{ description }}</span>
         }
       </div>
     }
@@ -37,6 +36,8 @@
 }
 
 @if (footerImage(); as footerImageItem) {
-  <img [src]="footerImageItem.imageUrl" alt="Footer Image" class="footer-image" />
-  <p>{{ footerImageItem.description }}</p>
+  <div class="image-with-description">
+    <img [src]="footerImageItem.imageUrl" alt="Footer Image" class="image" />
+    <p class="description">{{ footerImageItem.description }}</p>
+  </div>
 }

@@ -372,7 +372,12 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
     title: 'PlentyONE - All-in-one ERP for e-commerce',
     description:
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
-    imageUrl: 'assets/images/welcome.jpg',
+    backgroundColor: '#062633',
+    imageUrls: [
+      {
+        url: 'assets/images/selected_1.png',
+      },
+    ],
     chips: ['App', 'Social good', 'Practice'],
     previewData: PLENTY_ONE_PREVIEW_DATA,
   },
@@ -380,7 +385,15 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
     title: 'Geostrategists - Platform for geopolitical experts',
     description:
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
-    imageUrl: 'assets/images/works_geostrategists.jpg',
+    backgroundColor: '#166054',
+    imageUrls: [
+      {
+        url: 'assets/images/selected_2_1.png',
+      },
+      {
+        url: 'assets/images/selected_2_2.png',
+      },
+    ],
     chips: ['App', 'Social good', 'Practice'],
     previewData: GEOSTRATEGISTS_PREVIEW_DATA,
   },
@@ -388,7 +401,21 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
     title: 'Lapunzel - Ukrainian pet cosmetics shop',
     description:
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
-    imageUrl: 'assets/images/works_lapunzel.jpg',
+    backgroundColor: '#FCE64D',
+    imageUrls: [
+      {
+        url: 'assets/images/selected_3_1.png',
+      },
+      {
+        url: 'assets/images/selected_3_2.png',
+      },
+      {
+        url: 'assets/images/selected_3_3.png',
+      },
+      {
+        url: 'assets/images/selected_3_4.png',
+      },
+    ],
     chips: ['Website', 'E-commerce', 'Mobile-first'],
     previewData: LAPUNZEL_PREVIEW_DATA,
   },

@@ -10,9 +10,9 @@
 .testimonials-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--alex-size-40);
+  gap: var(--alex-size-100) var(--alex-size-40);
 
-  @include smaller-than(MD) {
+  @include smaller-than(LG) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -23,22 +23,27 @@
   .testimonial {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 50px;
+    gap: var(--alex-size-40);
     font-size: 18px;
 
-    .quote {
-      text-wrap: pretty;
+    .quotes-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--alex-size-20);
+
+      .quote {
+        text-wrap: pretty;
+      }
     }
 
     .description {
       display: flex;
       justify-content: flex-start;
-      align-items: center;
+      align-items: flex-start;
       gap: 18px;
 
       .description-img {
-        inline-size: var(--alex-size-40);
+        inline-size: 54px;
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 5px;
@@ -53,8 +58,24 @@
           font-weight: 700;
         }
 
-        .position {
-          color: var(--alex-gray-text);
+        .link-container {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: var(--alex-size-10);
+
+          &.link {
+            cursor: pointer;
+          }
+
+          .linkedin-icon {
+            height: 18px;
+            width: 18px;
+          }
+
+          .position {
+            color: var(--alex-gray-text);
+          }
         }
       }
     }

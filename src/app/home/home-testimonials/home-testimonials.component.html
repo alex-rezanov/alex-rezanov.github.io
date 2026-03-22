@@ -2,14 +2,31 @@
 <div class="testimonials-container">
   @for (item of testimonialItems; track $index) {
     <div class="testimonial">
-      <span class="quote">{{ item.quote }}</span>
-      <div class="description">
-        <img class="description-img" [src]="item.pictureUrl" />
-        <div class="author-container">
-          <span class="author">{{ item.author }}</span>
-          <span class="position">{{ item.position }}</span>
-        </div>
+      <div class="quotes-container">
+        @for (quote of item.quotes; track $index) {
+          <span class="quote">{{ quote }}</span>
+        }
       </div>
+      @if (!item?.isEmptyAuthorInfo) {
+        <div class="description">
+          @if (item.pictureUrl) {
+            <img class="description-img" [src]="item.pictureUrl" />
+          }
+          <div class="author-container">
+            <span class="author">{{ item?.author }}</span>
+            @let isLink = !!item?.link;
+            <div class="link-container" (click)="onLinkClick(item?.link)" [class.link]="isLink">
+              <span class="position">{{ item?.position }}</span>
+              @if (isLink) {
+                <img
+                  [src]="'assets/images/linkedin_icon.svg'"
+                  alt="LinkedIn icon"
+                  class="linkedin-icon" />
+              }
+            </div>
+          </div>
+        </div>
+      }
     </div>
   }
 </div>

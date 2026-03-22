@@ -1,6 +1,13 @@
 export interface PlaygroundItem {
   title: string;
   description: string;
-  imageUrl: string;
   chips: string[];
+  imageUrl?: string;
+  imageUrls?: imageWithRatio[];
+  backgroundColor?: string;
+}
+
+export interface imageWithRatio {
+  ratio?: string;
+  url: string;
 }

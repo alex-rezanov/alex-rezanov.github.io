@@ -3,5 +3,5 @@ export interface ExperienceItem {
   position: string;
   duration: string;
   workLoad?: string;
-  description: string;
+  descriptions: string[];
 }

@@ -22,4 +22,8 @@ export class LinkService {
   getCvLink(): void {
     window.open(this.links.cv, '_blank', 'noopener,noreferrer');
   }
+
+  openLink(link: string): void {
+    window.open(link, '_blank');
+  }
 }
