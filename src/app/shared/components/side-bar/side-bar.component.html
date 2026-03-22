@@ -23,7 +23,7 @@
       <button
         mat-icon-button
         class="burger-button"
-        (click)="toggleMenu()"
+        (click)="toggleMenu($event)"
         [attr.aria-expanded]="isMenuOpen()"
         aria-label="Toggle navigation menu">
         <mat-icon>{{ isMenuOpen() ? 'close' : 'menu' }}</mat-icon>

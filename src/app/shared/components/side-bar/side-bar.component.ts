@@ -76,7 +76,8 @@ export class SideBarComponent {
     this.scrollTo(link);
   }
 
-  protected toggleMenu(): void {
+  protected toggleMenu(event: Event): void {
+    event.stopPropagation();
     this.hapticService.triggerSuccess().then(() => {
       this.isMenuOpen.update(open => !open);
     });
