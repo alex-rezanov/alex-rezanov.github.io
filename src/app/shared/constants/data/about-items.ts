@@ -58,22 +58,22 @@ export const LANGUAGE_ITEMS: LanguageItem[] = [
 
 export const BOOK_ITEMS: BookItem[] = [
   {
-    image: 'assets/images/book_essentialism.svg',
+    image: 'assets/images/book_essentialism.png',
     title: 'Essentialism',
     author: 'by Greg McKeown',
   },
   {
-    image: 'assets/images/book_meditations.svg',
+    image: 'assets/images/book_meditations.png',
     title: 'Meditations',
     author: 'by Marcus Aurelius',
   },
   {
-    image: 'assets/images/book_everyday-things.svg',
+    image: 'assets/images/book_everyday-things.png',
     title: 'The Design of Everyday Things',
     author: 'by Don Norman',
   },
   {
-    image: 'assets/images/book_alchemy.svg',
+    image: 'assets/images/book_alchemy.png',
     title: 'Alchemy',
     author: 'by Rory Sutherland',
   },

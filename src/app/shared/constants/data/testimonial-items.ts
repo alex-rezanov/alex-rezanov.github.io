@@ -10,7 +10,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     author: 'Aga Plaza',
     link: 'https://www.linkedin.com/in/aga-plaza-399997a1',
     position: 'UX Designer at PlentyONE',
-    pictureUrl: 'assets/images/avatar_aga_plaza.svg',
+    pictureUrl: 'assets/images/avatar_aga_plaza.png',
   },
   {
     quotes: [
@@ -20,7 +20,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     author: 'Ekaterina Alekseenko',
     link: 'https://www.linkedin.com/in/ekaterinaalekseenko',
     position: 'UX Designer at PlentyONE',
-    pictureUrl: 'assets/images/avatar_ekaterina_alekseenko.svg',
+    pictureUrl: 'assets/images/avatar_ekaterina_alekseenko.png',
   },
   {
     quotes: [
@@ -44,7 +44,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     author: 'Tim Müller-Späth',
     position: 'PM at PlentyONE',
     link: 'https://www.linkedin.com/in/tim-müller-späth-8b70b9247',
-    pictureUrl: 'assets/images/avatar_tim.svg',
+    pictureUrl: 'assets/images/avatar_tim.png',
   },
 
   {
@@ -66,7 +66,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     author: 'Sabine Scharfenberger',
     position: 'PM at PlentyONE',
     link: 'https://www.linkedin.com/in/sabine-scharfenberger-3a041047',
-    pictureUrl: 'assets/images/avatar_sabine_scharfenberger.svg',
+    pictureUrl: 'assets/images/avatar_sabine_scharfenberger.png',
   },
   {
     quotes: [
@@ -78,7 +78,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     author: 'Christoph Czakalla',
     position: 'CEO at Geostrategists',
     link: 'https://www.linkedin.com/in/christoph-czakalla',
-    pictureUrl: 'assets/images/avatar_christoph_czakalla.svg',
+    pictureUrl: 'assets/images/avatar_christoph_czakalla.png',
   },
   {
     quotes: [
@@ -89,7 +89,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     author: 'Bernhard Frauendienst',
     position: 'CTPO at Geostrategists',
     link: 'https://www.linkedin.com/in/bernhard-frauendienst',
-    pictureUrl: 'assets/images/avatar_bernhard_frauendienst.svg',
+    pictureUrl: 'assets/images/avatar_bernhard_frauendienst.png',
   },
   {
     quotes: [
@@ -100,7 +100,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     author: 'Mariana Santos',
     link: 'https://www.linkedin.com/in/mariana-santos-8ab4121b6',
     position: 'Graphic Designer | UX/UI Designer at Hubinit',
-    pictureUrl: 'assets/images/avatar_mariana_santos.svg',
+    pictureUrl: 'assets/images/avatar_mariana_santos.png',
   },
 ];
 

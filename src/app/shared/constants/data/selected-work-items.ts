@@ -757,7 +757,7 @@ const GEOSTRATEGISTS_CONCLUSION_DATA: ConclusionData = {
 
 const GEOSTRATEGISTS_TESTIMONIALS_DATA: TestimonialsData = {
   type: WorkSectionType.TESTIMONIALS,
-  sideBarData: { label: 'Design', link: WorkSectionType.TESTIMONIALS },
+  sideBarData: { label: 'Testimonials', link: WorkSectionType.TESTIMONIALS },
   title: 'Testimonials',
   isGeostrategists: true,
   testimonials: GEOSTRATEGISTS_TESTIMONIALS,
@@ -985,7 +985,7 @@ const PLENTY_ONE_DESIGN_DATA: DesignData = {
 
 const PLENTY_ONE_TESTIMONIALS_DATA: TestimonialsData = {
   type: WorkSectionType.TESTIMONIALS,
-  sideBarData: { label: 'Design', link: WorkSectionType.TESTIMONIALS },
+  sideBarData: { label: 'Testimonials', link: WorkSectionType.TESTIMONIALS },
   title: 'Testimonials',
   testimonials: PLENTY_ONE_TESTIMONIALS,
 };
@@ -1030,25 +1030,25 @@ const PLENTY_ONE_PREVIEW_DATA: WorkPreviewData = {
 
 export const WORK_ITEMS: WorkPreviewItem[] = [
   {
-    title: 'PlentyONE - All-in-one ERP for e-commerce',
+    title: 'PlentyONE / E-commerce website editor for merchants',
     description:
-      'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
+      'Designing the visual shop builder for an all-in-one e-commerce ERP, so that merchants can build and manage their online store without leaving their ecosystem and without writing a single line of code.',
     backgroundColor: '#062633',
     imageUrl: 'assets/images/cover_1.png',
     chips: ['E-commerce', 'ERP', 'B2B'],
     previewData: PLENTY_ONE_PREVIEW_DATA,
   },
   {
-    title: 'Geostrategists - Platform for geopolitical experts',
+    title: 'Geostrategists / Platform for geopolitical experts',
     description:
-      'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
+      'Design of the expert platform and the website for a German geopolitical consulting startup, so that organisations can effortlessly find the right expertise and experts can manage their work and find clients in one place.',
     backgroundColor: '#166054',
     imageUrl: 'assets/images/cover_2.png',
     chips: ['Platform', 'Website', 'SaaS'],
     previewData: GEOSTRATEGISTS_PREVIEW_DATA,
   },
   {
-    title: 'Lapunzel - Ukrainian pet cosmetics shop',
+    title: 'Lapunzel / Ukrainian pet cosmetics shop',
     description:
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
     backgroundColor: '#FCE64D',
