@@ -9,6 +9,6 @@ export const ALEX_DETAILS: SuperUser = {
   links: {
     cv: '',
     email: 'oleksandr.rznv@gmail.com',
-    linkedIn: '',
+    linkedIn: 'https://www.linkedin.com/in/alex-rezanov',
   },
 };

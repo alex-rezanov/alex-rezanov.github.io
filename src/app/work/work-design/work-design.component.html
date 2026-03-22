@@ -1,3 +1,10 @@
+@if (title(); as titleItem) {
+  <app-card-title
+    [class.card-title]="isGeostrategists()"
+    [cardTitleData]="titleItem"
+    [isBigTitle]="true" />
+}
+
 @if (titleImageUrl(); as titleImageUrl) {
   <div class="decision-images-container" [style.background-color]="titleImageUrl.backGroundColor">
     @for (url of titleImageUrl.decisionImageUrls; track $index) {
@@ -6,20 +13,33 @@
   </div>
 }
 
-@if (title(); as titleItem) {
-  <app-card-title [cardTitleData]="titleItem" [isBigTitle]="true" />
-}
-
 @if (designDecisions(); as decisions) {
   @for (decision of decisions; track $index) {
     <div class="decision-container">
+      <app-card-title [cardTitleData]="decision.title" [cardIndex]="$index + 1" />
       <div class="decision-images-container" [style.background-color]="decision.backGroundColor">
         @for (url of decision.decisionImageUrls; track $index) {
           <img [src]="url" alt="Design Decision Image" class="image" />
         }
       </div>
-      <app-card-title [cardTitleData]="decision.title" [cardIndex]="$index + 1" />
     </div>
+    @let decisionSecondImageUrls = decision?.decisionSecondImageUrls;
+    @if (decisionSecondImageUrls?.length) {
+      @for (item of decisionSecondImageUrls; track $index) {
+        <div class="footer-image-with-description">
+          <div
+            class="decision-images-container"
+            [style.background-color]="decision.backGroundColor">
+            @for (imageUrl of item.imageUrls; track $index) {
+              <img [src]="imageUrl" alt="Footer Image" class="image" />
+            }
+          </div>
+          @if (item.description) {
+            <p class="description">{{ item.description }}</p>
+          }
+        </div>
+      }
+    }
   }
 }
 @let flowItems = designFlowItems();

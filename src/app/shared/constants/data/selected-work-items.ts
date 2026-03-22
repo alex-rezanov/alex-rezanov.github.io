@@ -10,7 +10,7 @@ import {
   WorkPreviewItem,
 } from '../../models';
 import { WorkSectionType } from '../../enums';
-import { PLENTY_ONE_TESTIMONIALS } from './testimonial-items';
+import { GEOSTRATEGISTS_TESTIMONIALS, PLENTY_ONE_TESTIMONIALS } from './testimonial-items';
 
 const LAPUNZEL_INTRO_DATA: IntroData = {
   type: WorkSectionType.INTRO,
@@ -20,15 +20,7 @@ const LAPUNZEL_INTRO_DATA: IntroData = {
     text: 'Redesign of the e-commerce experience for a Ukrainian vegan pet cosmetics brand, so that pet owners can effortlessly discover, trust, and buy products that their animals actually deserve.',
     chips: ['Website', 'E-commerce', 'Mobile-first'],
   },
-  imageSection: {
-    imageUrls: [
-      'assets/images/selected_3_1.png',
-      'assets/images/selected_3_2.png',
-      'assets/images/selected_3_3.png',
-      'assets/images/selected_3_4.png',
-    ],
-    backGroundColor: '#FCE64D',
-  },
+  imageSection: 'assets/images/cover_3.png',
   introTableData: [
     { label: 'Product', value: 'Lapunzel, Ukrainian vegan pet cosmetics brand' },
     { label: 'Role', value: 'UX Designer (end-to-end)' },
@@ -109,7 +101,7 @@ const LAPUNZEL_RESEARCH_DATA: ResearchData = {
   },
   qualitativeInsights: [
     {
-      headerChipTitle: 'Qualitative insights',
+      headerChipTitles: ['Qualitative insights'],
       headerTitle: 'In-depth Interviews & Usability Testing',
       descriptions: ['6 respondents & 5 for testing', '20+ questions', '40 min average'],
       takeaways: [
@@ -137,7 +129,7 @@ const LAPUNZEL_RESEARCH_DATA: ResearchData = {
       ],
     },
     {
-      headerChipTitle: 'Qualitative insights',
+      headerChipTitles: ['Qualitative insights'],
       headerTitle: 'User survey',
       descriptions: ['20+ respondents', '10 questions'],
       takeaways: [
@@ -156,12 +148,19 @@ const LAPUNZEL_RESEARCH_DATA: ResearchData = {
       ],
     },
   ],
-  conclusion:
-    'As a result, we mapped the full experience for our persona Viktoria, a 27-year-old graphic designer from Kyiv with two dogs, who priorities natural and quality products. The map covers 9 stages from need discovery to post-purchase review, analysing her actions, touch points, barriers, goals, and design opportunities at each step.',
-  conclusionImageWithDescription: {
-    imageUrl: 'assets/images/lapunzel_lapunzel_research_2.png',
-    description: 'Persona and CJM. It’s conducted in Ukrainian, since the project is done for local market.',
-  },
+  conclusions: [
+    {
+      conclusionDescriptions: [
+        'As a result, we mapped the full experience for our persona Viktoria, a 27-year-old graphic designer from Kyiv with two dogs, who priorities natural and quality products. The map covers 9 stages from need discovery to post-purchase review, analysing her actions, touch points, barriers, goals, and design opportunities at each step.',
+      ],
+      conclusionImageWithDescription: [
+        {
+          imageUrl: 'assets/images/lapunzel_lapunzel_research_2.png',
+          description: 'Persona and CJM. It’s conducted in Ukrainian, since the project is done for local market.',
+        },
+      ],
+    },
+  ],
 };
 
 const LAPUNZEL_DESIGN_DATA: DesignData = {
@@ -338,39 +337,441 @@ const LAPUNZEL_PREVIEW_DATA: WorkPreviewData = {
   },
 };
 
-// const GEOSTRATEGISTS_INTRO_DATA: IntroData = {
-//   type: WorkSectionType.INTRO,
-//   sideBarData: { label: 'Intro', link: WorkSectionType.INTRO },
-// }
-//
-// const GEOSTRATEGISTS_PROBLEM_DATA: ProblemData = {
-//   type: WorkSectionType.PROBLEM,
-//   sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
-// }
-//
-// const GEOSTRATEGISTS_RESEARCH_DATA: ResearchData = {
-//   type: WorkSectionType.RESEARCH,
-//   sideBarData: { label: 'Research', link: WorkSectionType.RESEARCH },
-// }
-//
-// const GEOSTRATEGISTS_DESIGN_DATA: DesignData = {
-//  type: WorkSectionType.DESIGN,
-//  sideBarData: { label: 'Design', link: WorkSectionType.DESIGN },
-// }
-//
-// const GEOSTRATEGISTS_CONCLUSION_DATA: ConclusionData = {
-//   type: WorkSectionType.CONCLUSION,
-//   sideBarData: { label: 'Conclusion', link: WorkSectionType.CONCLUSION },
-// }
+const GEOSTRATEGISTS_INTRO_DATA: IntroData = {
+  type: WorkSectionType.INTRO,
+  sideBarData: { label: 'Intro', link: WorkSectionType.INTRO },
+  title: 'Geostrategists / Platform for geopolitical experts',
+  description: {
+    text: 'Design of the expert platform and the website for a German geopolitical consulting startup, so that organisations can effortlessly find the right expertise and experts can manage their work and find clients in one place.',
+    chips: ['Platform', 'Website', 'SaaS'],
+  },
+  imageSection: 'assets/images/cover_2.png',
+  introTableData: [
+    { label: 'Product', value: 'Geostrategists, on-demand platform for geopolitical consultants and country experts' },
+    { label: 'Role', value: 'UX Designer (end-to-end)' },
+    { label: 'Team', value: 'UX Designer, CTPO, CEO' },
+    { label: 'Target audience', value: 'Companies seeking experts, geopolitical experts themselves' },
+    { label: 'Platform', value: 'Desktop, mobile' },
+  ],
+};
+
+const GEOSTRATEGISTS_PROBLEM_DATA: ProblemData = {
+  type: WorkSectionType.PROBLEM,
+  sideBarData: { label: 'Problem', link: WorkSectionType.PROBLEM },
+  title: {
+    text: 'Problem',
+    descriptions: [
+      {
+        text: 'Geostrategists was preparing to launch their first MVP for  a platform where geopolitical experts could create a profile and get matched with client projects. The concept and business value was validated, working prototype existed, but the user experience needed to be brought up to the standard the product deserved.',
+      },
+      {
+        text: 'Expert that joins the platform has a goal to complete their profile and become available to potential clients. The existing prototype made that journey quite confusing, had a lot of structural issues and could bring quite a big drop-off rate (which would be a pity, since the product is unique and has no direct competitors).',
+      },
+      {
+        text: "Besides, the visual design didn't reflect the brand, was quite inconsistent and had a cheap feel. The platform clearly had a big room for improvement and match the service quality.",
+      },
+    ],
+  },
+  footerImageUrl: 'assets/images/geo_problem_1.png',
+};
+
+const GEOSTRATEGISTS_RESEARCH_DATA: ResearchData = {
+  type: WorkSectionType.RESEARCH,
+  sideBarData: { label: 'Research', link: WorkSectionType.RESEARCH },
+  title: {
+    text: 'Research and discovery',
+    descriptions: [
+      {
+        text: 'With no existing user research and a tight timeline, the focus was on understanding the product from the inside out. I ran a structured UX audit of the existing prototype, analysing the login and signup flows, the current information architecture and the profile completion journey to identify where and why experts could get stuck. ',
+      },
+      {
+        text: 'Based on the findings, the information architecture was fully restructured to address the root causes before moving into design. ',
+      },
+      {
+        text: 'The whole research and design iterations process took three month, with regular weekly meetings where we discussed prios and main objectives, discussed research results and reviewed design iterations. The last activity was our workshop, during which we came together for one full day for a last full review workshop before launching.',
+      },
+    ],
+  },
+  researchImageWithDescription: {
+    imageUrl: 'assets/images/geo_research_1.png',
+    description:
+      'Parts of UX Audit for existing Login and Signup flows, IA, the most critical profile readiness user flow. Yellow cards represented current UX issues.',
+  },
+  qualitativeInsights: [
+    {
+      headerChipTitles: ['Login', 'Signup'],
+      takeaways: [
+        {
+          keyTakeawayTitle: 'Main pain points:',
+          keyTakeaway: [
+            'No visible "Login" title, the page could easily be mistaken for signup',
+            'Page framing was client-focused, not expert-focused',
+            'Magic link approach created friction, forcing users to leave the platform and manually open their email app mid-flow (technically wise we decided to go for it in MVP)',
+            '"Continue with email" was more prominent than "Login"',
+            'Confusing jump between screens with no clear way to go back',
+            'Visually dated visual style, bad first impression',
+            'Overwhelming amount of text on the first screen is likely to scare users off before they even start',
+            'Welcome text felt more like a survey than an onboarding flow',
+            'Too much information presented at once in the final form with no logical separation when completing it',
+            'Inconsistent visual style in login and sign up flow',
+            'No asterisks on required Privacy Policy and Terms fields, easy to overlook',
+            'Splitting final form into two steps would reduce cognitive load ',
+          ],
+        },
+        {
+          keyTakeawayTitle: 'What worked well:',
+          keyTakeaway: [
+            'Magic link email itself was clear with a strong CTA',
+            'Even if user goes for login and had no account, we propose to create account without interrupting the flow',
+            'Once inside, account access was straightforward',
+            'Quick performance',
+          ],
+        },
+      ],
+    },
+    {
+      headerChipTitles: ['Informational architecture'],
+      takeaways: [
+        {
+          keyTakeawayTitle: 'Main pain points:',
+          keyTakeaway: [
+            'No dedicated dashboard tab, the only way to return home was clicking the logo, which is non-obvious and inconsistent',
+            'Tab naming was misleading and led to unexpected destinations, critical issue',
+            'Profile data was scattered across multiple disconnected sections with no clear hierarchy or logical grouping',
+            'Avatar menu labels had poor predictability — "Show profile" was expected to open the dashboard, "Settings" to open account settings',
+            'Help menu item had no destination — a dead link inside the primary navigation',
+            'Profile readiness indicator showed only a percentage with no actionable checklist or deep links to missing sections, forcing experts to hunt manually',
+            'Too many CTAs on the dashboard diluted focus and broke the core principle of directing users toward one clear action',
+            'Locations field was buried inside the profile card instead of account settings where users would logically expect to find it',
+            'Connected email address was not visible anywhere in the interface',
+          ],
+        },
+      ],
+    },
+    {
+      headerChipTitles: ['Profile readiness flow'],
+      takeaways: [
+        {
+          keyTakeawayTitle: 'Main pain points:',
+          keyTakeaway: [
+            'No clear starting point on the dashboard, the readiness indicator showed a percentage and step count but never listed what was missing or where to find it',
+            'Mandatory profile data was scattered across three separate mislabeled tabs (Projects, Expertise and Resource) with no system guidance between them',
+            'Related professional information like Languages and Expertise was split across different sections, forcing experts to piece it together manually',
+            'No navigation between forms — after completing one section, the system offered no direction to the next',
+            'Inconsistent save interactions across forms — different button styles, missing cancel options, unclear confirmation states',
+            'After completing all forms manually, the readiness indicator remained stuck at 67% — the system failed to register the completed data',
+            'Experts reached a dead end with no explanation and no way to resolve it',
+          ],
+        },
+      ],
+    },
+  ],
+  conclusions: [
+    {
+      conclusionImageWithDescription: [
+        {
+          imageUrl: 'assets/images/geo_research_3.png',
+        },
+      ],
+    },
+    {
+      conclusionImageWithDescription: [
+        {
+          imageUrl: 'assets/images/geo_research_2.png',
+          description: 'Parts of UX Audit for existing IA and the most critical profile readiness user flow.',
+        },
+      ],
+    },
+    {
+      conclusionDescriptions: [
+        'Proper current state analysis gave us a complete picture of where the platform was failing and why.',
+        "The login and signup audit revealed that the entry experience was creating unnecessary friction and setting the wrong tone from the first interaction. The IA audit exposed a structural logic that didn't match how experts actually think about their work. The profile readiness audit showed that the most critical user journey (the one the entire platform depends on) had no reliable path to completion.",
+        'The findings became the foundation for an updated IA and design decisions that followed. ',
+      ],
+      conclusionImageWithDescription: [
+        {
+          imageUrl: 'assets/images/geo_research_4.png',
+          description: 'Updated IA. Worth mentioning that some things changed during discussions and design iterations',
+        },
+      ],
+    },
+    {
+      title: 'MVP Design workshop',
+      conclusionDescriptions: [
+        'Alongside the research the team came together for a full-day workshop to go through the platform before launching MVP, navigating every screen and flow on both mobile and desktop, experiencing the product the way an expert would for the first time.',
+        'Every issue spotted was captured on a physical sticky note categorised into four types:',
+        '- functional problems,',
+        '- visual and design issues',
+        '- copy/text problems',
+        '- separate parking spot for collected ideas worth considering for future releases.',
+        'By the end of the day we’ve managed to sort 90+ action items by priority, giving us a clear, structured scope to work on:',
+        '- must have',
+        '- should have',
+        '- nice to have',
+      ],
+    },
+    {
+      conclusionImageWithDescription: [
+        {
+          imageUrl: 'assets/images/geo_research_5.png',
+        },
+        {
+          imageUrl: 'assets/images/geo_research_6.png',
+          description: 'Card sorting process with CEO and CTPO during the workshop',
+        },
+      ],
+    },
+  ],
+};
+
+const GEOSTRATEGISTS_DESIGN_DATA: DesignData = {
+  type: WorkSectionType.DESIGN,
+  sideBarData: { label: 'Design', link: WorkSectionType.DESIGN },
+  isGeostrategists: true,
+  title: {
+    text: 'Design decisions',
+    descriptions: [
+      {
+        text: 'Design part covered the complete expert experience end-to-end, from the first login screen through every profile editing interaction, across both desktop and mobile.',
+      },
+      {
+        text: "The visual direction was equally intentional. The existing interface didn't reflect the seniority and credibility of the experts the platform was built for. The new design language was built to change that to clean and professional interface.",
+      },
+      {
+        text: 'Additionally, I created a design system for all mostly used components, automised our colours, typography, spacing, border radiuses in variables for better scalability and consistency.',
+      },
+    ],
+  },
+  designDecisions: [
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: [
+        'assets/images/geo_decisions_1_1.png',
+        'assets/images/geo_decisions_1_2.png',
+        'assets/images/geo_decisions_1_3.png',
+        'assets/images/geo_decisions_1_4.png',
+      ],
+      decisionSecondImageUrls: [
+        {
+          imageUrls: ['assets/images/geo_second_decisions_1_1_1.png', 'assets/images/geo_second_decisions_1_1_2.png'],
+        },
+      ],
+      title: {
+        text: 'Login and Sign up',
+        descriptions: [
+          {
+            text: 'Login page had no visible title, was framed for the wrong audience, and the magic link flow was interrupting the experience mid-way. Signup felt more like a form survey than a welcoming onboarding.',
+          },
+          {
+            text: 'Before jumping into design, I ran a quick competitor analysis to understand how similar platforms were handling authentication, looking at layout patterns, copy framing, and flow structure. This informed few layout directions explored for both login and signup before converging on the final approach.',
+          },
+          {
+            text: 'Login page has a clear title, split screen layout on desktop with expert-focused messaging and a cleaner hierarchy. Signup was split into logical steps to reduce cognitive load. ',
+          },
+          {
+            text: 'Visual consistency between login and signup was restored so the two feel like one coherent flow rather than separate disconnected screens.',
+          },
+        ],
+      },
+    },
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: [
+        'assets/images/geo_decisions_2_1.png',
+        'assets/images/geo_decisions_2_2.png',
+        'assets/images/geo_decisions_2_3.png',
+      ],
+      title: {
+        text: 'Dashboard and navigation',
+        descriptions: [
+          {
+            text: 'During research it was identified few fundamental structural problems:',
+          },
+          {
+            text: "There was no dedicated Dashboard tab which most users wouldn't think to try",
+            isList: true,
+          },
+          {
+            text: 'Horizontal top navigation used mislabeled tabs that sent experts to unexpected places, breaking the logic',
+            isList: true,
+          },
+          {
+            text: 'Primary navigation moved from a horizontal top bar to a vertical sidebar the industry standard for SaaS platforms and dashboard itself was redesigned to give experts an immediate overview of where they are and what to do next.',
+          },
+        ],
+      },
+    },
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: ['assets/images/geo_decisions_3_1.png', 'assets/images/geo_decisions_3_2.png'],
+      decisionSecondImageUrls: [
+        {
+          imageUrls: [
+            'assets/images/geo_second_decisions_3_1_1.png',
+            'assets/images/geo_second_decisions_3_1_2.png',
+            'assets/images/geo_second_decisions_3_1_3.png',
+            'assets/images/geo_second_decisions_3_1_4.png',
+            'assets/images/geo_second_decisions_3_1_5.png',
+          ],
+        },
+        {
+          imageUrls: ['assets/images/geo_second_decisions_3_2_1.png', 'assets/images/geo_second_decisions_3_2_2.png'],
+        },
+        {
+          imageUrls: ['assets/images/geo_second_decisions_3_3_1.png', 'assets/images/geo_second_decisions_3_3_2.png'],
+        },
+        {
+          imageUrls: ['assets/images/geo_second_decisions_3_4_1.png', 'assets/images/geo_second_decisions_3_4_2.png'],
+        },
+      ],
+      title: {
+        text: 'My Profile, editing and profile readiness',
+        descriptions: [
+          {
+            text: 'Existing profile page looked rather like a settings screen, completing it was not intuitive and inconsistent.',
+          },
+          {
+            text: 'Redesigned My Profile gives experts a real preview of how their profile appears to clients making it feel like a professional presence rather than a form to fill out. ',
+          },
+          {
+            text: 'Editing is handled through a side panel that opens inline, keeping the expert in context without navigating away. No interruption and separate page needed as it was before.',
+          },
+          {
+            text: 'Profile readiness was transformed from a passive percentage into an active tool:',
+          },
+          {
+            text: 'Sticky checklist sits on the right side of the screen, always visible, always accessible',
+            isList: true,
+          },
+          {
+            text: 'Each item links directly to the corresponding missing section',
+            isList: true,
+          },
+          {
+            text: 'Clear progress bar shows exactly how many steps remain with visual reinforcement, experts always know where they are and what to do next.',
+            isList: true,
+          },
+        ],
+      },
+    },
+    {
+      backGroundColor: '#E3E3E3',
+      decisionImageUrls: [
+        'assets/images/geo_decisions_4_1.png',
+        'assets/images/geo_decisions_4_2.png',
+        'assets/images/geo_decisions_4_3.png',
+        'assets/images/geo_decisions_4_4.png',
+      ],
+      decisionSecondImageUrls: [
+        {
+          imageUrls: ['assets/images/geo_second_decisions_4_1_1.png'],
+        },
+        {
+          imageUrls: ['assets/images/geo_second_decisions_4_2_1.png', 'assets/images/geo_second_decisions_4_2_2.png'],
+          description: 'Pioneers club and projects',
+        },
+      ],
+      title: {
+        text: 'Settings',
+        descriptions: [
+          {
+            text: 'In the existing vesion, settings and profile data were mixed together with no clear separation. Experts looking for basic account management, were landing in the same place as their professional profile information, creating confusion about what belonged where.',
+          },
+          {
+            text: 'The redesigned Settings draws a clear line between the two:',
+          },
+          {
+            text: 'Account-level configuration (email address, personal data, business details, language and region, appearance and other) lives in Settings',
+            isList: true,
+          },
+          {
+            text: "Everything related to the expert's professional identity lives in My Profile.",
+            isList: true,
+          },
+        ],
+      },
+    },
+    {
+      backGroundColor: '#166054',
+      decisionImageUrls: [
+        'assets/images/geo_decisions_5_1.png',
+        'assets/images/geo_decisions_5_2.png',
+        'assets/images/geo_decisions_5_3.png',
+      ],
+      decisionSecondImageUrls: [
+        {
+          imageUrls: [
+            'assets/images/geo_second_decisions_5_1_1.png',
+            'assets/images/geo_second_decisions_5_1_2.png',
+            'assets/images/geo_second_decisions_5_1_3.png',
+            'assets/images/geo_second_decisions_5_1_4.png',
+          ],
+          description: 'Few pieces of Geostrategists website and application form flow for clients.',
+        },
+      ],
+      title: {
+        text: 'Website',
+        descriptions: [
+          {
+            text: 'Alongside the expert platform, the website was designed to serve two distinct audiences, companies looking for geopolitical expertise and experts looking to join the network, with a clear and confident visual identity. ',
+          },
+          {
+            text: "The site has since driven 100+ expert applications and client enquiries (due to comfortable application forms), validating the platform's market positioning and user awareness.",
+          },
+          {
+            text: 'The visual direction was intentional and confident: clean layouts and professional tone immediately communicates credibility and trust.',
+          },
+        ],
+      },
+    },
+  ],
+};
+
+const GEOSTRATEGISTS_CONCLUSION_DATA: ConclusionData = {
+  type: WorkSectionType.CONCLUSION,
+  sideBarData: { label: 'Conclusion', link: WorkSectionType.CONCLUSION },
+  title: 'Conclusions',
+  conclusionTableData: [
+    {
+      title: 'Outcomes',
+      descriptions: [
+        'Work was delivered as a fully documented file with design system, covering the complete expert experience across desktop and mobile for every existing screen.',
+        'Every validated problem area identified in the audit was addressed:',
+        '- Navigation was restructured to deliver better logic',
+        '- Profile setup journey was transformed from a fragmented poor experience into a guided and intuitive flow. ',
+        '- Visual design was rebuilt to reflect the credibility and professionalism',
+        'Platform’s 1st MVP has since soft-launched for an initial group of experts. Early feedback has been quite positive: experts who tested the platform reported a smooth and intuitive experience, reflected in high SUS and NPS scores. A full public launch is on the horizon at the moment.',
+      ],
+    },
+    {
+      title: 'Reflections',
+      descriptions: [
+        "A few things I'd do differently.",
+        '- Running more usability testing on the final prototype would have added confidence before handoff. More real experts navigating the redesigned flows would have surfaced edge cases that are hard to anticipate from the inside.',
+        '- Some decisions about what belongs in MVP could be done earlier.',
+        "- Workshop was one of the most valuable parts of the process, bringing the full team together to experience the product as an expert changed the quality of the conversation. I'd do that earlier next time.",
+      ],
+    },
+  ],
+};
+
+const GEOSTRATEGISTS_TESTIMONIALS_DATA: TestimonialsData = {
+  type: WorkSectionType.TESTIMONIALS,
+  sideBarData: { label: 'Design', link: WorkSectionType.TESTIMONIALS },
+  title: 'Testimonials',
+  isGeostrategists: true,
+  testimonials: GEOSTRATEGISTS_TESTIMONIALS,
+};
 
 const GEOSTRATEGISTS_PREVIEW_DATA: WorkPreviewData = {
   navigationLink: 'geostrategists',
   sectionData: {
-    // intro: GEOSTRATEGISTS_INTRO_DATA,
-    // problem: GEOSTRATEGISTS_PROBLEM_DATA,
-    // research: GEOSTRATEGISTS_RESEARCH_DATA,
-    // design: GEOSTRATEGISTS_DESIGN_DATA,
-    // conclusion: GEOSTRATEGISTS_CONCLUSION_DATA,
+    intro: GEOSTRATEGISTS_INTRO_DATA,
+    problem: GEOSTRATEGISTS_PROBLEM_DATA,
+    research: GEOSTRATEGISTS_RESEARCH_DATA,
+    design: GEOSTRATEGISTS_DESIGN_DATA,
+    testimonial: GEOSTRATEGISTS_TESTIMONIALS_DATA,
+    conclusion: GEOSTRATEGISTS_CONCLUSION_DATA,
   },
 };
 
@@ -382,10 +783,7 @@ const PLENTY_ONE_INTRO_DATA: IntroData = {
     text: 'Designing the visual shop builder for an all-in-one e-commerce ERP, so that merchants can build and manage their online store without leaving their ecosystem and without writing a single line of code.',
     chips: ['E-commerce', 'ERP', 'B2B'],
   },
-  imageSection: {
-    imageUrls: ['assets/images/selected_1.png'],
-    backGroundColor: '#062633',
-  },
+  imageSection: 'assets/images/cover_1.png',
   introTableData: [
     {
       label: 'Product',
@@ -636,11 +1034,7 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
     description:
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
     backgroundColor: '#062633',
-    imageUrls: [
-      {
-        url: 'assets/images/selected_1.png',
-      },
-    ],
+    imageUrl: 'assets/images/cover_1.png',
     chips: ['App', 'Social good', 'Practice'],
     previewData: PLENTY_ONE_PREVIEW_DATA,
   },
@@ -649,14 +1043,7 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
     description:
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
     backgroundColor: '#166054',
-    imageUrls: [
-      {
-        url: 'assets/images/selected_2_1.png',
-      },
-      {
-        url: 'assets/images/selected_2_2.png',
-      },
-    ],
+    imageUrl: 'assets/images/cover_2.png',
     chips: ['App', 'Social good', 'Practice'],
     previewData: GEOSTRATEGISTS_PREVIEW_DATA,
   },
@@ -665,20 +1052,7 @@ export const WORK_ITEMS: WorkPreviewItem[] = [
     description:
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
     backgroundColor: '#FCE64D',
-    imageUrls: [
-      {
-        url: 'assets/images/selected_3_1.png',
-      },
-      {
-        url: 'assets/images/selected_3_2.png',
-      },
-      {
-        url: 'assets/images/selected_3_3.png',
-      },
-      {
-        url: 'assets/images/selected_3_4.png',
-      },
-    ],
+    imageUrl: 'assets/images/cover_3.png',
     chips: ['Website', 'E-commerce', 'Mobile-first'],
     previewData: LAPUNZEL_PREVIEW_DATA,
   },

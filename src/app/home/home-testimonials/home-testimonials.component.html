@@ -1,5 +1,5 @@
 <h1 class="section-title">Testimonials</h1>
-<div class="testimonials-container">
+<div class="testimonials-container" [class.geostrategists]="isGeostrategists()">
   @for (item of testimonialItems(); track $index) {
     <div class="testimonial">
       <div class="quotes-container">

@@ -63,7 +63,7 @@
 @mixin wideImage {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 8;
   object-fit: cover;
   border-radius: var(--alex-size-10);
 
@@ -132,6 +132,10 @@
     padding: var(--alex-size-40) 0;
     border-top: 1px solid var(--alex-stroke-color);
     font-size: 18px;
+
+    @include smaller-than(SM) {
+      grid-template-columns: 1fr;
+    }
 
     &:last-child {
       border-bottom: 1px solid var(--alex-stroke-color);

@@ -15,6 +15,5 @@ export class WorkResearchComponent {
   title = computed(() => this.researchData().title);
   researchImageWithDescription = computed(() => this.researchData().researchImageWithDescription);
   qualitativeInsights = computed(() => this.researchData().qualitativeInsights);
-  conclusion = computed(() => this.researchData().conclusion);
-  conclusionImageWithDescription = computed(() => this.researchData().conclusionImageWithDescription);
+  conclusion = computed(() => this.researchData()?.conclusions);
 }

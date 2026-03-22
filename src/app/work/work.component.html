@@ -1,7 +1,11 @@
-<button mat-flat-button class="ax-button back-button" color="secondary" (click)="onBackClick()">
-  <mat-icon>arrow_back</mat-icon>
-  Back to homepage
-</button>
+<ng-template #backButton>
+  <button mat-flat-button class="ax-button back-button" color="secondary" (click)="onBackClick()">
+    <mat-icon>arrow_back</mat-icon>
+    Back to homepage
+  </button>
+</ng-template>
+
+<ng-container [ngTemplateOutlet]="backButton" />
 <div class="work-sections-container">
   @for (section of sections(); track section.type) {
     @switch (section.type) {
@@ -18,7 +22,9 @@
         <app-work-design [id]="section.type" [designData]="section" />
       }
       @case (workSectionType.CONCLUSION) {
-        <app-work-conclusion [id]="section.type" [conclusionData]="section" />
+        <app-work-conclusion [id]="section.type" [conclusionData]="section">
+          <ng-container [ngTemplateOutlet]="backButton" />
+        </app-work-conclusion>
       }
       @case (workSectionType.PROCESS) {
         <app-work-process [id]="section.type" [processData]="section" />

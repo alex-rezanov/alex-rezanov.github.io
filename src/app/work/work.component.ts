@@ -1,4 +1,5 @@
 import { Component, effect, inject, input, OnDestroy, OnInit, signal } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import { Router } from '@angular/router';
 import { PortfolioRoutes, WorkSectionType } from '../shared/enums';
 import { ActiveSessionStore } from '../core/services';
@@ -24,6 +25,7 @@ import { WorkTestimonialsComponent } from './work-testimonials/work-testimonials
     WorkConclusionComponent,
     MatButton,
     MatIcon,
+    NgTemplateOutlet,
     WorkProcessComponent,
     WorkTestimonialsComponent,
   ],

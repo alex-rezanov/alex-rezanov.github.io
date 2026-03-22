@@ -15,7 +15,7 @@
 
   <!-- Mobile-only top bar: header row + expandable nav below -->
   <div class="mobile-bar" [class.menu-open]="isMenuOpen()">
-    <div class="mobile-bar-header">
+    <div class="mobile-bar-header" (click)="onBackToHomeClick()">
       <div class="mobile-title">
         <span class="side-bar-title">{{ alexDetails.name }}</span>
         <span class="side-bar-title">{{ alexDetails.surname }}</span>
@@ -35,7 +35,7 @@
   <!-- Desktop sidebar only -->
   <div class="side-bar-container" [class.hidden]="isFooterActive()">
     @if (isNameVisible()) {
-      <div class="side-bar-title-container">
+      <div class="side-bar-title-container" (click)="onScrollToTop()">
         <span class="side-bar-title">{{ alexDetails.name }}</span>
         <span class="side-bar-title">{{ alexDetails.surname }}</span>
       </div>

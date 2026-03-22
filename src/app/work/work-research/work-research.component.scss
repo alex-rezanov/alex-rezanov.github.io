@@ -35,8 +35,13 @@
       padding: var(--alex-size-10);
     }
 
-    .ax-button {
-      width: fit-content;
+    .header-chips-container {
+      display: flex;
+      gap: var(--alex-size-8);
+
+      .ax-button {
+        width: fit-content;
+      }
     }
 
     .insight-title {
@@ -81,8 +86,25 @@
 }
 
 .conclusion-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--alex-size-40);
+
+  .conclusion-descriptions-container {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--alex-size-10);
+
+    .conclusion {
+      font-weight: 400;
+    }
+
+    .conclusion-title {
+      font-weight: 700;
+      grid-column: 1 / -1;
+    }
+  }
 
   @include smaller-than(MD) {
     grid-template-columns: 1fr;

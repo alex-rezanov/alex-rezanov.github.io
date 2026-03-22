@@ -9,6 +9,7 @@ import { LinkService } from '../../core/services';
   styleUrl: './home-testimonials.component.scss',
 })
 export class HomeTestimonialsComponent {
+  isGeostrategists = input(false);
   testimonialItems = input(TESTIMONIAL_ITEMS);
 
   private readonly linkService = inject(LinkService);

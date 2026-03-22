@@ -12,6 +12,14 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--alex-size-100) var(--alex-size-40);
 
+  &.geostrategists {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include smaller-than(SM) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
   @include smaller-than(LG) {
     grid-template-columns: repeat(2, 1fr);
   }

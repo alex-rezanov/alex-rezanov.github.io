@@ -32,6 +32,7 @@
     border: 1px solid #252525;
 
     .mobile-bar-header {
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -102,6 +103,7 @@
   }
 
   .side-bar-title-container {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

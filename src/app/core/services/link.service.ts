@@ -16,7 +16,7 @@ export class LinkService {
   }
 
   getLinkedInLink(): void {
-    window.open(this.links.linkedIn, '_blank');
+    window.open(this.links.linkedIn, '_blank', 'noopener,noreferrer');
   }
 
   getCvLink(): void {
@@ -24,6 +24,7 @@ export class LinkService {
   }
 
   openLink(link: string): void {
-    window.open(link, '_blank');
+    const url = /^https?:\/\//i.test(link) ? link : `https://${link}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 }

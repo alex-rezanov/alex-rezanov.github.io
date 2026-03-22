@@ -34,12 +34,7 @@ export interface IntroData extends SectionItemBase<WorkSectionType.INTRO> {
     chips: string[];
   };
   introTableData: workTableItem[];
-  imageSection?: ImageSectionData;
-}
-
-export interface ImageSectionData {
-  imageUrls: string[];
-  backGroundColor: string;
+  imageSection?: string;
 }
 
 export interface workTableItem {
@@ -64,18 +59,28 @@ export interface TitleDescriptionItem {
   isList?: boolean;
 }
 
+export interface ConclusionImageWithDescription {
+  imageUrl: string;
+  description?: string;
+}
+
+export interface ConclusionItem {
+  title?: string;
+  conclusionDescriptions?: string[];
+  conclusionImageWithDescription?: ConclusionImageWithDescription[];
+}
+
 export interface ResearchData extends SectionItemBase<WorkSectionType.RESEARCH> {
   title: CardTitleData;
   researchImageWithDescription: ImageWithDescriptionItem;
   qualitativeInsights: QualitativeInsightItem[];
-  conclusion: string;
-  conclusionImageWithDescription: ImageWithDescriptionItem;
+  conclusions: ConclusionItem[];
 }
 
 export interface QualitativeInsightItem {
-  headerChipTitle: string;
-  headerTitle: string;
-  descriptions: string[];
+  headerChipTitles: string[];
+  headerTitle?: string;
+  descriptions?: string[];
   takeaways: TakeawayItem[];
 }
 
@@ -90,6 +95,7 @@ export interface ImageWithDescriptionItem {
 }
 
 export interface DesignData extends SectionItemBase<WorkSectionType.DESIGN> {
+  isGeostrategists?: boolean;
   title: CardTitleData;
   titleImage?: {
     backGroundColor: string;
@@ -111,9 +117,15 @@ export interface DesignFlowItem {
   descriptions: string[];
 }
 
+export interface DecisionSecondImages {
+  imageUrls: string[];
+  description?: string;
+}
+
 export interface DesignDecision {
   backGroundColor: string;
   decisionImageUrls: string[];
+  decisionSecondImageUrls?: DecisionSecondImages[];
   title: CardTitleData;
 }
 
@@ -143,6 +155,7 @@ export interface ProcessData extends SectionItemBase<WorkSectionType.PROCESS> {
 export interface TestimonialsData extends SectionItemBase<WorkSectionType.TESTIMONIALS> {
   title: string;
   testimonials: TestimonialItem[];
+  isGeostrategists?: boolean;
 }
 
 export type SectionItem = IntroData | ProblemData | ResearchData | DesignData | ConclusionData | ProcessData | TestimonialsData;

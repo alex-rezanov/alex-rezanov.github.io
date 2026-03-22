@@ -13,13 +13,21 @@
   <div class="qualitative-insights">
     @for (insightItem of qualitativeInsightsItem; track $index) {
       <div class="insight-container">
-        <button mat-flat-button class="ax-button">{{ insightItem.headerChipTitle }}</button>
-        <p class="insight-title">{{ insightItem.headerTitle }}</p>
-        <div class="insight-description">
-          @for (description of insightItem.descriptions; track $index) {
-            <span class="description">{{ description }}</span>
+        <div class="header-chips-container">
+          @for (chip of insightItem.headerChipTitles; track $index) {
+            <button mat-flat-button class="ax-button trans">{{ chip }}</button>
           }
         </div>
+        @if (insightItem.headerTitle) {
+          <p class="insight-title">{{ insightItem.headerTitle }}</p>
+        }
+        @if (insightItem.descriptions) {
+          <div class="insight-description">
+            @for (description of insightItem.descriptions; track $index) {
+              <span class="description">{{ description }}</span>
+            }
+          </div>
+        }
         <div class="takeaway-container">
           @for (takeawayItem of insightItem.takeaways; track $index) {
             <p class="takeaway-title">{{ takeawayItem.keyTakeawayTitle }}</p>
@@ -35,15 +43,32 @@
   </div>
 }
 
-@if (conclusion(); as conclusionItem) {
-  <div class="conclusion-container">
-    <span class="conclusion">{{ conclusionItem }}</span>
-  </div>
-}
+<!--TODO work in progress-->
+<!--@let conclusionItems = conclusion();-->
+<!--@if (conclusionItems?.length){-->
+<!--  <div class="conclusion-container">-->
+<!--    @for (item of conclusionItems; track $index) {-->
+<!--      @if (item.conclusionDescriptions?.length || item?.title) {-->
+<!--        <div class="conclusion-descriptions-container">-->
+<!--          @if (item?.title){-->
+<!--            <p class="conclusion-title">{{ item.title }}</p>-->
+<!--          }-->
+<!--          @for (description of item.conclusionDescriptions; track $index) {-->
+<!--            <span class="conclusion">{{ description }}</span>-->
+<!--          }-->
+<!--        </div>-->
+<!--      }-->
 
-@if (conclusionImageWithDescription(); as imageWithDescription) {
-  <div class="image-with-description">
-    <img class="image" [src]="imageWithDescription.imageUrl" alt="Conclusion Image" />
-    <p class="description">{{ imageWithDescription.description }}</p>
-  </div>
-}
+<!--      @if (item.conclusionImageWithDescription?.length){-->
+<!--        @for (imageWithDescription of item?.conclusionImageWithDescription; track $index) {-->
+<!--          <div class="image-with-description">-->
+<!--            <img class="image" [src]="imageWithDescription.imageUrl" alt="Conclusion Image" />-->
+<!--            @if (imageWithDescription.description) {-->
+<!--              <p class="description">{{ imageWithDescription.description }}</p>-->
+<!--            }-->
+<!--          </div>-->
+<!--        }-->
+<!--      }-->
+<!--    }-->
+<!--  </div>-->
+<!--}-->

@@ -13,4 +13,5 @@ export class WorkTestimonialsComponent {
 
   title = computed(() => this.testimonialsData().title);
   testimonials = computed(() => this.testimonialsData().testimonials);
+  isGeostrategists = computed(() => this.testimonialsData()?.isGeostrategists);
 }

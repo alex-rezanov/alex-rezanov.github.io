@@ -35,6 +35,10 @@ h6 {
   --mat-button-filled-icon-offset: 0;
   box-shadow: inset 0 0 0 1px var(--alex-standard-text);
 
+  &.trans {
+    --mat-button-filled-container-color: transparent;
+  }
+
   mat-icon {
     color: var(--alex-standard-text);
   }

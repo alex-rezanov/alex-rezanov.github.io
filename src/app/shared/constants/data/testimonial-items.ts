@@ -8,6 +8,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
       'Any team would benefit from his combination of design talent, collaboration, and great energy!”',
     ],
     author: 'Aga Plaza',
+    link: 'https://www.linkedin.com/in/aga-plaza-399997a1',
     position: 'UX Designer at PlentyONE',
     pictureUrl: 'assets/images/avatar_aga_plaza.svg',
   },
@@ -17,6 +18,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
       'I have no doubt that Alex would be a valuable addition to any team.”',
     ],
     author: 'Ekaterina Alekseenko',
+    link: 'https://www.linkedin.com/in/ekaterinaalekseenko',
     position: 'UX Designer at PlentyONE',
     pictureUrl: 'assets/images/avatar_ekaterina_alekseenko.svg',
   },
@@ -27,6 +29,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
       'Alex is also a great collaborator who brings clarity and creativity to every project, making him a valuable part of any team.”',
     ],
     author: 'Esther Harms',
+    link: 'https://www.linkedin.com/in/esther-harms-43aa96164',
     position: 'UX Designer at PlentyONE',
   },
   {
@@ -40,6 +43,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     ],
     author: 'Tim Müller-Späth',
     position: 'PM at PlentyONE',
+    link: 'https://www.linkedin.com/in/tim-müller-späth-8b70b9247',
     pictureUrl: 'assets/images/avatar_tim.svg',
   },
 
@@ -61,6 +65,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     ],
     author: 'Sabine Scharfenberger',
     position: 'PM at PlentyONE',
+    link: 'https://www.linkedin.com/in/sabine-scharfenberger-3a041047',
     pictureUrl: 'assets/images/avatar_sabine_scharfenberger.svg',
   },
   {
@@ -72,6 +77,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     ],
     author: 'Christoph Czakalla',
     position: 'CEO at Geostrategists',
+    link: 'https://www.linkedin.com/in/christoph-czakalla',
     pictureUrl: 'assets/images/avatar_christoph_czakalla.svg',
   },
   {
@@ -82,6 +88,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     ],
     author: 'Bernhard Frauendienst',
     position: 'CTPO at Geostrategists',
+    link: 'https://www.linkedin.com/in/bernhard-frauendienst',
     pictureUrl: 'assets/images/avatar_bernhard_frauendienst.svg',
   },
   {
@@ -91,9 +98,12 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
       'Wishing you all the best, Oleksandr!”',
     ],
     author: 'Mariana Santos',
+    link: 'https://www.linkedin.com/in/mariana-santos-8ab4121b6',
     position: 'Graphic Designer | UX/UI Designer at Hubinit',
     pictureUrl: 'assets/images/avatar_mariana_santos.svg',
   },
 ];
 
 export const PLENTY_ONE_TESTIMONIALS: TestimonialItem[] = [TESTIMONIAL_ITEMS[3], TESTIMONIAL_ITEMS[4], TESTIMONIAL_ITEMS[5]];
+
+export const GEOSTRATEGISTS_TESTIMONIALS: TestimonialItem[] = [TESTIMONIAL_ITEMS[6], TESTIMONIAL_ITEMS[7]];

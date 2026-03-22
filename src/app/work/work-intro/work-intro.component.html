@@ -1,9 +1,5 @@
-@if (imageSection(); as imageSectionData) {
-  <div class="image-section-container" [style.background-color]="imageSectionData.backGroundColor">
-    @for (image of imageSectionData.imageUrls; track $index) {
-      <img [src]="image" alt="Image" class="image" />
-    }
-  </div>
+@if (imageSection(); as url) {
+  <img class="work-card-img" [src]="url" />
 }
 @if (title(); as title) {
   <h1 class="work-title">{{ title }}</h1>

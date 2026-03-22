@@ -16,4 +16,5 @@ export class WorkDesignComponent {
   designDecisions = computed(() => this.designData().designDecisions);
   designFlowItems = computed(() => this.designData()?.designFlowItems);
   footerImage = computed(() => this.designData()?.footerImage);
+  isGeostrategists = computed(() => this.designData()?.isGeostrategists);
 }

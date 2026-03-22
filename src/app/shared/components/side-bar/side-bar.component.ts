@@ -79,6 +79,14 @@ export class SideBarComponent {
     this.isMenuOpen.update(open => !open);
   }
 
+  protected onBackToHomeClick(): void {
+    this.router.navigate(['/', 'home']);
+  }
+
+  protected onScrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   private getIsNameVisible(): Observable<boolean> {
     return this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),

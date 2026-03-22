@@ -6,17 +6,7 @@ export const PLAYGROUND_ITEMS: PlaygroundItem[] = [
     description:
       'Mobile platform designed to bridge the gap between shelter dogs and new home. Main objectives that I set to myself was to streamline dog discovery, adoption journey and donation process, maintain a well-polished UI.',
     backgroundColor: '#5F53E7',
-    imageUrls: [
-      {
-        url: 'assets/images/playground-1_1.png',
-      },
-      {
-        url: 'assets/images/playground-1_2.png',
-      },
-      {
-        url: 'assets/images/playground-1_3.png',
-      },
-    ],
+    imageUrl: 'assets/images/playground-1.png',
     chips: ['App', 'Social good', 'Practice'],
   },
   {

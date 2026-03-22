@@ -1,2 +1,2 @@
-export const EMAIL_DEFAULT_SUBJECT = 'Contact request from portfolio website';
-export const EMAIL_DEFAULT_BODY = 'Hello, I would like to get in touch with you regarding...';
+export const EMAIL_DEFAULT_SUBJECT = "Let's connect";
+export const EMAIL_DEFAULT_BODY = 'Hi Alex, I came across your portfolio and would love to have a chat';
