@@ -39,7 +39,11 @@
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles", "."]
-            }
+            },
+            "outputPath": {
+              "base": "docs",
+              "browser": ""
+            },
           },
           "configurations": {
             "production": {
