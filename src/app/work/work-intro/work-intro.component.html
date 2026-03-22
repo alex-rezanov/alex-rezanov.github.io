@@ -1,7 +1,7 @@
 @if (imageSection(); as imageSectionData) {
   <div class="image-section-container" [style.background-color]="imageSectionData.backGroundColor">
     @for (image of imageSectionData.imageUrls; track $index) {
-      <img [src]="image" alt="Image" class="image-section-image" />
+      <img [src]="image" alt="Image" class="image" />
     }
   </div>
 }

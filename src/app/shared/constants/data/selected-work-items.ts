@@ -10,7 +10,12 @@ const LAPUNZEL_INTRO_DATA: IntroData = {
     chips: ['Website', 'E-commerce', 'Mobile-first'],
   },
   imageSection: {
-    imageUrls: ['assets/images/welcome.jpg', 'assets/images/welcome.jpg', 'assets/images/welcome.jpg', 'assets/images/welcome.jpg'],
+    imageUrls: [
+      'assets/images/selected_3_1.png',
+      'assets/images/selected_3_2.png',
+      'assets/images/selected_3_3.png',
+      'assets/images/selected_3_4.png',
+    ],
     backGroundColor: '#FCE64D',
   },
   introTableData: [
@@ -69,7 +74,7 @@ const LAPUNZEL_PROBLEM_DATA: ProblemData = {
     },
   ],
   tableDescription: 'Key insights from Kick-off meeting with founder',
-  footerImageUrl: 'assets/images/welcome.jpg',
+  footerImageUrl: 'assets/images/lapunzel_problem_1.png',
 };
 
 const LAPUNZEL_RESEARCH_DATA: ResearchData = {
@@ -87,7 +92,7 @@ const LAPUNZEL_RESEARCH_DATA: ResearchData = {
     ],
   },
   researchImageWithDescription: {
-    imageUrl: 'assets/images/welcome.jpg',
+    imageUrl: 'assets/images/lapunzel_research_1.png',
     description:
       'Interview responses were documented and synthesized using affinity mapping, revealing four key theme clusters: product selection criteria, discovery behavior, purchase barriers, and post-purchase expectations.',
   },
@@ -143,7 +148,7 @@ const LAPUNZEL_RESEARCH_DATA: ResearchData = {
   conclusion:
     'As a result, we mapped the full experience for our persona Viktoria, a 27-year-old graphic designer from Kyiv with two dogs, who priorities natural and quality products. The map covers 9 stages from need discovery to post-purchase review, analysing her actions, touch points, barriers, goals, and design opportunities at each step.',
   conclusionImageWithDescription: {
-    imageUrl: 'assets/images/welcome.jpg',
+    imageUrl: 'assets/images/lapunzel_lapunzel_research_2.png',
     description: 'Persona and CJM. It’s conducted in Ukrainian, since the project is done for local market.',
   },
 };
@@ -162,10 +167,22 @@ const LAPUNZEL_DESIGN_DATA: DesignData = {
       },
     ],
   },
-  titleImageUrl: 'assets/images/welcome.jpg',
+  titleImage: {
+    backGroundColor: '#FCE64D',
+    decisionImageUrls: [
+      'assets/images/lapunzel_decisions_1_1.png',
+      'assets/images/lapunzel_decisions_1_2.png',
+      'assets/images/lapunzel_decisions_1_3.png',
+    ],
+  },
   designDecisions: [
     {
-      decisionImageUrl: 'assets/images/welcome.jpg',
+      backGroundColor: '#AB7BA7',
+      decisionImageUrls: [
+        'assets/images/lapunzel_decisions_2_1.png',
+        'assets/images/lapunzel_decisions_2_2.png',
+        'assets/images/lapunzel_decisions_2_3.png',
+      ],
       title: {
         text: 'Reviews and social proof',
         descriptions: [
@@ -182,7 +199,8 @@ const LAPUNZEL_DESIGN_DATA: DesignData = {
       },
     },
     {
-      decisionImageUrl: 'assets/images/welcome.jpg',
+      backGroundColor: '#AB7BA7',
+      decisionImageUrls: ['assets/images/lapunzel_decisions_3_1.png', 'assets/images/lapunzel_decisions_3_2.png'],
       title: {
         text: 'Categorisation and navigation',
         descriptions: [
@@ -199,7 +217,12 @@ const LAPUNZEL_DESIGN_DATA: DesignData = {
       },
     },
     {
-      decisionImageUrl: 'assets/images/welcome.jpg',
+      backGroundColor: '#AB7BA7',
+      decisionImageUrls: [
+        'assets/images/lapunzel_decisions_4_1.png',
+        'assets/images/lapunzel_decisions_4_2.png',
+        'assets/images/lapunzel_decisions_4_3.png',
+      ],
       title: {
         text: 'Blog and conversion',
         descriptions: [
@@ -216,7 +239,13 @@ const LAPUNZEL_DESIGN_DATA: DesignData = {
       },
     },
     {
-      decisionImageUrl: 'assets/images/welcome.jpg',
+      backGroundColor: '#AB7BA7',
+      decisionImageUrls: [
+        'assets/images/lapunzel_decisions_5_1.png',
+        'assets/images/lapunzel_decisions_5_2.png',
+        'assets/images/lapunzel_decisions_5_3.png',
+        'assets/images/lapunzel_decisions_5_4.png',
+      ],
       title: {
         text: 'Brand trust',
         descriptions: [
@@ -235,7 +264,13 @@ const LAPUNZEL_DESIGN_DATA: DesignData = {
   ],
   designFlowItems: [
     {
-      imageUrls: ['assets/images/welcome.jpg', 'assets/images/welcome.jpg', 'assets/images/welcome.jpg'],
+      imageUrls: [
+        'assets/images/lapunzel_decisions_1_3.png',
+        'assets/images/lapunzel_flow_1_1.png',
+        'assets/images/lapunzel_flow_1_2.png',
+        'assets/images/lapunzel_flow_1_3.png',
+        'assets/images/lapunzel_flow_1_4.png',
+      ],
       imageBackgroundColor: '#FCE64D',
       imageDescription: 'Checkout flow: Cart → Checkout → Success screen.',
       descriptions: [
@@ -246,7 +281,13 @@ const LAPUNZEL_DESIGN_DATA: DesignData = {
     },
   ],
   footerImage: {
-    imageUrl: 'assets/images/welcome.jpg',
+    footerImageUrls: [
+      'assets/images/lapunzel_footer_1_1.png',
+      'assets/images/lapunzel_footer_1_2.png',
+      'assets/images/lapunzel_footer_1_3.png',
+      'assets/images/lapunzel_footer_1_4.png',
+    ],
+    backGroundColor: '#FCE64D',
     description: 'Contact, Wishlist, FAQ, Footer.',
   },
 };

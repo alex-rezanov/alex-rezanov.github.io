@@ -12,7 +12,7 @@ export class WorkDesignComponent {
   designData = input.required<DesignData>();
 
   title = computed(() => this.designData().title);
-  titleImageUrl = computed(() => this.designData().titleImageUrl);
+  titleImageUrl = computed(() => this.designData().titleImage);
   designDecisions = computed(() => this.designData().designDecisions);
   designFlowItems = computed(() => this.designData().designFlowItems);
   footerImage = computed(() => this.designData().footerImage);

@@ -7,22 +7,7 @@
 }
 
 .image-section-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--alex-size-10);
-  padding: var(--alex-size-20);
-  border-radius: var(--alex-size-10);
-  border: 1px solid #252525;
-
-  .image-section-image {
-    width: auto;
-    height: 390px;
-    min-height: 0;
-    object-fit: cover;
-    border-radius: var(--alex-size-10);
-  }
+  @include imagesWithBackground;
 }
 
 .description-container {

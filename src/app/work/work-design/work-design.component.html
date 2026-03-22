@@ -1,5 +1,9 @@
 @if (titleImageUrl(); as titleImageUrl) {
-  <img [src]="titleImageUrl" alt="Title Image" class="title-image" />
+  <div class="decision-images-container" [style.background-color]="titleImageUrl.backGroundColor">
+    @for (url of titleImageUrl.decisionImageUrls; track $index) {
+      <img [src]="url" alt="Design Decision Image" class="image" />
+    }
+  </div>
 }
 
 @if (title(); as titleItem) {
@@ -9,7 +13,11 @@
 @if (designDecisions(); as decisions) {
   @for (decision of decisions; track $index) {
     <div class="decision-container">
-      <img [src]="decision.decisionImageUrl" alt="Design Decision Image" class="decision-image" />
+      <div class="decision-images-container" [style.background-color]="decision.backGroundColor">
+        @for (url of decision.decisionImageUrls; track $index) {
+          <img [src]="url" alt="Design Decision Image" class="image" />
+        }
+      </div>
       <app-card-title [cardTitleData]="decision.title" [cardIndex]="$index + 1" />
     </div>
   }
@@ -19,9 +27,11 @@
   <div class="design-flow-container">
     @for (flowItem of flowItems; track $index) {
       <div class="design-image-with-description">
-        <div class="image-container" [style.background-color]="flowItem.imageBackgroundColor">
+        <div
+          class="decision-images-container"
+          [style.background-color]="flowItem.imageBackgroundColor">
           @for (imageUrl of flowItem.imageUrls; track $index) {
-            <img [src]="imageUrl" alt="Design Flow Image" class="flow-image" />
+            <img [src]="imageUrl" alt="Design Flow Image" class="image" />
           }
         </div>
         <p class="description">{{ flowItem.imageDescription }}</p>
@@ -36,8 +46,14 @@
 }
 
 @if (footerImage(); as footerImageItem) {
-  <div class="image-with-description">
-    <img [src]="footerImageItem.imageUrl" alt="Footer Image" class="image" />
+  <div class="footer-image-with-description">
+    <div
+      class="decision-images-container"
+      [style.background-color]="footerImageItem.backGroundColor">
+      @for (imageUrl of footerImageItem.footerImageUrls; track $index) {
+        <img [src]="imageUrl" alt="Footer Image" class="image" />
+      }
+    </div>
     <p class="description">{{ footerImageItem.description }}</p>
   </div>
 }

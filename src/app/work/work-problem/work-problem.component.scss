@@ -50,5 +50,12 @@
 
 .problem-image {
   margin-top: 160px;
-  @include wideImage;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--alex-size-10);
+
+  @include smaller-than(MD) {
+    aspect-ratio: 1 / 1;
+  }
 }

@@ -7,31 +7,7 @@
 }
 
 .work-image-container {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: var(--alex-size-10);
-  padding: var(--alex-size-20);
-  border-radius: var(--alex-size-10);
-  height: 400px;
-
-  .work-image {
-    height: 100%;
-    width: auto;
-    min-width: 0;
-    object-fit: contain;
-    border-radius: var(--alex-size-10);
-
-    @include smaller-than(MD) {
-      height: auto;
-      width: 100%;
-    }
-  }
-
-  @include smaller-than(MD) {
-    height: auto;
-    flex-wrap: wrap;
-  }
+  @include imagesWithBackground;
 }
 
 .work-card-img {

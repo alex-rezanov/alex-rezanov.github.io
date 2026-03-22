@@ -88,10 +88,17 @@ export interface ImageWithDescriptionItem {
 
 export interface DesignData extends SectionItemBase<WorkSectionType.DESIGN> {
   title: CardTitleData;
-  titleImageUrl?: string;
+  titleImage: {
+    backGroundColor: string;
+    decisionImageUrls: string[];
+  };
   designDecisions: DesignDecision[];
   designFlowItems: DesignFlowItem[];
-  footerImage: ImageWithDescriptionItem;
+  footerImage: {
+    backGroundColor: string;
+    footerImageUrls: string[];
+    description: string;
+  };
 }
 
 export interface DesignFlowItem {
@@ -102,7 +109,8 @@ export interface DesignFlowItem {
 }
 
 export interface DesignDecision {
-  decisionImageUrl: string;
+  backGroundColor: string;
+  decisionImageUrls: string[];
   title: CardTitleData;
 }
 
