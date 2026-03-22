@@ -1,11 +1,6 @@
 @if (!isSidebarEmpty()) {
-  <div class="side-bar-container" [class.hidden]="isFooterActive()">
-    @if (isNameVisible()) {
-      <div class="side-bar-title-container">
-        <span class="side-bar-title">{{ alexDetails.name }}</span>
-        <span class="side-bar-title">{{ alexDetails.surname }}</span>
-      </div>
-    }
+  <!-- Single source of truth for nav items -->
+  <ng-template #navItems>
     <div class="navigation-container">
       @for (item of sideBarItems(); track $index) {
         <div
@@ -16,5 +11,35 @@
         </div>
       }
     </div>
+  </ng-template>
+
+  <!-- Mobile-only top bar: header row + expandable nav below -->
+  <div class="mobile-bar" [class.menu-open]="isMenuOpen()">
+    <div class="mobile-bar-header">
+      <div class="mobile-title">
+        <span class="side-bar-title">{{ alexDetails.name }}</span>
+        <span class="side-bar-title">{{ alexDetails.surname }}</span>
+      </div>
+      <button
+        mat-icon-button
+        class="burger-button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-label="Toggle navigation menu">
+        <mat-icon>{{ isMenuOpen() ? 'close' : 'menu' }}</mat-icon>
+      </button>
+    </div>
+    <ng-container [ngTemplateOutlet]="navItems" />
+  </div>
+
+  <!-- Desktop sidebar only -->
+  <div class="side-bar-container" [class.hidden]="isFooterActive()">
+    @if (isNameVisible()) {
+      <div class="side-bar-title-container">
+        <span class="side-bar-title">{{ alexDetails.name }}</span>
+        <span class="side-bar-title">{{ alexDetails.surname }}</span>
+      </div>
+    }
+    <ng-container [ngTemplateOutlet]="navItems" />
   </div>
 }

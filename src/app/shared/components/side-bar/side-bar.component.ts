@@ -1,14 +1,17 @@
 import { afterNextRender, ChangeDetectionStrategy, Component, computed, DestroyRef, effect, inject, Injector, signal } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import { ALEX_DETAILS } from '../../constants';
 import { NavigationSection } from '../../enums';
 import { ActiveSessionStore } from '../../../core/services';
 import { filter, map, Observable } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-side-bar',
+  imports: [MatIconButton, MatIcon, NgTemplateOutlet],
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,6 +33,7 @@ export class SideBarComponent {
   protected readonly activeLink = signal<string | null>(this.sideBarItems()[0]?.link);
   private readonly activeSection = signal<string | null>(this.sideBarItems()[0]?.link);
   protected readonly isFooterActive = computed(() => this.activeSection() === NavigationSection.FOOTER);
+  protected readonly isMenuOpen = signal(false);
   // Tracks which link we are programmatically scrolling to; null means free scrolling
   private readonly scrollingToLink = signal<string | null>(null);
 
@@ -42,6 +46,9 @@ export class SideBarComponent {
     this.destroyRef.onDestroy(() => this.teardownObservers());
   }
 
+  private readonly mobileBarHeight = 100;
+  private readonly mobileBreakpoint = 640;
+
   protected scrollTo(link: string): void {
     const targetElement = this.document.getElementById(link);
     if (!targetElement) {
@@ -50,19 +57,26 @@ export class SideBarComponent {
 
     this.activeLink.set(link);
     const rect = targetElement.getBoundingClientRect();
-    const alreadyInView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+    const isMobile = window.innerWidth <= this.mobileBreakpoint;
+    const offset = isMobile ? this.mobileBarHeight : 0;
+    const alreadyInView = rect.top >= offset && rect.bottom <= window.innerHeight;
 
     if (alreadyInView) {
       return;
     }
 
     this.scrollingToLink.set(link);
-    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.scrollTo({ top: rect.top + window.scrollY - offset, behavior: 'smooth' });
   }
 
   protected onNavClick(event: Event, link: string): void {
     event.preventDefault();
+    this.isMenuOpen.set(false);
     this.scrollTo(link);
+  }
+
+  protected toggleMenu(): void {
+    this.isMenuOpen.update(open => !open);
   }
 
   private getIsNameVisible(): Observable<boolean> {

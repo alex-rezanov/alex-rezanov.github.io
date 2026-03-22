@@ -1,13 +1,4 @@
-import {
-  ConclusionData,
-  DesignData,
-  IntroData,
-  ProblemData,
-  ResearchData,
-  TitleDescriptionItem,
-  WorkPreviewData,
-  WorkPreviewItem,
-} from '../../models';
+import { ConclusionData, DesignData, IntroData, ProblemData, ResearchData, WorkPreviewData, WorkPreviewItem } from '../../models';
 import { WorkSectionType } from '../../enums';
 
 const LAPUNZEL_INTRO_DATA: IntroData = {

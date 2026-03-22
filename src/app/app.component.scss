@@ -27,7 +27,7 @@
 .side-bar {
   width: calc(15vw - var(--alex-size-20));
 
-  &.mobile {
-    display: none;
+  @include smaller-than(SM) {
+    width: calc(100% - var(--alex-size-32));
   }
 }
