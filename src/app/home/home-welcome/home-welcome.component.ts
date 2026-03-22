@@ -3,7 +3,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { ALEX_DETAILS, EMOJIS } from '../../shared/constants';
-import { HapticService, LinkService } from '../../core/services';
+import { LinkService } from '../../core/services';
 import { EmojiParticle } from '../../shared/models';
 import { random } from '../../shared/utils';
 
@@ -19,7 +19,6 @@ export class HomeWelcomeComponent {
   protected readonly alexDetails = ALEX_DETAILS;
 
   private readonly linkService = inject(LinkService);
-  private readonly hapticService = inject(HapticService);
 
   protected readonly particles = signal<EmojiParticle[]>([]);
   protected readonly imgPunching = signal(false);
@@ -67,9 +66,7 @@ export class HomeWelcomeComponent {
   }
 
   protected onEmailClick(): void {
-    this.hapticService.triggerSuccess().then(() => {
-      this.linkService.getEmailLink();
-    });
+    this.linkService.getEmailLink();
   }
 
   protected onLinkedInClick(): void {

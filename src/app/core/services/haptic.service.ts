@@ -10,7 +10,7 @@ export class HapticService implements OnDestroy {
 
   constructor() {
     // Enable haptic debugging in development mode
-    this.haptics.setDebug(true);
+    this.haptics.setDebug(false);
   }
 
   triggerSuccess(): Promise<void> {

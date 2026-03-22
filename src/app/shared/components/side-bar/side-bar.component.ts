@@ -2,7 +2,7 @@ import { afterNextRender, ChangeDetectionStrategy, Component, computed, DestroyR
 import { DOCUMENT, NgTemplateOutlet } from '@angular/common';
 import { ALEX_DETAILS } from '../../constants';
 import { NavigationSection } from '../../enums';
-import { ActiveSessionStore } from '../../../core/services';
+import { ActiveSessionStore, HapticService } from '../../../core/services';
 import { filter, map, Observable } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -22,6 +22,7 @@ export class SideBarComponent {
   private readonly router = inject(Router);
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly activeSessionStore = inject(ActiveSessionStore);
+  private readonly hapticService = inject(HapticService);
   private readonly document = inject(DOCUMENT);
   private readonly destroyRef = inject(DestroyRef);
   private readonly injector = inject(Injector);
@@ -76,7 +77,9 @@ export class SideBarComponent {
   }
 
   protected toggleMenu(): void {
-    this.isMenuOpen.update(open => !open);
+    this.hapticService.triggerSuccess().then(() => {
+      this.isMenuOpen.update(open => !open);
+    });
   }
 
   protected onBackToHomeClick(): void {
