@@ -3,7 +3,7 @@ import { EducationItem } from '../../models';
 export const EDUCATION_ITEMS: EducationItem[] = [
   {
     position: 'Google UX Design Certification',
-    duration: 'August 2024 - March 2026',
+    duration: 'Sep 2022 - Sep 2023',
   },
   {
     position: 'NUUPES',
