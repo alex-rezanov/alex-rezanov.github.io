@@ -36,6 +36,22 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
+## Release & Deployment
+
+To build and prepare the project for deployment, run:
+
+```bash
+npm run release
+```
+
+This command will:
+
+1. Build the project with `ng build`
+2. Generate the `docs/` directory with all build artifacts
+3. Create the `docs/404.html` file for proper routing on GitHub Pages
+
+The generated `docs/` folder is automatically included in version control and deployed via GitHub Pages.
+
 ## Running unit tests
 
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
